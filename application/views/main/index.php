@@ -10,17 +10,15 @@
 <body>
     <h1>Selamat Datang di KlinikApps</h1>
     <p>Silahkan login dengan akun Anda</p>
-    <form>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Masukkan username" name="username">
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-    </div>
-        <button type="submit" class="btn btn-primary">LOGIN</button>
-    </form>
+    <a href="user/login">
+        <button class="btn btn-primary">LOGIN</button>
+    </a>
+    <br>
+    <br>
+    <p>Belum memiliki akun ?</p>
+    <a href="user/register">
+        <button class="btn btn-primary">SIGN UP</button>
+    </a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 </body>
