@@ -143,7 +143,10 @@ class User extends CI_Controller {
 		'id' => $result[0]->id,
 		'password' => $this->decrypt($result[0]->password),
 		'profile_picture' => $result[0]->profile_picture,
-		'role' => $result[0]->role
+		'role' => $result[0]->role,
+		'phone_number' => $result[0]->phone_number,
+		'email' => $result[0]->email,
+		'address' => $result[0]->address
 		);
 		// Add user data in session
 		$this->session->set_userdata('logged_in', $session_data);
@@ -170,8 +173,62 @@ class User extends CI_Controller {
 		'username' => ''
 		);
 		$this->session->unset_userdata('logged_in', $sess_array);
-		$data['message_display'] = 'Successfully Logout';
-		$this->load->view('main/login', $data);
+		$this->load->view('main/index');
 		}
 
+		public function viewDashboard()
+		{
+			$this->load->view('user/index');
+		}
+
+		public function viewStudents()
+		{
+			$this->load->view('user/students_list');
+		}
+
+		public function editProfile()
+		{
+			$this->load->view('user/edit_profile');
+		}
+
+		public function edit()
+		{
+			$new_name = time().$_FILES["profile_picture"]['name'];
+            $config['upload_path'] = FCPATH ."./profile_pictures/";
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['file_name'] = $new_name;
+            $this->load->library('upload', $config); 
+            $this->upload->initialize($config);        
+            if ( ! $this->upload->do_upload('profile_picture'))  {
+                $file_loc = $this->session->userdata['logged_in']['profile_picture'];
+            }
+            else
+            { 
+            $upload_data = $this->upload->data();
+            $file_loc = $upload_data['file_name'];
+			}
+			$data = array(
+				'id' => $this->session->userdata['logged_in']['id'],
+				'username' => $this->input->post('username'),
+				'password' => $this->createPassword($this->input->post('password')),
+				'phone_number' => $this->input->post('phone_number'),
+				'email' => $this->input->post('email'),
+				'address' => $this->input->post('address'),
+				'profile_picture' => $file_loc
+			);
+			$role = $this->session->userdata['logged_in']['role'];
+			$this->Users->updateProfile($data);
+			echo("<script>alert('Data profil berhasil diubah!')</script>");
+			$this->session->userdata['logged_in']['username'] = $data['username'];
+			$this->session->userdata['logged_in']['password'] = $this->decrypt($data['password']);
+			$this->session->userdata['logged_in']['phone_number'] = $data['phone_number'];
+			$this->session->userdata['logged_in']['email'] = $data['email'];
+			$this->session->userdata['logged_in']['address'] = $data['address'];
+			$this->session->userdata['logged_in']['profile_picture'] = $file_loc;
+			if ($role == 'admin') {
+				redirect(base_url('Admin/index'),'refresh');
+			} else {
+				redirect(base_url('User/viewDashboard'),'refresh');
+			}
+		}
 }

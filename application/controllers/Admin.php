@@ -10,10 +10,24 @@ class Admin extends CI_Controller {
 		
 		$this->load->library('form_validation');
 		$this->load->library('session');
+
+		$this->load->model('Users');
 	}
 
 	public function index()
 	{
-		$this->load->view('main/index');
+		$this->load->view('admin/index');
 	}	
+
+	public function viewStudents()
+	{
+		$data['students'] = $this->Users->getAllStudents();
+		$this->load->view('admin/students_list',$data);
+	}
+
+	public function editProfile()
+	{
+		$this->load->view('admin/edit_profile');
+	}
+
 }
