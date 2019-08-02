@@ -12,6 +12,7 @@ class User extends CI_Controller {
 		$this->load->library('session');
 
 		$this->load->model('Users');
+		$this->load->model('Students');
 	}
 
 	public function index()
@@ -19,11 +20,6 @@ class User extends CI_Controller {
 		$this->load->view('main/index');
 	}
 	
-	public function login()
-	{
-		$this->load->view('main/login');
-	}
-
 	public function register()
 	{
 		$this->load->view('main/register');
@@ -54,21 +50,6 @@ class User extends CI_Controller {
 		return $output;
 	}
 	public function new_user_registration() {
-		$this->form_validation->set_rules('fullname', 'Nama Lengkap', 'trim|required');
-		$this->form_validation->set_rules('username', 'Username', 'trim|required');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required');
-		$this->form_validation->set_rules('birthdate', 'Tanggal Lahir', 'callback_checkDateFormat');
-		$this->form_validation->set_rules('gender', 'Jenis Kelamin', 'trim|required');
-		$this->form_validation->set_rules('age', 'Umur', 'trim|required');
-		$this->form_validation->set_rules('phone_number', 'Nomor ponsel yang dapat dihubungi', 'trim|required');
-		$this->form_validation->set_rules('email', 'Alamat Email', 'trim|required');
-		$this->form_validation->set_rules('address', 'Alamat Tempat Tinggal', 'trim|required');
-		$this->form_validation->set_rules('id_number', 'Nomor Kartu Identitas', 'trim|required');
-		$this->form_validation->set_rules('id_type', 'Jenis Kartu Identitas', 'trim|required');
-		$this->form_validation->set_message('checkDateFormat', 'Format tanggal salah (gunakan format:dd/mm/yyyy)');
-		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('main/register'); 
-		} else {
 			$data = array(
 			'id' => 0,
 			'role' => 'user',
@@ -92,48 +73,27 @@ class User extends CI_Controller {
 		} else {
 			$result = $this->Users->registration($data);
 		}
-
 		if ($result == TRUE) {
-			$this->load->view('main/login', $data);
+			$this->load->view('main/index', $data);
 		} else {
 			$data['message_display'] = 'Username telah digunakan, silahkan pilih username yang lain!';
 			$this->load->view('main/register', $data);
 		}
-		}
-	}
-
-	function checkDateFormat($date) {
-		$test_arr  = explode('/', $date);
-		if (count($test_arr) == 3) {
-			if (checkdate($test_arr[0], $test_arr[1], $test_arr[2])) {
-				return TRUE;
-			} else {
-				return FALSE;
-			}
-		} else {
-			return FALSE;
-		}
 	}
 
 	public function user_login_process() {
-
-		$this->form_validation->set_rules('username', 'Username', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-		
-		if ($this->form_validation->run() == FALSE) {
-			if(isset($this->session->userdata['logged_in'])){
+	
+		if(isset($this->session->userdata['logged_in'])){
 				$this->load->view('user/index');
-		}	else{
-				$this->load->view('main/login');
+		}	else {
+				$this->load->view('main/index');
 		}
-		} else {
 		$data = array(
 		'username' => $this->input->post('username'),
 		'password' => $this->createPassword($this->input->post('password'))
 		);
 		$result = $this->Users->login($data);
 		if ($result == TRUE) {
-
 		$username = $this->input->post('username');
 		$result = $this->Users->getUser($username);
 		if ($result != false) {
@@ -151,18 +111,18 @@ class User extends CI_Controller {
 		// Add user data in session
 		$this->session->set_userdata('logged_in', $session_data);
 		if ($result[0]->role == 'admin') {
-			$this->load->view('admin/index');
+			redirect(base_url('Admin/index'),'refresh');
 		} else {
-			$this->load->view('user/index');
+			redirect(base_url('User/viewDashboard'),'refresh');
 		}
 		}
 		} else {
 		$data = array(
 		'error_message' => 'Username atau password Anda Salah'
 		);
-		$this->load->view('login', $data);
+			$this->load->view('main/index', $data);
 		}
-		}
+		
 		}
 		
 		// Logout from admin page
@@ -183,7 +143,8 @@ class User extends CI_Controller {
 
 		public function viewStudents()
 		{
-			$this->load->view('user/students_list');
+			$data['students'] = $this->Students->getAllStudents();
+			$this->load->view('user/students_list', $data);
 		}
 
 		public function editProfile()

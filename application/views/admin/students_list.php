@@ -12,7 +12,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Students List</title>
-    <link href='https://fonts.googleapis.com/css?family=Encode Sans Semi Expanded' rel='stylesheet'>
     <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/dashboard.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/table.css')?>" rel="stylesheet">
@@ -62,7 +61,7 @@
 		    <h2>Daftar Siswa</h2>
         <table class="table" cellpadding="5" cellspacing="0">
         <thead>
-          <tr id="proker_header">
+          <tr class="header">
           <th scope="col">No</th>
           <th scope="col">Nama Siswa</th>
           <th scope="col">Alamat</th>
@@ -78,10 +77,10 @@
                     <td><?php echo $student->address;?></td>
                     <td><?php echo $student->status;?></td>
                     <td>
-                        <a class="btn btn-info" href="#">
+                        <a class="btn btn-info" href="<?php echo base_url('Admin/viewEditStudent/' . $student->id_student);?>">
                         <span data-feather="edit"></span>
                         </a>
-                        <a class="btn btn-danger" href="#">
+                        <a class="btn btn-danger" href="<?php echo base_url('Admin/deleteStudent/' . $student->id_student);?>">
                         <span data-feather="delete"></span>
                         </a>
                     </td>
@@ -89,7 +88,7 @@
                 <?php endforeach; ?>
             </tbody>
 		    </table>
-			<a href='#' class="btn btn-primary">Tambah Data</a>
+			<a href='<?php echo base_url('Admin/viewAddStudent');?>' class="btn btn-primary">Tambah Data</a>
 			</div>
           </div>
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

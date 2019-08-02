@@ -11,7 +11,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Edit Student's Profile</title>
+    <title>Add New Student</title>
     <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/dashboard.css');?>" rel="stylesheet">
   </head>
@@ -58,35 +58,54 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
           <h1 class="h2">Profil Anda</h1>
           </div>
-        <?php foreach($student as $stdnt):?>
-        <?php echo form_open(base_url('Admin/editStudent/' . $stdnt->id_student)) ?>
+        <?php echo validation_errors(); ?>
+        <?php echo form_open_multipart(base_url('Admin/addStudent')) ?>
         <div class="form-group">
-            <label for="fullname">Ganti nama lengkap</label>
-            <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Ganti nama lengkap" value=<?php echo $stdnt->fullname;?>>
+            <label for="fullname">Nama Lengkap</label>
+            <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Ganti nama lengkap" value="<?php echo set_value('fullname'); ?>">
         </div>
         <div class="form-group">
-                <label for="phone_number">Ganti nomor ponsel</label>
-                <input type="number"  name="phone_number" class="form-control" id="phone_number" placeholder="Ganti nomor ponsel dengan yang baru" value=<?php echo $stdnt->phone_number;?>>
+                <label for="birthdate">Tanggal Lahir</label>
+                <input type="text"  name="birthdate" class="form-control" id="birthdate" placeholder="format:dd/mm/yyyy" value="<?php echo set_value('birthdate'); ?>">
         </div>
         <div class="form-group">
-                <label for="email">Ganti Alamat Email</label>
-                <input type="email"  name="email" class="form-control" id="email" placeholder="Ganti alamat email dengan alamat email yang baru" value=<?php echo $stdnt->email;?>>
+                <label for="age">Umur</label>
+                <input type="number"  name="age" class="form-control" id="age" placeholder="Isi umur siswa" value="<?php echo set_value('age'); ?>">
+        </div>
+        <label for="gender-select">Jenis Kelamin</label>
+        <div class="form-check form-check-inline" id="gender-select">
+        <input class="form-check-input" type="radio" name="gender" id="genderlakilaki" value="lakilaki" checked>
+        <label class="form-check-label" for="genderlakilaki">Laki-laki</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="genderperempuan" value="perempuan">
+        <label class="form-check-label" for="genderperempuan">Perempuan</label>
         </div>
         <div class="form-group">
-                <label for="address">Ganti Alamat Tempat Tinggal</label>
-                <input type="text"  name="address" class="form-control" id="address" placeholder="Ganti alamat tempat tinggal dengan alamat tempat tinggal yang baru" value=<?php echo $stdnt->address;?>>
+            <label for="gambar">Gambar Profil</label>
+            <input type="file" class="form-control-file" id="gambar" name="profile_picture">
         </div>
         <div class="form-group">
-                <label for="status">Ganti Status</label>
-                <input type="text"  name="status" class="form-control" id="status" placeholder="Ganti status gizi dengan status gizi yang baru" value=<?php echo $stdnt->status;?>>
+                <label for="phone_number">Nomor ponsel</label>
+                <input type="number"  name="phone_number" class="form-control" id="phone_number" placeholder="Isi nomor ponsel yang dapat dihubungi" value="<?php echo set_value('phone_number'); ?>">
         </div>
-        <?php endforeach;?>
-                <button type="submit" class="btn btn-primary">Ubah</button>
+        <div class="form-group">
+                <label for="status">Alamat Tempat Tinggal</label>
+                <input type="text"  name="address" class="form-control" id="address" placeholder="Isi alamat tempat tinggal" value="<?php echo set_value('address'); ?>">
+        </div>
+        <div class="form-group">
+                <label for="email">Alamat Email</label>
+                <input type="email"  name="email" class="form-control" id="email" placeholder="Isi alamat email" value="<?php echo set_value('email'); ?>">
+        </div>
+        <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text"  name="status" class="form-control" id="status" placeholder="Isi status gizi siswa" value="<?php echo set_value('status'); ?>">
+        </div>
+                <button type="submit" class="btn btn-primary">Tambah</button>
             </form>
           </div>
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-          <!-- <script src="../assets/js/vendor/popper.min.js"></script> -->
-          <script src="../assets/js/bootstrap.min.js"></script>
+          <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
           <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
           <script>feather.replace()</script>
         </main>

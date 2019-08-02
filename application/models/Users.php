@@ -46,28 +46,6 @@ class Users extends CI_Model {
         }
     }
 
-    public function getStudentById($id)
-    {
-        $this->db->where('id',$id);
-        $query = $this->db->get('students',1);
-        
-        if ($query->num_rows() == 1) {
-        return $query->result_array();
-        } else {
-        return null;
-        }
-    }
-
-    public function getAllStudents()
-    {
-        $query = $this->db->get('students');
-        if ($query->num_rows() >= 1) {
-        return $query->result();
-        } else {
-        return null;
-        }
-    }
-
     public function updateProfile($data)
     {
         $this->db->set('username',$data['username']);
