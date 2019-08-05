@@ -46,8 +46,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="<?php echo base_url('Admin/editProfile'); ?>">
-                  <span data-feather="user">(current)</span>
+                <a class="nav-link" href="<?php echo base_url('Admin/editProfile'); ?>">
+                  <span data-feather="user"></span>
                   Edit Profil
                 </a>
               </li>
@@ -56,7 +56,7 @@
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <h1 class="h2">Profil Anda</h1>
+          <h1 class="h2">Profil Siswa</h1>
           </div>
         <?php foreach($student as $stdnt):?>
         <?php echo form_open(base_url('Admin/editStudent/' . $stdnt->id_student)) ?>

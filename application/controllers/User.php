@@ -66,7 +66,7 @@ class User extends CI_Controller {
 			'id_type' => $this->input->post('id_type'),
 			'profile_picture' => "default.png"
 		);
-		$data['birthdate'] = date('Y-m-d');
+		// $data['birthdate'] = date('Y-m-d');
 		if ($data['id_type'] == 'nip') {
 			$data['role'] = 'admin';
 			$result = $this->Users->registration($data);

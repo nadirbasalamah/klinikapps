@@ -1,12 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once 'vendor\autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx as excelWriter;
 
 class Admin extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		
 		$this->load->helper('form');
-		$this->load->helper('url'); 		
+		$this->load->helper('url'); 
+		$this->load->helper('download');		
 		
 		$this->load->library('form_validation');
 		$this->load->library('session');
@@ -110,7 +116,6 @@ class Admin extends CI_Controller {
 			'birthdate' => $this->input->post('birthdate'),
 			'profile_picture' => $file_loc
 		);
-		$data['birthdate'] = date('Y-m-d');
 		$result = $this->Students->addStudent($data);
 
 		if ($result == TRUE) {
@@ -134,5 +139,98 @@ class Admin extends CI_Controller {
 		} else {
 			return FALSE;
 		}
+	}
+
+	public function importFromExcel()
+	{
+		if ($this->input->post('submit', TRUE) == 'upload')
+        {
+            $config['upload_path']      = './imported_excel/'; 
+            $config['allowed_types']    = 'xlsx|xls'; 
+            $config['file_name']        = 'data_siswa'.time(); 
+       
+            $this->load->library('upload', $config);
+       
+            if ($this->upload->do_upload('excel'))
+            {               
+				$file   = $this->upload->data();
+				
+				$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+				$spreadsheet = $reader->load('./imported_excel/'.$file['file_name']);
+				$sheetData = $spreadsheet->getActiveSheet()->toArray();
+				$save   = array();
+				for($i = 1;$i < count($sheetData);$i++)
+				{
+					$data = array (
+						'id_student' 	=> 0,
+						'fullname' 		=> $sheetData[$i]['1'],
+						'age' 			=> $sheetData[$i]['2'],
+						'gender'        => $sheetData[$i]['3'],
+						'address'       => $sheetData[$i]['4'],
+						'phone_number'  => $sheetData[$i]['5'],
+						'email'         => $sheetData[$i]['6'],
+						'status'          => $sheetData[$i]['7'],
+						'birthdate'       => $sheetData[$i]['8'],
+						'profile_picture' => 'default.png'		
+					);
+					array_push($save,$data);
+				}
+				$this->Students->addBatchStudents($save);
+                    echo    '<script type="text/javascript">alert(\'Data berhasil disimpan\');</script>';
+					redirect(base_url('Admin/viewStudents'),'refresh');
+                }
+            else
+            {
+				$err = "Error :".$this->upload->display_errors();
+				echo '<script type="text/javascript">alert('. $err .');</script>';
+            }
+        }
+        redirect(base_url('Admin/viewStudents'),'refresh');
+	}
+
+	public function exportToExcel()
+	{
+		$spreadsheet = new Spreadsheet();
+		$sheet = $spreadsheet->getActiveSheet();
+		$sheet->setCellValue('A1', 'ID_Student');
+		$sheet->setCellValue('B1', 'Nama Lengkap');
+		$sheet->setCellValue('C1', 'Umur');
+		$sheet->setCellValue('D1', 'Jenis Kelamin');
+		$sheet->setCellValue('E1', 'Alamat');
+		$sheet->setCellValue('F1', 'Nomor Telepon');
+		$sheet->setCellValue('G1', 'Email');
+		$sheet->setCellValue('H1', 'Status');
+		$sheet->setCellValue('I1', 'Tanggal Lahir');
+		$i = 2;
+
+		
+		$data = $this->Students->getAllStudents();
+		foreach($data as $student) {
+			$sheet->setCellValue('A'.$i, $student->id_student);
+			$sheet->setCellValue('B'.$i, $student->fullname);
+			$sheet->setCellValue('C'.$i, $student->age);
+			$sheet->setCellValue('D'.$i, $student->gender);
+			$sheet->setCellValue('E'.$i, $student->address);
+			$sheet->setCellValue('F'.$i, $student->phone_number);
+			$sheet->setCellValue('G'.$i, $student->email);
+			$sheet->setCellValue('H'.$i, $student->status);
+			$sheet->setCellValue('I'.$i, $student->birthdate);
+			$i++;
+		}
+		
+		$styleArray = [
+					'borders' => [
+						'allBorders' => [
+							'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+						],
+					],
+				];
+		$i = $i - 1;
+		$sheet->getStyle('A1:I'.$i)->applyFromArray($styleArray);
+
+		$writer = new excelWriter($spreadsheet);
+		$writer->save('Report_Data_Siswa.xlsx');
+		force_download('Report_Data_Siswa.xlsx', NULL);
+
 	}
 }

@@ -58,7 +58,16 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
           <div class="container-fluid">
-		    <h2>Daftar Siswa</h2>
+        <h2>Daftar Siswa</h2>
+        <?= form_open_multipart(base_url('Admin/importFromExcel')); ?>
+        <input type="file" name="excel" />
+        <p>* Gunakan file dengan extensi .xlsx</p>
+        <button type="submit" name="submit" class="btn btn-primary" value="upload">Impor</button>
+        <?= form_close(); ?>
+
+        <?= form_open_multipart(base_url('Admin/exportToExcel')); ?>
+        <button type="submit" name="submit_export" class="btn btn-info">Ekspor</button>
+        <?= form_close(); ?>
         <table class="table" cellpadding="5" cellspacing="0">
         <thead>
           <tr class="header">

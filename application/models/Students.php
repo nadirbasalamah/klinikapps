@@ -63,4 +63,14 @@ class Students extends CI_Model {
         }
     }
 
+    public function addBatchStudents($data = array())
+    {
+        $jumlah_data = count($data);
+
+        if ($jumlah_data > 0) {
+            $this->db->insert_batch('students', $data);
+        }
+
+    }
+
 }
