@@ -11,10 +11,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Students List</title>
+    <title>View Student Data</title>
     <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/dashboard.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/table.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/dashboard.css');?>" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
@@ -41,8 +40,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="<?php echo base_url('User/viewStudents'); ?>">
-                  <span data-feather="users">(current)</span>
+                <a class="nav-link" href="<?php echo base_url('User/viewStudents'); ?>">
+                  <span data-feather="users"></span>
                   Lihat Data Siswa
                 </a>
               </li>
@@ -57,38 +56,20 @@
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <div class="container-fluid">
-		    <h2>Daftar Siswa</h2>
-        <table class="table" cellpadding="5" cellspacing="0">
-        <thead>
-          <tr class="header">
-          <th scope="col">No</th>
-          <th scope="col">Nama Siswa</th>
-          <th scope="col">Alamat</th>
-          <th scope="col">Status</th>
-          <th scope="col">Action</th>
-          </tr>
-        </thead>
-			<tbody>
-                <?php $count = 1; foreach($students as $student):?>
-                <tr>
-                    <th scope="row"><?php echo $count++;?></th>
-                    <td><?php echo $student->fullname;?></td>
-                    <td><?php echo $student->address;?></td>
-                    <td><?php echo $student->status;?></td>
-                    <td>
-                        <a class="btn btn-info" href="<?php echo base_url('User/viewStudent/' . $student->id_student);?>">
-                        Lihat Data
-                        </a>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-		    </table>
-			</div>
+          <h1 class="h2">Profil Siswa</h1>
+          </div>
+        <?php foreach($student as $stdnt):?>
+        <h4>Nama Lengkap            : </h4><?php echo $stdnt->fullname;?>
+        <br/>
+        <h4>Alamat Tempat Tinggal   : </h4><?php echo $stdnt->address;?>
+        <br/>
+        <h4>Status                  : </h4><?php echo $stdnt->status;?>
+        <br/>
+        <?php endforeach;?>
           </div>
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-          <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
+          <!-- <script src="../assets/js/vendor/popper.min.js"></script> -->
+          <script src="../assets/js/bootstrap.min.js"></script>
           <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
           <script>feather.replace()</script>
         </main>

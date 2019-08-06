@@ -192,4 +192,16 @@ class User extends CI_Controller {
 				redirect(base_url('User/viewDashboard'),'refresh');
 			}
 		}
+
+		public function viewStudent($id)
+		{
+			$data['student'] = $this->Students->getStudentById($id);
+			$this->load->view('user/student_page',$data);
+		}
+
+		public function getStudent()
+		{
+			
+		}
+
 }
