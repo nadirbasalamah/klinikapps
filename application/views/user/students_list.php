@@ -69,7 +69,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form" action="<?php echo base_url('Admin/getStudent');?>" method="post">
+            <form class="navbar-form" action="<?php echo base_url('User/getStudent');?>" method="post">
               <div class="input-group no-border">
                 <input type="text" class="form-control" placeholder="Cari siswa..." name="student_name">
                 <button type="submit" class="btn btn-white btn-round btn-just-icon">

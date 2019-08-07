@@ -201,9 +201,8 @@ class User extends CI_Controller {
 
 		public function getStudent()
 		{
-			//TODO: find specific student	
 			$fullname = $this->input->post('student_name');
-			$data['student'] = $this->Students->getStudentByName($fullname);
+			$data['students'] = $this->Students->getStudentByName($fullname);
 			$this->load->view('user/students_result',$data);
 		}
 
