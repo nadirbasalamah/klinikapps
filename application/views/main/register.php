@@ -16,7 +16,6 @@
 		body{
 			background-image: url("https://st4.depositphotos.com/2060305/22518/v/600/depositphotos_225182764-stock-video-dynamic-animation-smooth-gradient-background.jpg")
 		}
-		
 		</style>
 	<div class="page-content">
 		<div class="form-v10-content">
@@ -36,7 +35,7 @@
 						</div>
 					
 				 <div class="form-row">
-						<input type="text" name="birthdate" class="date" id="" placeholder="Tanggal lahir (format:dd/mm/yyyy)" required>
+						<input type="text" name="birthdate" class="date" id="birthdate" placeholder="Tanggal lahir (format:dd/mm/yyyy)" required>
 					</div>
 					
 					<div class="form-row">
@@ -49,7 +48,7 @@
 						</span>
 					</div>
 					<div class="form-row">
-						<input type="text" name="age" class="age" id="" placeholder="Age" required>
+						<input type="number" name="age" class="age" id="age" placeholder="Age" required>
 						<br>
 						<br>
 					</div>

@@ -73,4 +73,14 @@ class Students extends CI_Model {
 
     }
 
+    public function getStudentByName($fullname)
+    {
+        $this->db->where('fullname',$fullname);
+        $query = $this->db->get('students',1);
+        if ($query->num_rows() == 1) {
+        return $query->result();
+        } else {
+        return null;
+        }
+    }
 }

@@ -233,4 +233,12 @@ class Admin extends CI_Controller {
 		force_download('Report_Data_Siswa.xlsx', NULL);
 
 	}
+
+	public function getStudent()
+	{
+		//TODO: find specific student	
+		$fullname = $this->input->post('student_name');
+		$data['student'] = $this->Students->getStudentByName($fullname);
+		$this->load->view('admin/students_result',$data);
+	}
 }

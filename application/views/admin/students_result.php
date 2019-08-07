@@ -10,11 +10,10 @@
 ?>
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png')?>">
-  <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png')?>">
+  <link rel="icon" type="image/png" href="https://poliklinik.ub.ac.id/wp-content/themes/klinikUB/img/logo_klinik.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Admin's Dashboard
+    Students List
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -26,32 +25,32 @@
 
 <body>
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg')?>">
-    <div class="logo">
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
+      <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <img src="https://poliklinik.ub.ac.id/wp-content/themes/klinikUB/img/logo_klinik.png" width="82" height="86" title="White flower" alt="Flower">      
+          <img src="https://poliklinik.ub.ac.id/wp-content/themes/klinikUB/img/logo_klinik.png" width="82" height="86" title="White flower" alt="Flower">
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#">
+          <li class="nav-item  ">
+            <a class="nav-link" href="<?php echo base_url('Admin/index');?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Admin/editProfile'); ?>">
+            <a class="nav-link" href="<?php echo base_url('Admin/editProfile');?>">
               <i class="material-icons">person</i>
               <p>Edit Profil</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active ">
             <a class="nav-link" href="<?php echo base_url('Admin/viewStudents'); ?>">
               <i class="material-icons">content_paste</i>
               <p>Daftar Siswa</p>
             </a>
-          </li>         
+          </li>       
         </ul>
       </div>
     </div>
@@ -60,7 +59,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="#pablo">Daftar Siswa</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -71,7 +70,6 @@
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form" action="#" method="post">
               <div class="input-group no-border">
-                <!--TODO: finding specific student-->
                   <div class="ripple-container"></div>
               </div>
             </form>
@@ -94,15 +92,65 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <div container>
-        <div class="rows">
-          <br>
-          <br>
-          <br>
-<h1>Selamat datang, </h1><?php echo $username; ?> !
-</div>
+      <div class="content">
+        <div class="container-fluid">
+            <?= form_open_multipart(base_url('Admin/importFromExcel')); ?>
+            <input type="file" name="excel" />
+            <button type="submit" name="submit" class="btn btn-info" value="upload">Impor</button>
+            <?= form_close(); ?>
+            
+            <?= form_open_multipart(base_url('Admin/exportToExcel')); ?>
+            <button center type="submit" class="btn btn-success" width="50" height="100" >Ekspor</button>
+            <?= form_close(); ?>
+            </span>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Daftar Siswa</h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>No </th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Status</th>
+                        <th> Aksi</th>
+                      </thead>
+                      <tbody>
+                      <?php $count = 1; foreach($students as $student):?>
+                      <tr>
+                          <th scope="row"><?php echo $count++;?></th>
+                          <td><?php echo $student->fullname;?></td>
+                          <td><?php echo $student->address;?></td>
+                          <td><?php echo $student->status;?></td>
+                          <td>
+                          <a href="<?php echo base_url('Admin/viewEditStudent/' . $student->id_student);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
+                          <span>
+                          <a href="<?php echo base_url('Admin/deleteStudent/' . $student->id_student);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
+                          </td>
+                      </tr>
+                      <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                </div>
+                 </div>
+              </div>
+            </div>
+            <div 
+            class="container">
+            <a href="<?php echo base_url('Admin/viewAddStudent');?>" button class="btn btn-success" width="50" height="100" >Tambah</button></a>
+          </div>
+        </div>
+          </div>
+        </div>
       </div>
-      
+            &copy;
+          </div>
+        </div>
       </footer>
     </div>
   </div>
@@ -317,5 +365,4 @@
     });
   </script>
 </body>
-
 </html>
