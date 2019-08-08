@@ -10,7 +10,7 @@
 ?>
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="https://poliklinik.ub.ac.id/wp-content/themes/klinikUB/img/logo_klinik.png">
+  <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Students List
@@ -28,7 +28,7 @@
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <img src="https://poliklinik.ub.ac.id/wp-content/themes/klinikUB/img/logo_klinik.png" width="82" height="86" title="White flower" alt="Flower">
+          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -70,7 +70,6 @@
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form" action="<?php echo base_url('Admin/getStudent');?>" method="post">
               <div class="input-group no-border">
-                <!--TODO: finding specific student-->
                 <input type="text" class="form-control" placeholder="Cari siswa..." name="student_name">
                 <button type="submit" class="btn btn-white btn-round btn-just-icon">
                   <i class="material-icons">search</i>
