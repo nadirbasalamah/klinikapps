@@ -63,7 +63,10 @@ class Admin extends CI_Controller {
 			'address' => $this->input->post('address'),
 			'phone_number' => $this->input->post('phone_number'),
 			'email' => $this->input->post('email'),
-			'status' => $this->input->post('status')
+			'status' => $this->input->post('status'),
+			'education' => $this->input->post('education'),
+			'job' => $this->input->post('job'),
+			'religion' => $this->input->post('religion')
 		);
 		$this->Students->updateStudent($data);
 		echo("<script>alert('Data profil siswa berhasil diubah!')</script>");
@@ -85,6 +88,9 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Alamat Email', 'trim|required');
 		$this->form_validation->set_rules('address', 'Alamat Tempat Tinggal', 'trim|required');
 		$this->form_validation->set_rules('status', 'Status', 'trim|required');
+		$this->form_validation->set_rules('education', 'Pendidikan', 'trim|required');
+		$this->form_validation->set_rules('job', 'Pekerjaan', 'trim|required');
+		$this->form_validation->set_rules('religion', 'Agama / suku', 'trim|required');
 		$this->form_validation->set_message('checkDateFormat', 'Format tanggal salah (gunakan format:dd/mm/yyyy)');
 
 		$new_name = time().$_FILES["profile_picture"]['name'];
@@ -114,7 +120,10 @@ class Admin extends CI_Controller {
 			'email' => $this->input->post('email'),
 			'status' => $this->input->post('status'),
 			'birthdate' => $this->input->post('birthdate'),
-			'profile_picture' => $file_loc
+			'profile_picture' => $file_loc,
+			'education' => $this->input->post('education'),
+			'job' => $this->input->post('job'),
+			'religion' => $this->input->post('religion')
 		);
 		$result = $this->Students->addStudent($data);
 
@@ -122,7 +131,7 @@ class Admin extends CI_Controller {
 			echo("<script>alert('Data siswa berhasil ditambahkan!')</script>");
 			redirect(base_url('Admin/viewStudents'),'refresh');
 		} else {
-			echo("<script>alert('Penambahan gagal, data siswa telah tersimpan!')</script>");
+			echo("<script>alert('Penambahan gagal, data siswa sebelumnya telah tersimpan!')</script>");
 			$this->load->view('admin/add_student', $data);
 		}
 		}
@@ -171,7 +180,10 @@ class Admin extends CI_Controller {
 						'email'         => $sheetData[$i]['6'],
 						'status'          => $sheetData[$i]['7'],
 						'birthdate'       => $sheetData[$i]['8'],
-						'profile_picture' => 'default.png'		
+						'profile_picture' => 'default.png',
+						'education'         => $sheetData[$i]['9'],
+						'job'          => $sheetData[$i]['10'],
+						'religion'       => $sheetData[$i]['11'],
 					);
 					array_push($save,$data);
 				}
@@ -201,20 +213,26 @@ class Admin extends CI_Controller {
 		$sheet->setCellValue('G1', 'Email');
 		$sheet->setCellValue('H1', 'Status');
 		$sheet->setCellValue('I1', 'Tanggal Lahir');
+		$sheet->setCellValue('J1', 'Pendidikan');
+		$sheet->setCellValue('K1', 'Pekerjaan');
+		$sheet->setCellValue('L1', 'Agama / suku');
 		$i = 2;
 
 		
 		$data = $this->Students->getAllStudents();
 		foreach($data as $student) {
-			$sheet->setCellValue('A'.$i, $student->id_student);
-			$sheet->setCellValue('B'.$i, $student->fullname);
-			$sheet->setCellValue('C'.$i, $student->age);
-			$sheet->setCellValue('D'.$i, $student->gender);
-			$sheet->setCellValue('E'.$i, $student->address);
-			$sheet->setCellValue('F'.$i, $student->phone_number);
-			$sheet->setCellValue('G'.$i, $student->email);
-			$sheet->setCellValue('H'.$i, $student->status);
-			$sheet->setCellValue('I'.$i, $student->birthdate);
+			$sheet->setCellValue('A'.$i, $student['id_student']);
+			$sheet->setCellValue('B'.$i, $student['fullname']);
+			$sheet->setCellValue('C'.$i, $student['age']);
+			$sheet->setCellValue('D'.$i, $student['gender']);
+			$sheet->setCellValue('E'.$i, $student['address']);
+			$sheet->setCellValue('F'.$i, $student['phone_number']);
+			$sheet->setCellValue('G'.$i, $student['email']);
+			$sheet->setCellValue('H'.$i, $student['status']);
+			$sheet->setCellValue('I'.$i, $student['birthdate']);
+			$sheet->setCellValue('J'.$i, $student['education']);
+			$sheet->setCellValue('K'.$i, $student['job']);
+			$sheet->setCellValue('L'.$i, $student['religion']);
 			$i++;
 		}
 		
@@ -226,7 +244,7 @@ class Admin extends CI_Controller {
 					],
 				];
 		$i = $i - 1;
-		$sheet->getStyle('A1:I'.$i)->applyFromArray($styleArray);
+		$sheet->getStyle('A1:L'.$i)->applyFromArray($styleArray);
 
 		$writer = new excelWriter($spreadsheet);
 		$writer->save('Report_Data_Siswa.xlsx');
@@ -240,4 +258,35 @@ class Admin extends CI_Controller {
 		$data['students'] = $this->Students->getStudentByName($fullname);
 		$this->load->view('admin/students_result',$data);
 	}
+
+	// public function viewPosts()
+	// {
+	// 	//TODO: get all posts
+	// }
+
+	// public function viewCreatePost()
+	// {
+	// 	//TODO: render create post view
+	// }
+
+	// public function createPost()
+	// {
+	// 	//TODO: create a new post
+	// }
+
+	// public function viewUpdatePost($id)
+	// {
+	// 	//TODO: render update post view
+	// }
+
+	// public function updatePost($id)
+	// {
+	// 	//TODO: update post
+	// }
+
+	// public function deletePost($id)
+	// {
+	// 	//TODO: remove post by id
+	// }
+
 }

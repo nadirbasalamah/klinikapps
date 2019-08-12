@@ -161,6 +161,30 @@
                         </div>
                       </div>  
                     </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Pendidikan</label>
+                          <input type="text" class="form-control" value=<?php echo $stdnt->education;?> name="education">
+                        </div>
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Pekerjaan</label>
+                          <input type="text" class="form-control" value=<?php echo $stdnt->job;?> name="job">
+                        </div>
+                      </div>  
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Agama / Suku</label>
+                          <input type="text" class="form-control" value=<?php echo $stdnt->religion;?> name="religion">
+                        </div>
+                      </div>  
+                    </div>
                     <?php endforeach;?>
                     <div class="row">
   

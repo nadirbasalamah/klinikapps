@@ -139,15 +139,13 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Umur</label>
                           <input type="number" class="form-control" name="age">
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">No Telp</label>
                           <input type="number" class="form-control" name="phone_number">
@@ -159,6 +157,7 @@
                             <label class="bmd-label-floating"></label>
                        <input type="file" id="gambar" name="profile_picture">
                    </div>
+
                    <div style="padding:5px; " container>
                    <p>Jenis Kelamin</p>
                     <p>
@@ -175,10 +174,31 @@
                     </p>
              </div>
              <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Status</label>
                     <input type="text" class="form-control" name="status">
+                  </div>
+                </div>
+                <!--pendidikan dll.-->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Pendidikan</label>
+                    <input type="text" class="form-control" name="education">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Pekerjaan</label>
+                      <input type="text" class="form-control" name="job">
+                    </div>
+                  </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Agama / suku</label>
+                    <input type="text" class="form-control" name="religion">
                   </div>
                 </div>
               </div>

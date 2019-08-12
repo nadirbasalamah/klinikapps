@@ -131,15 +131,19 @@
                         <th> Aksi</th>
                       </thead>
                       <tbody>
-                      <?php $count = 1; foreach($students as $student):?>
+                      <?php $count = 1; 
+                      if (is_array($students) && count($students) > 0) {
+                      foreach($students as $student):?>
                       <tr>
                           <th scope="row"><?php echo $count++;?></th>
-                          <td><?php echo $student->fullname;?></td>
-                          <td><?php echo $student->address;?></td>
-                          <td><?php echo $student->status;?></td>
-                          <td><a href="<?php echo base_url('User/viewStudent/' . $student->id_student);?>" button class="btn btn-info">lihat</button></a></td>
+                          <td><?php echo $student['fullname'];?></td>
+                          <td><?php echo $student['address'];?></td>
+                          <td><?php echo $student['status'];?></td>
+                          <td><a href="<?php echo base_url('User/viewStudent/' . $student['id_student']);?>" button class="btn btn-info">lihat</button></a></td>
                       </tr>
-                      <?php endforeach; ?>
+                      <?php endforeach; } else {
+                          echo "Tidak ada data siswa";
+                      }?>
                       </tbody>
                     </table>
                 </div>

@@ -21,7 +21,7 @@ class Students extends CI_Model {
     {
         $query = $this->db->get('students');
         if ($query->num_rows() >= 1) {
-        return $query->result();
+        return $query->result_array();
         } else {
         return null;
         }
@@ -45,6 +45,9 @@ class Students extends CI_Model {
         $this->db->set('phone_number',$data['phone_number']);
         $this->db->set('email',$data['email']);
         $this->db->set('status',$data['status']);
+        $this->db->set('education',$data['education']);
+        $this->db->set('job',$data['job']);
+        $this->db->set('religion',$data['religion']);
         $this->db->where('id_student',$data['id']);
         $this->db->update('students');
     }

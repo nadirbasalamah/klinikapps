@@ -106,6 +106,8 @@
             <?= form_open_multipart(base_url('Admin/exportToExcel')); ?>
             <button center type="submit" class="btn btn-success" width="50" height="100" >Ekspor</button>
             <?= form_close(); ?>
+
+            <a href="<?php echo base_url('Admin/viewAddStudent');?>" button class="btn btn-default" width="50" height="100" >Tambah</button></a>
             </span>
           <div class="row">
             <div class="col-md-12">
@@ -125,19 +127,25 @@
                         <th> Aksi</th>
                       </thead>
                       <tbody>
-                      <?php $count = 1; foreach($students as $student):?>
+                      <?php 
+                      $count = 1; 
+                      if (is_array($students) && count($students) > 0) {
+                        foreach($students as $student):  
+                      ?>
                       <tr>
                           <th scope="row"><?php echo $count++;?></th>
-                          <td><?php echo $student->fullname;?></td>
-                          <td><?php echo $student->address;?></td>
-                          <td><?php echo $student->status;?></td>
+                          <td><?php echo $student['fullname'];?></td>
+                          <td><?php echo $student['address'];?></td>
+                          <td><?php echo $student['status'];?></td>
                           <td>
-                          <a href="<?php echo base_url('Admin/viewEditStudent/' . $student->id_student);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
+                          <a href="<?php echo base_url('Admin/viewEditStudent/' . $student['id_student']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
                           <span>
-                          <a href="<?php echo base_url('Admin/deleteStudent/' . $student->id_student);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
+                          <a href="<?php echo base_url('Admin/deleteStudent/' . $student['id_student']);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
                           </td>
                       </tr>
-                      <?php endforeach; ?>
+                        <?php endforeach; } else {
+                          echo "Tidak ada data siswa";
+                      }?>
                       </tbody>
                     </table>
                 </div>
@@ -145,8 +153,7 @@
               </div>
             </div>
             <div 
-            class="container">
-            <a href="<?php echo base_url('Admin/viewAddStudent');?>" button class="btn btn-success" width="50" height="100" >Tambah</button></a>
+            class="container">            
           </div>
         </div>
           </div>
