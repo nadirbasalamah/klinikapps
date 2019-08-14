@@ -43,7 +43,21 @@
 						font-variant: normal;
 						text-align: left;
 						margin-left:140px;
-						
+					}
+					a:link {
+						text-decoration: none;
+					}
+
+					a:visited {
+						text-decoration: none;
+					}
+
+					a:hover {
+						text-decoration: underline;
+					}
+
+					a:active {
+						text-decoration: underline;
 					}
 					</style>
 						</select>

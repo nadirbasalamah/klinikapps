@@ -19,6 +19,7 @@ class Admin extends CI_Controller {
 
 		$this->load->model('Users');
 		$this->load->model('Students');
+		$this->load->model('Nutrition_records');
 	}
 
 	public function index()
@@ -71,6 +72,24 @@ class Admin extends CI_Controller {
 		$this->Students->updateStudent($data);
 		echo("<script>alert('Data profil siswa berhasil diubah!')</script>");
 		redirect(base_url('Admin/viewStudents'),'refresh');
+	}
+
+	public function updateNutritionRecord($id)
+	{
+		//TODO: update nutrition record data (Antropometri ONLY)
+		$data = array(
+			'id_record' => 0,
+			'id_student' => $id,
+			'bb' => $this->input->post('bb'),
+			'tb' => $this->input->post('tb'),
+			'lila' => $this->input->post('lila'),
+			'imt' => $this->input->post('imt'),
+			'bbi' => $this->input->post('bbi'),
+			'status' => $this->input->post('status'),
+		);
+		$this->Nutrition_records->addNutritionRecord($data);
+		echo("<script>alert('Data profil gizi siswa berhasil diubah!')</script>");
+		redirect(base_url('Admin/viewEditStudent/' . $id),'refresh');
 	}
 
 	public function viewAddStudent()

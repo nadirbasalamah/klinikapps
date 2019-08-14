@@ -59,10 +59,10 @@ class Students extends CI_Model {
         if ($query->num_rows() == 0) {
         $this->db->insert('students', $data);
         if ($this->db->affected_rows() > 0) {
-        return true;
+            return true;
         }
         } else {
-        return false;
+            return false;
         }
     }
 

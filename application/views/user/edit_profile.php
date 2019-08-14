@@ -198,7 +198,6 @@
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/bootstrap-material-design.min.js');?>"></script>
-  <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js');?>"></script>
   <!-- Plugin for the momentJs  -->
   <script src="<?php echo base_url('assets/js/plugins/moment.min.js');?>"></script>
   <!--  Plugin for Sweet Alert -->
@@ -377,11 +376,11 @@
             $('body').removeClass('sidebar-mini');
             md.misc.sidebar_mini_active = false;
 
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+            
 
           } else {
 
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+            
 
             setTimeout(function() {
               $('body').addClass('sidebar-mini');
