@@ -24,27 +24,27 @@
 </head>
 <body>
   <div class="wrapper ">
-  <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
-    <div class="logo">
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
+      <div class="logo">
         <a href="#" class="simple-text logo-normal">
-        <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
+          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
+          <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('User/viewDashboard'); ?>">
               <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>              
+              <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="<?php echo base_url('User/editProfile'); ?>">
               <i class="material-icons">person</i>
               <p>Edit Profil</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active ">
             <a class="nav-link" href="<?php echo base_url('User/viewStudents'); ?>">
               <i class="material-icons">content_paste</i>
               <p>Daftar Siswa</p>
@@ -54,8 +54,7 @@
       </div>
     </div>
     <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="#pablo">Halaman Siswa</a>
@@ -103,11 +102,11 @@
                   </a>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title"><?php echo $stdnt->fullname;?></h4>
+                  <h4 class="card-title"><?php echo $stdnt->fullname;?></h4>                
               </div>
             </div>
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Data Siswa </h4>
+                  <h4 class="card-title">Data Siswa</h4>
                 </div>
                 <div class="card-body">
                   <form>
@@ -134,7 +133,7 @@
                           <div class="row">
                                 <div class="col-md-6">
                                   <h6>Usia</h6>       
-                                  <h5><?php echo $stdnt->age;?> tahun</h5> 
+                                  <h5><?php echo $stdnt->age;?> Tahun</h5> 
                                 </div>
                                 <div class="col-md-6">
                                         <h6>Agama / Suku</h6>       
@@ -159,12 +158,12 @@
               </div>
             </div>
            </div>
-  <?php endforeach;?>
+           <?php endforeach;?>
       <div class="content">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-10">
-                  <div class="card">
+                  <div class="card">                
                     <div class="card-header card-header-primary">
                       <h4 class="card-title">Intervensi </h4>
                     </div>
@@ -173,22 +172,29 @@
                                     <table class="table">
                                       <thead class=" text-primary">
                                         <th><h6>Kebutuhan Energi</h6></th>
+                                        <th><h6>%</h6></th>
                                         <th><h6>Kalori</h6></th>
-                                        <th><h6></h6></td>
                                       </thead>
                                       <tbody>
                                         <tr>
                                           <td><h6> Karbohidrat</h6></td>
                                           <td>0</td>
+                                          <td>0</td>
                                           <td><h6>Gram</h6></td>
+                                          
+                                        
                                         </tr>
                                         <tr>
                                           <td> <h6>Protein</h6></td>
+                                          <td>0</td>
                                           <td> 0 </td>
                                           <td><h6>Gram</h6></td>
                                           </td>
+                                  
                                         <tr>
+                            
                                           <td><h6>Lemak</h6></td>
+                                          <td>0</td>
                                           <td>0</td>
                                           <td><h6>Gram</h6></td>
                                         </tr>
@@ -215,33 +221,37 @@
                                           <thead class=" text-primary">
                                             <th><h6>Tanggal</h6></th>
                                             <th><h6>Monitoring dan Evaluasi</h6></th>
-                                            <th><h6></h6></td>
+                                            <th><h6></h6></th>
                                           </thead>
                                           <tbody>
                                             <tr>
+                                              
+                                             
                                               <td>Date</td>
                                               <td>Empty</td>
+                                              
+                                            
                                             </tr>
                                             <tr>
                                                     <td>Date</td>
                                                     <td>Empty</td>
-                                            <tr>
-                                                    <td>Date</td>
-                                                    <td>Empty</td>
-                                            </tr>
+                                      
+                                         
                                           </tbody>
                                         </table>
                                     </div>
                                      </div>
                                   </div>
                                 </div>
+                
                             </div>
+           
                         </div>
                       </div>
                     </div>
                    </div>
               </div>  
-  </div>
+  </body>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
@@ -425,7 +435,7 @@
             $('body').removeClass('sidebar-mini');
             md.misc.sidebar_mini_active = false;
 
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
           } else {
 

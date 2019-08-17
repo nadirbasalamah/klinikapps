@@ -22,7 +22,6 @@
   <!-- CSS Files -->
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
-
 <body>
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
@@ -104,10 +103,35 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Tambah Data Siswa Baru </h4>
                 </div>
-                
                 <div class="card-body">
                 <?php echo validation_errors(); ?>
                 <?php echo form_open_multipart(base_url('Admin/addStudent')) ?>
+                <div class="row">
+               <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">No. RM</label>
+                          <input type="text" class="form-control" name="rm_number">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">No. RM Gizi</label>
+                          <input type="text" class="form-control" name="rmgizi_number">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating"> Tanggal Kunjungan (dd/mm/yyyy)</label>
+                          <input type="text" class="form-control" name="visitdate">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Rujukan</label>
+                          <input type="text" class="form-control" name="referral">
+                        </div>
+                      </div>
+                    </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
@@ -185,7 +209,6 @@
                     <input type="text" class="form-control" name="status">
                   </div>
                 </div>
-                <!--pendidikan dll.-->
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Pendidikan</label>
