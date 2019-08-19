@@ -30,7 +30,7 @@ class Nutrition_records extends CI_Model {
 
     public function updateNutritionRecord($data)
     {
-        //TODO: update record nutrition
+        //TODO: update record nutrition (Anto ONLY)
         $this->db->set('bb',$data['bb']);
         $this->db->set('tb',$data['tb']);
         $this->db->set('lila',$data['lila']);
@@ -46,4 +46,16 @@ class Nutrition_records extends CI_Model {
             return false;
         }
     }
+
+    public function getNutritionRecordById($id)
+    {
+        $this->db->where('id_student',$id);
+        $query = $this->db->get('nutrition_records',1);
+        if ($query->num_rows() == 1) {
+        return $query->result();
+        } else {
+        return null;
+        }
+    }
+
 }

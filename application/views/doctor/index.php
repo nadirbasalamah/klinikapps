@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Edit Student's Profile
+    Doctor's Dashboard
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -23,11 +23,9 @@
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
 
-<body class="">
+<body>
   <div class="wrapper ">
-    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
- 
- 
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg')?>">
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
           <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">      
@@ -35,26 +33,24 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="<?php echo base_url('Admin/index'); ?>">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="#">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
-              
-            </a>
-          </li>
-          <li class="nav-item active ">
-            <a class="nav-link" href="#">
-              <i class="material-icons">edit</i>
-              <p>Edit Profil Siswa</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Admin/viewStudents'); ?>">
+            <a class="nav-link" href="<?php echo base_url('Doctor/editProfile'); ?>">
+              <i class="material-icons">person</i>
+              <p>Edit Profil</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url('Doctor/viewStudents'); ?>">
               <i class="material-icons">content_paste</i>
               <p>Daftar Siswa</p>
             </a>
-          </li>
-          
+          </li>         
         </ul>
       </div>
     </div>
@@ -63,7 +59,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Ubah Data Siswa </a>
+            <a class="navbar-brand" href="#pablo">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -72,7 +68,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
+            <form class="navbar-form" action="#" method="post">
               <div class="input-group no-border">
                   <div class="ripple-container"></div>
               </div>
@@ -86,7 +82,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="<?php echo base_url('Admin/editProfile');?>">Profil</a>
+                  <a class="dropdown-item" href="<?php echo base_url('Doctor/editProfile');?>">Profil</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?php echo base_url('User/logout');?>">Log out</a>
                 </div>
@@ -96,108 +92,18 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php foreach($student as $stdnt):?>
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-10">
-              <div class="card">
-                <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="#">
-                    <img class="img" src="<?php echo base_url('profile_pictures/') . $stdnt->profile_picture; ?>" />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title"><?php echo $stdnt->fullname;?></h4>
-              </div>
-            </div>
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">Edit </h4>
-                  <p class="card-category">Identitas Pasien</p>
-                </div>
-                <div class="card-body">
-                <?php echo form_open(base_url('Admin/editStudent/' . $stdnt->id_student)) ?>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Nama Pasien</label>
-                          <input type="text" class="form-control" value=<?php echo $stdnt->fullname;?> name="fullname">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Tempat Tanggal Lahir</label>
-                          <input type="text" class="form-control" value=<?php echo $stdnt->birthdate;?> readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Alamat Email</label>
-                          <input type="email" class="form-control" value=<?php echo $stdnt->email;?> name="email">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">No Telp</label>
-                          <input type="text" class="form-control" value=<?php echo $stdnt->phone_number;?> name="phone_number">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Alamat Tempat Tinggal</label>
-                          <input type="text" class="form-control" value=<?php echo $stdnt->address;?> name="address">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Pendidikan</label>
-                          <input type="text" class="form-control" value=<?php echo $stdnt->education;?> name="education">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Pekerjaan</label>
-                          <input type="text" class="form-control" value=<?php echo $stdnt->job;?> name="job">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Agama</label>
-                          <input type="text" class="form-control" value=<?php echo $stdnt->religion;?> name="religion">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Usia</label>
-                          <input type="number" class="form-control" value=<?php echo $stdnt->age;?> readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Status</label>
-                          <input type="text" class="form-control" value=<?php echo $stdnt->status;?> name="status">
-                        </div>
-                      </div>
-                 </div>
-                 <?php endforeach;?>
-               <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-              </form>
-                </div>
-              </div>
-            </div>
-           </div>
+      <div container>
+        <div class="rows">
+          <br>
+          <br>
+          <br>
+<h1>Selamat datang, </h1><?php echo $username; ?> !
+</div>
       </div>
+      
+      </footer>
+    </div>
+  </div>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
@@ -381,7 +287,6 @@
             $('body').removeClass('sidebar-mini');
             md.misc.sidebar_mini_active = false;
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
           } else {
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
             setTimeout(function() {
@@ -405,5 +310,4 @@
     });
   </script>
 </body>
-
 </html>
