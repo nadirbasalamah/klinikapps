@@ -25,7 +25,7 @@
 
 <body>
   <div class="wrapper ">
-    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>"> 
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
           <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">      
@@ -106,13 +106,13 @@
                   <p class="card-category">Antropometri</p>
                 </div>
                 <div class="card-body">
-                <?php foreach($record as $rec):?>
-                <?php echo form_open(base_url('Doctor/updateNutritionRecord/' . $rec->id_student)); ?>
+                <?php foreach($student as $stdt):?>
+                <?php echo form_open(base_url('Doctor/updateNutritionRecord/' . $stdt->id_student)); ?>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">BB</label>
-                          <input type="number" class="form-control" name="bb" step="0.01" value=<?php echo $rec->bb;?>>
+                          <input type="number" class="form-control" name="bb" step="0.01">
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -200,7 +200,6 @@
       </div>
     </div>
 
-    <?php //foreach($record as $rec):?>
     <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -295,7 +294,6 @@
                                     </div>
                                   </div>
                                 </div>
-                  <?php //endforeach;?>                       
                   <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
                 </form>
               </div>

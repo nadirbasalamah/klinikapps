@@ -108,7 +108,6 @@
                         <th>No </th>
                         <th>Nama</th>
                         <th>Alamat</th>
-                        <th>Status</th>
                         <th> Aksi</th>
                       </thead>
                       <tbody>
@@ -117,7 +116,6 @@
                           <th scope="row"><?php echo $count++;?></th>
                           <td><?php echo $student->fullname;?></td>
                           <td><?php echo $student->address;?></td>
-                          <td><?php echo $student->status;?></td>
                           <td>
                           <td><a href="<?php echo base_url('User/viewStudent/' . $student->id_student);?>" button class="btn btn-info">lihat</button></a></td>
                           </td>

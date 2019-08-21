@@ -49,12 +49,15 @@ class Nutrition_records extends CI_Model {
 
     public function getNutritionRecordById($id)
     {
-        $this->db->where('id_student',$id);
-        $query = $this->db->get('nutrition_records',1);
-        if ($query->num_rows() == 1) {
-        return $query->result();
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->join('nutrition_records','students.id_student = nutrition_records.id_student');
+        $this->db->where('students.id_student',$id);
+        $query = $this->db->get();
+        if ($query->num_rows() >= 1) {
+            return $query->result();
         } else {
-        return null;
+            return null;
         }
     }
 

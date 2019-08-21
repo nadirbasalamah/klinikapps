@@ -40,13 +40,18 @@ class Doctor extends CI_Controller {
 
 	public function viewEditStudent($id)
 	{
-		$data['student'] = $this->Nutrition_records->getNutritionRecordById($id);
-		$this->load->view('doctor/edit_student',$data);
+		$data['record'] = $this->Nutrition_records->getNutritionRecordById($id);
+		if ($data['record'] !== null) {
+			$this->load->view('doctor/edit_student',$data);
+		} else {
+			$data['student'] = $this->Students->getStudentById($id);
+			$this->load->view('doctor/add_nutrition_rec',$data);
+		}
 	}
 
 	public function updateNutritionRecord($id)
 	{
-		//TODO: update nutrition record data (Antropometri ONLY)
+		//TODO: update nutrition record data (ANTO ONLY)
 		$data = array(
 			'id_record' => 0,
 			'id_student' => $id,
@@ -73,11 +78,10 @@ class Doctor extends CI_Controller {
 		$sheet->setCellValue('E1', 'Alamat');
 		$sheet->setCellValue('F1', 'Nomor Telepon');
 		$sheet->setCellValue('G1', 'Email');
-		$sheet->setCellValue('H1', 'Status');
-		$sheet->setCellValue('I1', 'Tanggal Lahir');
-		$sheet->setCellValue('J1', 'Pendidikan');
-		$sheet->setCellValue('K1', 'Pekerjaan');
-		$sheet->setCellValue('L1', 'Agama / suku');
+		$sheet->setCellValue('H1', 'Tanggal Lahir');
+		$sheet->setCellValue('I1', 'Pendidikan');
+		$sheet->setCellValue('J1', 'Pekerjaan');
+		$sheet->setCellValue('K1', 'Agama / suku');
 		$i = 2;
 
 		
@@ -90,11 +94,10 @@ class Doctor extends CI_Controller {
 			$sheet->setCellValue('E'.$i, $student['address']);
 			$sheet->setCellValue('F'.$i, $student['phone_number']);
 			$sheet->setCellValue('G'.$i, $student['email']);
-			$sheet->setCellValue('H'.$i, $student['status']);
-			$sheet->setCellValue('I'.$i, $student['birthdate']);
-			$sheet->setCellValue('J'.$i, $student['education']);
-			$sheet->setCellValue('K'.$i, $student['job']);
-			$sheet->setCellValue('L'.$i, $student['religion']);
+			$sheet->setCellValue('H'.$i, $student['birthdate']);
+			$sheet->setCellValue('I'.$i, $student['education']);
+			$sheet->setCellValue('J'.$i, $student['job']);
+			$sheet->setCellValue('K'.$i, $student['religion']);
 			$i++;
 		}
 		

@@ -19,7 +19,6 @@ class Admin extends CI_Controller {
 
 		$this->load->model('Users');
 		$this->load->model('Students');
-		$this->load->model('Nutrition_records');
 	}
 
 	public function index()
@@ -64,7 +63,6 @@ class Admin extends CI_Controller {
 			'address' => $this->input->post('address'),
 			'phone_number' => $this->input->post('phone_number'),
 			'email' => $this->input->post('email'),
-			'status' => $this->input->post('status'),
 			'education' => $this->input->post('education'),
 			'job' => $this->input->post('job'),
 			'religion' => $this->input->post('religion')
@@ -88,7 +86,6 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('phone_number', 'Nomor ponsel', 'trim|required');
 		$this->form_validation->set_rules('email', 'Alamat Email', 'trim|required');
 		$this->form_validation->set_rules('address', 'Alamat Tempat Tinggal', 'trim|required');
-		$this->form_validation->set_rules('status', 'Status', 'trim|required');
 		$this->form_validation->set_rules('education', 'Pendidikan', 'trim|required');
 		$this->form_validation->set_rules('job', 'Pekerjaan', 'trim|required');
 		$this->form_validation->set_rules('religion', 'Agama / suku', 'trim|required');
@@ -113,13 +110,16 @@ class Admin extends CI_Controller {
 		} else {
 			$data = array(
 			'id_student' => 0,
+			'rm_number' => $this->input->post('rm_number'),
+			'rmgizi_number' => $this->input->post('rmgizi_number'),
+			'visitdate' => $this->input->post('visitdate'),
+			'referral' => $this->input->post('referral'),
 			'fullname' => $this->input->post('fullname'),
 			'age' => $this->input->post('age'),
 			'gender' => $this->input->post('gender'),
 			'address' => $this->input->post('address'),
 			'phone_number' => $this->input->post('phone_number'),
 			'email' => $this->input->post('email'),
-			'status' => $this->input->post('status'),
 			'birthdate' => $this->input->post('birthdate'),
 			'profile_picture' => $file_loc,
 			'education' => $this->input->post('education'),
@@ -179,12 +179,11 @@ class Admin extends CI_Controller {
 						'address'       => $sheetData[$i]['4'],
 						'phone_number'  => $sheetData[$i]['5'],
 						'email'         => $sheetData[$i]['6'],
-						'status'          => $sheetData[$i]['7'],
-						'birthdate'       => $sheetData[$i]['8'],
+						'birthdate'       => $sheetData[$i]['7'],
 						'profile_picture' => 'default.png',
-						'education'         => $sheetData[$i]['9'],
-						'job'          => $sheetData[$i]['10'],
-						'religion'       => $sheetData[$i]['11'],
+						'education'         => $sheetData[$i]['8'],
+						'job'          => $sheetData[$i]['9'],
+						'religion'       => $sheetData[$i]['10'],
 					);
 					array_push($save,$data);
 				}
@@ -212,11 +211,10 @@ class Admin extends CI_Controller {
 		$sheet->setCellValue('E1', 'Alamat');
 		$sheet->setCellValue('F1', 'Nomor Telepon');
 		$sheet->setCellValue('G1', 'Email');
-		$sheet->setCellValue('H1', 'Status');
-		$sheet->setCellValue('I1', 'Tanggal Lahir');
-		$sheet->setCellValue('J1', 'Pendidikan');
-		$sheet->setCellValue('K1', 'Pekerjaan');
-		$sheet->setCellValue('L1', 'Agama / suku');
+		$sheet->setCellValue('H1', 'Tanggal Lahir');
+		$sheet->setCellValue('I1', 'Pendidikan');
+		$sheet->setCellValue('J1', 'Pekerjaan');
+		$sheet->setCellValue('K1', 'Agama / suku');
 		$i = 2;
 
 		
@@ -229,11 +227,10 @@ class Admin extends CI_Controller {
 			$sheet->setCellValue('E'.$i, $student['address']);
 			$sheet->setCellValue('F'.$i, $student['phone_number']);
 			$sheet->setCellValue('G'.$i, $student['email']);
-			$sheet->setCellValue('H'.$i, $student['status']);
-			$sheet->setCellValue('I'.$i, $student['birthdate']);
-			$sheet->setCellValue('J'.$i, $student['education']);
-			$sheet->setCellValue('K'.$i, $student['job']);
-			$sheet->setCellValue('L'.$i, $student['religion']);
+			$sheet->setCellValue('H'.$i, $student['birthdate']);
+			$sheet->setCellValue('I'.$i, $student['education']);
+			$sheet->setCellValue('J'.$i, $student['job']);
+			$sheet->setCellValue('K'.$i, $student['religion']);
 			$i++;
 		}
 		

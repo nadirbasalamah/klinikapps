@@ -205,12 +205,6 @@
              <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Status</label>
-                    <input type="text" class="form-control" name="status">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
                     <label class="bmd-label-floating">Pendidikan</label>
                     <input type="text" class="form-control" name="education">
                   </div>

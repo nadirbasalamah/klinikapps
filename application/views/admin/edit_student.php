@@ -182,14 +182,6 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Status</label>
-                          <input type="text" class="form-control" value=<?php echo $stdnt->status;?> name="status">
-                        </div>
-                      </div>
-                 </div>
                  <?php endforeach;?>
                <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
               </form>

@@ -70,6 +70,9 @@ class User extends CI_Controller {
 		if ($data['id_type'] == 'nip') {
 			$data['role'] = 'admin';
 			$result = $this->Users->registration($data);
+		} else if(strpos($data['fullname'], 'Dr.') !== false) {
+			$data['role'] = 'doctor';
+			$result = $this->Users->registration($data);
 		} else {
 			$result = $this->Users->registration($data);
 		}
@@ -112,6 +115,8 @@ class User extends CI_Controller {
 		$this->session->set_userdata('logged_in', $session_data);
 		if ($result[0]->role == 'admin') {
 			redirect(base_url('Admin/index'),'refresh');
+		} else if($result[0]->role == 'doctor') {
+			redirect(base_url('Doctor/index'),'refresh');
 		} else {
 			redirect(base_url('User/viewDashboard'),'refresh');
 		}
