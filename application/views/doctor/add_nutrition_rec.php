@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Edit Student's Nutrition Record
+    Edit Student's Profile
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -24,11 +24,13 @@
 </head>
 
 <body style="background-image: url('https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiQkYTX9ZDkAhWBuo8KHU4iBUoQjRx6BAgBEAQ&url=https%3A%2F%2Fwebgradients.com%2F&psig=AOvVaw3mnMBPWmq-C9OH6YZxMSs0&ust=1566372268059189')">
-  <div class="wrapper">
+  <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
+ 
+ 
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">      
+          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -52,7 +54,6 @@
               <p>Daftar Siswa</p>
             </a>
           </li>
-          
         </ul>
       </div>
     </div>
@@ -61,7 +62,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Ubah Data Siswa </a>
+            <a class="navbar-brand" href="#pablo">Ubah Data Siswa</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -73,6 +74,7 @@
             <form class="navbar-form">
               <div class="input-group no-border">
                   <div class="ripple-container"></div>
+                </button>
               </div>
             </form>
             <ul class="navbar-nav">
@@ -94,13 +96,11 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <!-- TODO: load nutrition records data -->
-      
     <div class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-10">
-              <div class="card">          
+              <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Edit </h4>
                   <p class="card-category">Antropometri</p>
@@ -137,69 +137,64 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Status Gizi</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">LILA/Lingkar Kepala</label>
-                          <input type="text" class="form-control" name="lila">
+                          <input type="number" class="form-control" name="lila" step="0.01">
                         </div>
                       </div>
                       <br>
                           <div class="col-md-12">
                               <div class="form-group">
+                                <label class="bmd-label-floating">Status Gizi (Kategori)</label>
+                                <div class="form-check form-check-radio">
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" >
+                                      Underweight
+                                      <span class="circle">
+                                          <span class="check"></span>
+                                      </span>
+                                  </label>
+                              </div>
                               <div class="form-check form-check-radio">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="status"  value="underweight">
-                                  Underweight
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                              </label>
-                          </div>
-                          <div class="form-check form-check-radio">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="status"  value="normal" checked>
-                                  Normal
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                              </label>
-                          </div>
-                          <div class="form-check form-check-radio">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="status"  value="overweight">
-                                  Overweight
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                              </label>
-                          </div>
-                          <div class="form-check form-check-radio">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="status"  value="obese">
-                                  Obese
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                              </label>
-                          </div>
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" checked>
+                                      Normal
+                                      <span class="circle">
+                                          <span class="check"></span>
+                                      </span>
+                                  </label>
+                              </div>
+                              <div class="form-check form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" checked>
+                                    Overweight
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" checked>
+                                    Obese
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
                                 </div>
                           </div>
                     </div>
-                    <?php endforeach;?>                       
-                    <!-- <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                  </form> -->
+                    <?php endforeach;?>           
                 </div>
               </div>
             </div>
+         
         </div>
       </div>
     </div>
-
+   
     <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -212,7 +207,7 @@
               </div>
               
               <div class="card-body">
-                <!--TODO: update biokimia data-->  
+                  
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
@@ -293,14 +288,13 @@
                                     </div>
                                   </div>
                                 </div>
-                  <!-- <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                </form> -->
               </div>
             </div>
           </div>
+       
       </div>
     </div>
-  </div>
+    </div>
   
   <div class="content">
       <div class="container-fluid">
@@ -312,27 +306,25 @@
                 <h4 class="card-title">Edit </h4>
                 <p class="card-category">Klinik</p>
               </div>
-              
               <div class="card-body">
-                  <!--TODO: update klinik data-->
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="bmd-label-floating">Tensi (mmHg)</label>
-                        <input type="number" class="form-control" step="0.01" name="tensi">
+                        <input type="number" class="form-control" name="tensi" step="0.01">
                       </div>
                     </div>
                    
                     <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Suhu(Celcius)</label>
-                          <input type="number" class="form-control" step="0.01" name="suhu">
+                          <input type="number" class="form-control" name="suhu" step="0.01">
                         </div>
                       </div>
                       <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">lainnya</label>
-                            <input type="number" class="form-control" step="0.01">
+                            <input type="text" class="form-control" name="lainnya">
                           </div>
                         </div>
                     </div>
@@ -340,19 +332,19 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">RR(x/menit)</label>
-                            <input type="number" class="form-control" step="0.01" name="rr">
+                            <input type="number" class="form-control" name="rr" step="0.01">
                           </div>
                         </div>
                        
                         <div class="col-md-4">
                             <div class="form-group">
                               <label class="bmd-label-floating">Oedema</label>
-                              <input type="number" class="form-control" step="0.01" name="oedema">
+                              <input type="number" class="form-control" name="oedema" step="0.01">
                             </div>
                           </div>
                           <div class="col-md-4">
                             <br>
-                              <div class="form-group">
+                            <div class="form-group">
                               <label class="bmd-label-floating">Aktivitas</label>
                               <div class="form-check form-check-radio">
                                 <label class="form-check-label">
@@ -374,15 +366,13 @@
                             </div>
                             <div class="form-check form-check-radio">
                               <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="berat">
+                                  <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="berat" checked>
                                   Berat
                                   <span class="circle">
                                       <span class="check"></span>
                                   </span>
                               </label>
                           </div>
-                              </div>
-                            </div>
                               </div>
                             </div>
                             
@@ -392,7 +382,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Olahraga (x dalam 1 minggu,selama x menit)</label>
-                          <input type="number" class="form-control" name="durasi_olahraga">
+                          <input type="text" class="form-control" name="olahraga">
                         </div>
                       </div>
                      
@@ -420,15 +410,13 @@
                               </div>
                             </div>
                           </div>
-                   
-                  <!-- <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                </form> -->
               </div>
             </div>
           </div>
       </div>
     </div>
-  </div>
+    </div>
+  
   <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -441,8 +429,7 @@
               </div>
               
               <div class="card-body">
-                <form>
-                  <!--TODO: update dietary data--->
+                  
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
@@ -474,10 +461,6 @@
                         
                         
                                 </div>
-       
-                  <!-- <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                
-                </form> -->
               </div>
             </div>
           </div>
@@ -494,11 +477,10 @@
              
               <div class="card-header card-header-primary">
                 <h4 class="card-title">Edit </h4>
-                <p class="card-category">Dietary History</p>
+                <p class="card-category">Dietary</p>
               </div>
               
               <div class="card-body">
-                  <!--TODO: edit dietary history--->
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
@@ -510,8 +492,8 @@
                     <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                      <label class="bmd-label-floating">Yang biasa dikonsumsi (Susu , Teh , Kopi)</label>
-                          </div>
+                          <label class="bmd-label-floating">Yang biasa dikonsumsi (Susu , Teh , Kopi)</label>
+                          </div>      
                       </div>
                     </div>
                     <div class="row">
@@ -580,11 +562,6 @@
                                                     </div>
                                                     
                                                             </div>
-                                                            
-       
-                  <!-- <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                
-                </form> -->
               </div>
             </div>
           </div>
@@ -605,7 +582,6 @@
             </div>
             
             <div class="card-body">
-                <!--TODO: update others data--->
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
@@ -634,7 +610,6 @@
           </div>
           
           <div class="card-body">
-              <!--TODO: update diagnosa code--->
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
@@ -643,16 +618,14 @@
                  </div>
                 </div>
                 </div>
-              <!-- <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-             </form> -->
           </div>
         </div>
       </div>
    
   </div>
 </div>
-
 </div>
+
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -663,7 +636,6 @@
             <h4 class="card-title">Edit </h4>
             <p class="card-category">Status Gizi</p>
           </div>
-          
           <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
@@ -675,7 +647,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                      <label class="bmd-label-floating">Angka</label>
+                      <label class="bmd-label-floating">Agka</label>
                       <input type="text" class="form-control">
                     </div>
                   </div>
@@ -713,26 +685,36 @@
     <div class="row">
       <div class="col-md-10">
         <div class="card">
+     
+      
           <div class="card-header card-header-primary">
             <h4 class="card-title">Interenvensi </h4>
+         
           </div>
-          <div class="card-body">  
+          
+          <div class="card-body">
+
+                  
                             <form>
                            <div class="row">
                                 <div class="col-md-6">
                                 <th><h6>Kebutuhan Energi
-                                <input type="text" class="form-control">
+                                <input type="number" class="form-control" name="energi">
                               </h6></th>
                                 </div>
                                 <div class="col-md-6">
                                   <br>
+                                 
+                               
                                   <td><h6>kalori</h6></td>
+                              
+                              
                                 </div>
                               </div>
                               <div class="row">
                                   <div class="col-md-4">
                                 <td><h6> Karbohidrat
-                                    <input type="text" class="form-control">
+                                    <input type="number" class="form-control" name="karbohidrat" step="0.01">
                                 </h6></td>
                               </div>
                               <span 
@@ -743,7 +725,7 @@
                                 <td><h6> 
                               
                                  <br>
-                                    <input type="text" class="form-control">
+                                    <input type="number" class="form-control">
                           </div>
                           <span style="margin-top: 31px;">
                               <td><h6 >Gram</h6></td></span>
@@ -751,7 +733,7 @@
                               <div class="row">
                                 <div class="col-md-4">
                               <td><h6> Protein
-                                  <input type="text" class="form-control">
+                                  <input type="number" class="form-control" name="protein" step="0.01">
                               </h6></td>
                             </div>
                             <span 
@@ -762,7 +744,7 @@
                               <td><h6> 
                             
                                <br>
-                                  <input type="text" class="form-control">
+                                  <input type="number" class="form-control">
                         </div>
                         <span style="margin-top: 31px;">
                             <td><h6 >Gram</h6></td></span>
@@ -771,7 +753,7 @@
                             <div class="row">
                               <div class="col-md-4">
                             <td><h6> Lemak
-                                <input type="text" class="form-control">
+                                <input type="number" class="form-control" name="lemak" step="0.01">
                             </h6></td>
                           </div>
                           <span 
@@ -782,13 +764,12 @@
                             <td><h6> 
                           
                              <br>
-                                <input type="text" class="form-control">
+                                <input type="number" class="form-control">
                       </div>
                       <span style="margin-top: 31px;">
                           <td><h6 >Gram</h6></td></span>
                           </div>
-                          <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                   
+                          <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>   
                          </form>
                       </div>
                        </div>
@@ -797,7 +778,6 @@
   
               </div>
           </div>
-
 <div class="content">
     <div class="container-fluid">
       <div class="row">
@@ -808,33 +788,34 @@
               <h4 class="card-title">Edit </h4>
               <p class="card-category">Monitoring dan Evaluasi</p>
             </div>
-            
             <div class="card-body">
-            <?php foreach($student as $stdt):?>
-                <?php echo form_open(base_url('Doctor/updateMonitoringRecord/' . $stdt->id_student)); ?>
-                <!--TODO: update monitoring data--->
+              <form action="#">
+                
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Tanggal</label>
-                      <input type="text" class="form-control" name="mon_date">
+                      <input type="text" class="form-control">
                     </div>
                   </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Monitor dan Evaluasi</label>
-                      <textarea class="form-control" rows="5" name="result"></textarea>
+                      <textarea class="form-control" rows="5"></textarea>
                     </div>
                   </div>
-                <?php endforeach;?>
+     
                 <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
+              
               </form>
             </div>
           </div>
         </div>
+     
     </div>
   </div>
+
 </div>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>

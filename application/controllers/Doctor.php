@@ -75,7 +75,8 @@ class Doctor extends CI_Controller {
 			'sgpt' => $this->input->post('sgpt'), 
 			'tensi' => $this->input->post('tensi'), 
 			'rr' => $this->input->post('rr'), 
-			'suhu' => $this->input->post('suhu'), 
+			'suhu' => $this->input->post('suhu'),
+			'lainnya' => $this->input->post('lainnya'), 
 			'oedema' => $this->input->post('oedema'), 
 			'aktivitas' => $this->input->post('aktivitas'), 
 			'olahraga' => $this->input->post('olahraga'), 
@@ -97,6 +98,7 @@ class Doctor extends CI_Controller {
 			'dietary_lainnya' => $this->input->post('dietary_lainnya'), 
 			'lain_lain' => $this->input->post('lain_lain'), 
 			'diagnosa' => $this->input->post('diagnosa'), 
+			'energi' => $this->input->post('energi'), 
 			'karbohidrat' => $this->input->post('karbohidrat'), 
 			'protein' => $this->input->post('protein'), 
 			'lemak' => $this->input->post('lemak')
