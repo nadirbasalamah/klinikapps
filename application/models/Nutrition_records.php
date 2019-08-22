@@ -30,14 +30,14 @@ class Nutrition_records extends CI_Model {
 
     public function updateNutritionRecord($data)
     {
-        //TODO: update record nutrition (Anto ONLY)
+        //TODO: update record nutrition (all of them)
         $this->db->set('bb',$data['bb']);
         $this->db->set('tb',$data['tb']);
         $this->db->set('lila',$data['lila']);
         $this->db->set('imt',$data['imt']);
         $this->db->set('bbi',$data['bbi']);
         $this->db->set('status',$data['status']);
-        $this->db->where('id_student',$data['id']);
+        $this->db->where('id_student',$data['id_student']);
         $this->db->update('nutrition_records');
 
         if ($this->db->affected_rows() > 0) {

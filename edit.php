@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Edit Student's Nutrition Record
+    Edit Student's Profile
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -23,12 +23,14 @@
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
 
-<body>
+<body style="background-image: url('https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiQkYTX9ZDkAhWBuo8KHU4iBUoQjRx6BAgBEAQ&url=https%3A%2F%2Fwebgradients.com%2F&psig=AOvVaw3mnMBPWmq-C9OH6YZxMSs0&ust=1566372268059189')">
   <div class="wrapper ">
-    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>"> 
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
+ 
+ 
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">      
+          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -52,7 +54,6 @@
               <p>Daftar Siswa</p>
             </a>
           </li>
-          
         </ul>
       </div>
     </div>
@@ -61,7 +62,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Ubah Data Siswa </a>
+            <a class="navbar-brand" href="#pablo">Ubah Data Siswa</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -73,6 +74,7 @@
             <form class="navbar-form">
               <div class="input-group no-border">
                   <div class="ripple-container"></div>
+                </button>
               </div>
             </form>
             <ul class="navbar-nav">
@@ -94,31 +96,29 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <!-- TODO: load nutrition records data -->
-      
     <div class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-10">
-              <div class="card">          
+              <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Edit </h4>
                   <p class="card-category">Antropometri</p>
                 </div>
                 <div class="card-body">
-                <?php foreach($record as $rec):?>
-                <?php echo form_open(base_url('Doctor/updateNutritionRecord/' . $rec->id_student)); ?>
+                <?php foreach($student as $stdt):?>
+                <?php echo form_open(base_url('Doctor/updateNutritionRecord/' . $stdt->id_student)); ?>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">BB</label>
-                          <input type="number" class="form-control" name="bb" step="0.01" value=<?php echo $rec->bb;?>>
+                          <input type="number" class="form-control" name="bb" step="0.01">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">IMT</label>
-                          <input type="number" class="form-control" name="imt" step="0.01" value=<?php echo $rec->imt;?>>
+                          <input type="number" class="form-control" name="imt" step="0.01">
                         </div>
                       </div>
                     </div>
@@ -126,80 +126,75 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">TB</label>
-                          <input type="number" class="form-control" name="tb" step="0.01" value=<?php echo $rec->tb;?>>
+                          <input type="number" class="form-control" name="tb" step="0.01">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">BBI</label>
-                          <input type="number" class="form-control" name="bbi" step="0.01" value=<?php echo $rec->bbi;?>>
+                          <input type="number" class="form-control" name="bbi" step="0.01">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Status Gizi</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">LILA/Lingkar Kepala</label>
-                          <input type="text" class="form-control" name="lila" value=<?php echo $rec->lila;?>>
+                          <input type="number" class="form-control" name="lila" step="0.01">
                         </div>
                       </div>
                       <br>
                           <div class="col-md-12">
                               <div class="form-group">
+                                <label class="bmd-label-floating">Status Gizi (Kategori)</label>
+                                <div class="form-check form-check-radio">
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" >
+                                      Underweight
+                                      <span class="circle">
+                                          <span class="check"></span>
+                                      </span>
+                                  </label>
+                              </div>
                               <div class="form-check form-check-radio">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="status"  value="underweight">
-                                  Underweight
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                              </label>
-                          </div>
-                          <div class="form-check form-check-radio">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="status"  value="normal" checked>
-                                  Normal
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                              </label>
-                          </div>
-                          <div class="form-check form-check-radio">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="status"  value="overweight">
-                                  Overweight
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                              </label>
-                          </div>
-                          <div class="form-check form-check-radio">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="status"  value="obese">
-                                  Obese
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                              </label>
-                          </div>
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" checked>
+                                      Normal
+                                      <span class="circle">
+                                          <span class="check"></span>
+                                      </span>
+                                  </label>
+                              </div>
+                              <div class="form-check form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" checked>
+                                    Overweight
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" checked>
+                                    Obese
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
                                 </div>
                           </div>
                     </div>
-                    
-                    <!-- <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                  </form> -->
+                    <?php endforeach;?>           
                 </div>
               </div>
             </div>
+         
         </div>
       </div>
     </div>
-
+   
     <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -212,24 +207,24 @@
               </div>
               
               <div class="card-body">
-                <!--TODO: update biokimia data-->  
+                  
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="bmd-label-floating">GDA</label>
-                        <input type="number" class="form-control" name="gda" step="0.01" value=<?php echo $rec->gda;?>>
+                        <input type="number" class="form-control" name="gda" step="0.01">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="bmd-label-floating">Trigliserida</label>
-                        <input type="number" class="form-control" name="trigliserida" step="0.01" value=<?php echo $rec->trigliserida;?>>
+                        <input type="number" class="form-control" name="trigliserida" step="0.01">
                       </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Ureum</label>
-                          <input type="number" class="form-control" name="ureum" step="0.01" value=<?php echo $rec->ureum;?>>
+                          <input type="number" class="form-control" name="ureum" step="0.01">
                         </div>
                       </div>
                     </div>
@@ -237,19 +232,19 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">GDP</label>
-                            <input type="number" class="form-control" name="gdp" step="0.01" value=<?php echo $rec->gdp;?>>
+                            <input type="number" class="form-control" name="gdp" step="0.01">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">Kolesterol Total</label>
-                            <input type="number" class="form-control" name="kolesterol" step="0.01" value=<?php echo $rec->kolesterol;?>>
+                            <input type="number" class="form-control" name="kolesterol" step="0.01">
                           </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                               <label class="bmd-label-floating">Kreatinin</label>
-                              <input type="number" class="form-control" name="kreatinin" step="0.01" value=<?php echo $rec->kreatinin;?>>
+                              <input type="number" class="form-control" name="kreatinin" step="0.01">
                             </div>
                           </div>
                         </div>
@@ -257,19 +252,19 @@
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label class="bmd-label-floating">GD2JPP</label>
-                                <input type="number" class="form-control" name="gd2jpp" step="0.01" value=<?php echo $rec->gd2jpp;?>>
+                                <input type="number" class="form-control" name="gd2jpp" step="0.01">
                               </div>
                             </div>
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label class="bmd-label-floating">LDL</label>
-                                <input type="number" class="form-control" name="ldl" step="0.01" value=<?php echo $rec->ldl;?>>
+                                <input type="number" class="form-control" name="ldl" step="0.01">
                               </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                   <label class="bmd-label-floating">SGOT</label>
-                                  <input type="number" class="form-control" name="sgot" step="0.01" value=<?php echo $rec->sgot;?>>
+                                  <input type="number" class="form-control" name="sgot" step="0.01">
                                 </div>
                               </div>
                             </div>
@@ -277,28 +272,29 @@
                                 <div class="col-md-4">
                                   <div class="form-group">
                                     <label class="bmd-label-floating">Asam Urat</label>
-                                    <input type="number" class="form-control" name="asam_urat" step="0.01" value=<?php echo $rec->asam_urat;?>>
+                                    <input type="number" class="form-control" name="asam_urat" step="0.01">
                                   </div>
                                 </div>
                                 <div class="col-md-4">
                                   <div class="form-group">
                                     <label class="bmd-label-floating">HDL</label>
-                                    <input type="number" class="form-control" name="hdl" step="0.01" value=<?php echo $rec->hdl;?>>
+                                    <input type="number" class="form-control" name="hdl" step="0.01">
                                   </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                       <label class="bmd-label-floating">SGPT</label>
-                                      <input type="number" class="form-control" name="sgpt" step="0.01" value=<?php echo $rec->sgpt;?>>
+                                      <input type="number" class="form-control" name="sgpt" step="0.01">
                                     </div>
                                   </div>
                                 </div>
               </div>
             </div>
           </div>
+       
       </div>
     </div>
-  </div>
+    </div>
   
   <div class="content">
       <div class="container-fluid">
@@ -310,27 +306,25 @@
                 <h4 class="card-title">Edit </h4>
                 <p class="card-category">Klinik</p>
               </div>
-              
               <div class="card-body">
-                  <!--TODO: update klinik data-->
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="bmd-label-floating">Tensi (mmHg)</label>
-                        <input type="number" class="form-control" step="0.01" name="tensi" value=<?php echo $rec->tensi;?>>
+                        <input type="number" class="form-control" name="tensi" step="0.01">
                       </div>
                     </div>
                    
                     <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Suhu(Celcius)</label>
-                          <input type="number" class="form-control" step="0.01" name="suhu" value=<?php echo $rec->suhu;?>>
+                          <input type="number" class="form-control" name="suhu" step="0.01">
                         </div>
                       </div>
                       <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">lainnya</label>
-                            <input type="number" class="form-control" step="0.01">
+                            <input type="text" class="form-control" name="lainnya">
                           </div>
                         </div>
                     </div>
@@ -338,30 +332,47 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">RR(x/menit)</label>
-                            <input type="number" class="form-control" step="0.01" name="rr" value=<?php echo $rec->rr;?>>
+                            <input type="number" class="form-control" name="rr" step="0.01">
                           </div>
                         </div>
                        
                         <div class="col-md-4">
                             <div class="form-group">
                               <label class="bmd-label-floating">Oedema</label>
-                              <input type="number" class="form-control" step="0.01" name="oedema" value=<?php echo $rec->oedema;?>>
+                              <input type="number" class="form-control" name="oedema" step="0.01">
                             </div>
                           </div>
                           <div class="col-md-4">
                             <br>
-                              <div class="form-group">
-                               
-                                <div class="dropdown" name="aktivitas">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Aktivitas
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      <a class="dropdown-item" href="#" value="ringan">Ringan</a>
-                                      <a class="dropdown-item" href="#" value="sedang">Sedang</a>
-                                      <a class="dropdown-item" href="#" value="berat">Berat</a>
-                                    </div>
-                                  </div>
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Aktivitas</label>
+                              <div class="form-check form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios1" value="ringan" >
+                                    Ringan
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="sedang" checked>
+                                    Sedang
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-radio">
+                              <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="berat" checked>
+                                  Berat
+                                  <span class="circle">
+                                      <span class="check"></span>
+                                  </span>
+                              </label>
+                          </div>
                               </div>
                             </div>
                             
@@ -371,14 +382,14 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Olahraga (x dalam 1 minggu,selama x menit)</label>
-                          <input type="number" class="form-control" name="durasi_olahraga" value=<?php echo $rec->durasi_olahraga;?>>
+                          <input type="text" class="form-control" name="olahraga">
                         </div>
                       </div>
                      
                       <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Jenis Olahraga</label>
-                            <input type="text" class="form-control" name="jenis_olahraga" value=<?php echo $rec->jenis_olahraga;?>>
+                            <input type="text" class="form-control" name="jenis_olahraga">
                           </div>
                         </div>
                        
@@ -387,7 +398,7 @@
                           <div class="col-md-12">
                             <div class="form-group">
                               <label class="bmd-label-floating">Diagnosa Dahulu </label>
-                              <input type="text" class="form-control" name="diagnosa_dahulu" value=<?php echo $rec->diagnosa_dahulu;?>>
+                              <input type="text" class="form-control" name="diagnosa_dahulu">
                             </div>
                           </div>
                         </div>
@@ -395,17 +406,17 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Diagnosa Sekarang </label>
-                                <input type="text" class="form-control" name="diagnosa_skrg" value=<?php echo $rec->diagnosa_skrg;?>>
+                                <input type="text" class="form-control" name="diagnosa_skrg">
                               </div>
                             </div>
                           </div>
-                   
               </div>
             </div>
           </div>
       </div>
     </div>
-  </div>
+    </div>
+  
   <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -418,19 +429,18 @@
               </div>
               
               <div class="card-body">
-                <form>
-                  <!--TODO: update dietary data--->
+                  
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="bmd-label-floating">Nafsu Makan ( + / -)</label>
-                        <input type="text" class="form-control" name="nafsu_makan" value=<?php echo $rec->nafsu_makan;?>>
+                        <input type="text" class="form-control" name="nafsu_makan">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="bmd-label-floating">Frekuensi Makan( x/hari , teratur/tidak teratur ) </label>
-                        <input type="text" class="form-control" name="frekuensi_makan" value=<?php echo $rec->frekuensi_makan;?>>
+                        <input type="text" class="form-control" name="frekuensi_makan">
                       </div>
                     </div>
                    
@@ -439,13 +449,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Alergi / Pantangan</label>
-                            <input type="text" class="form-control" name="alergi" value=<?php echo $rec->alergi;?>>
+                            <input type="text" class="form-control" name="alergi">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Kesukaan</label>
-                            <input type="text" class="form-control" name="makanan_kesukaan" value=<?php echo $rec->makanan_kesukaan;?>>
+                            <input type="text" class="form-control" name="makanan_kesukaan">
                           </div>
                         </div>
                         
@@ -467,67 +477,45 @@
              
               <div class="card-header card-header-primary">
                 <h4 class="card-title">Edit </h4>
-                <p class="card-category">Dietary History</p>
+                <p class="card-category">Dietary</p>
               </div>
               
               <div class="card-body">
-                  <!--TODO: edit dietary history--->
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="bmd-label-floating">Nasi</label>
-                        <input type="text" class="form-control" name="dietary_nasi" value=<?php echo $rec->dietary_nasi;?>>
+                        <input type="text" class="form-control" name="dietary_nasi">
                       </div>
                     </div>
                     </div>
                     <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                          <label class="bmd-label-floating">Minuman yang biasa dikonsumsi :</label><br><br>
-                          <div class="form-check form-check-radio form-check-inline">
-                              <label class="form-check-label">
-                                <input class="form-check-input" type="radio" name="dietary_susu" id="inlineRadio1" value="susu"> Susu
-                                <span class="circle">
-                                    <span class="check"></span>
-                                </span>
-                              </label>
-                            </div>
-                            <br>
-                         
-                            <div class="form-check form-check-radio form-check-inline">
-                              <label class="form-check-label">
-                                <input class="form-check-input" type="radio" name="dietary_susu" id="inlineRadio2" value="kopi"> Kopi
-                                <span class="circle">
-                                    <span class="check"></span>
-                                </span>
-                              </label>
-                            </div>
-                            <br>
-                            <div class="form-check form-check-radio form-check-inline">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="dietary_susu" id="inlineRadio3" value="teh"> Teh
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                                </label>
-                                <br>
-                              </div>
-                          </div>
-                            
+                          <label class="bmd-label-floating">Yang biasa dikonsumsi (Susu , Teh , Kopi)</label>
+                          </div>      
                       </div>
                     </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Keterangan :</label>
+                          <input type="text" class="form-control" name="dietary_susu">
+                        </div>
+                      </div>
+                      </div>
                     <br>
                     <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Lauk Hewani</label>
-                            <input type="text" class="form-control" name="dietary_lauk_hewani" value=<?php echo $rec->dietary_lauk_hewani;?>>
+                            <input type="text" class="form-control" name="dietary_lauk_hewani">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Softdrink</label>
-                            <input type="text" class="form-control" name="dietary_softdrink" value=<?php echo $rec->dietary_softdrink;?>>
+                            <input type="text" class="form-control" name="dietary_softdrink">
                           </div>
                         </div>
                         </div>
@@ -535,13 +523,13 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Lauk Nabati</label>
-                                <input type="text" class="form-control" name="dietary_lauk_nabati" value=<?php echo $rec->dietary_lauk_nabati;?>>
+                                <input type="text" class="form-control" name="dietary_lauk_nabati">
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Jus / Buah</label>
-                                <input type="text" class="form-control" name="dietary_jus" value=<?php echo $rec->dietary_jus;?>>
+                                <input type="text" class="form-control" name="dietary_jus">
                               </div>
                             </div>
                           </div>
@@ -549,13 +537,13 @@
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <label class="bmd-label-floating">Sayur</label>
-                                            <input type="text" class="form-control" name="dietary_sayur" value=<?php echo $rec->dietary_sayur;?>>
+                                            <input type="text" class="form-control" name="dietary_sayur">
                                           </div>
                                         </div>
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <label class="bmd-label-floating">Suplemen</label>
-                                            <input type="text" class="form-control" name="dietary_suplemen" value=<?php echo $rec->dietary_suplemen;?>>
+                                            <input type="text" class="form-control" name="dietary_suplemen">
                                           </div>
                                         </div>
                                         </div>
@@ -563,13 +551,13 @@
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label class="bmd-label-floating">Sumber Minyak</label>
-                                                        <input type="text" class="form-control" name="dietary_sumber_minyak" value=<?php echo $rec->dietary_sumber_minyak;?>>
+                                                        <input type="text" class="form-control" name="dietary_sumber_minyak">
                                                       </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label class="bmd-label-floating">Lainnya</label>
-                                                        <input type="text" class="form-control" name="dietary_lainnya" value=<?php echo $rec->dietary_lainnya;?>>
+                                                        <input type="text" class="form-control" name="dietary_lainnya">
                                                       </div>
                                                     </div>
                                                     
@@ -594,14 +582,11 @@
             </div>
             
             <div class="card-body">
-                <!--TODO: update others data--->
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Lain Lain</label>
-                    <textarea class="form-control" rows="5" name="lain_lain">
-                    <?php echo $rec->lain_lain;?>
-                    </textarea>
+                    <textarea class="form-control" rows="5" name="lain_lain"></textarea>
                    </div>
                   </div>
                   </div>
@@ -625,14 +610,11 @@
           </div>
           
           <div class="card-body">
-              <!--TODO: update diagnosa code--->
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Diagnosa</label>
-                  <textarea class="form-control" rows="5" name="diagnosa">
-                  <?php echo $rec->diagnosa;?>
-                  </textarea>
+                  <textarea class="form-control" rows="5" name="diagnosa"></textarea>
                  </div>
                 </div>
                 </div>
@@ -642,8 +624,8 @@
    
   </div>
 </div>
-
 </div>
+
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -652,40 +634,41 @@
          
           <div class="card-header card-header-primary">
             <h4 class="card-title">Edit </h4>
-            <p class="card-category">Interenvensi</p>
+            <p class="card-category">Status Gizi</p>
           </div>
-          
           <div class="card-body">
-            <!--TODO: update intervensi data--->
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Karbohidrat (kalori) </label>
-                    <input type="number" class="form-control" name="karbohidrat" step="0.01">
+                     
+                    <label class="bmd-label-floating">TB/BB </label>
+                    <input type="text" class="form-control">
                   </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Agka</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
               </div>
+              
                 <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">Protein (kalori)</label>
-                    <input type="number" class="form-control" name="protein" step="0.01">
+                  <div class="col-md-6">
+                      <br><label>Upload Image</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                               <label class="bmd-label-floating"></label>
+                          <input type="file">
+                      </div>
                   </div>
-                </div>
-                </div>
-               
-                
-                <div class="row">
-                    <div class="col-md-12">
+                  <div class="col-md-6">
                       <div class="form-group">
-                        <label class="bmd-label-floating">Lemak (kalori)</label>
-                        <input type="number" class="form-control" name="lemak" step="0.01">
+                         
+                        <label class="bmd-label-floating">Keterangan </label>
+                        <input type="text" class="form-control">
                       </div>
                     </div>
                   </div>
-                  <?php endforeach;?>                       
-              <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-            </form>
           </div>
         </div>
       </div>
@@ -695,6 +678,106 @@
 
 </div>
 
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+     
+      
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Interenvensi </h4>
+         
+          </div>
+          
+          <div class="card-body">
+
+                  
+                            <form>
+                           <div class="row">
+                                <div class="col-md-6">
+                                <th><h6>Kebutuhan Energi
+                                <input type="text" class="form-control" name="energi">
+                              </h6></th>
+                                </div>
+                                <div class="col-md-6">
+                                  <br>
+                                 
+                               
+                                  <td><h6>kalori</h6></td>
+                              
+                              
+                                </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-4">
+                                <td><h6> Karbohidrat
+                                    <input type="number" class="form-control" name="karbohidrat" step="0.01">
+                                </h6></td>
+                              </div>
+                              <span 
+                                  style="margin-top: 31px;">
+                                <td><h6 >%</h6></td>
+                              </span>
+                                <div class="col-md-4">
+                                <td><h6> 
+                              
+                                 <br>
+                                    <input type="text" class="form-control">
+                          </div>
+                          <span style="margin-top: 31px;">
+                              <td><h6 >Gram</h6></td></span>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                              <td><h6> Protein
+                                  <input type="number" class="form-control" name="protein" step="0.01">
+                              </h6></td>
+                            </div>
+                            <span 
+                                style="margin-top: 31px;">
+                              <td><h6 >%</h6></td>
+                            </span>
+                              <div class="col-md-4">
+                              <td><h6> 
+                            
+                               <br>
+                                  <input type="text" class="form-control">
+                        </div>
+                        <span style="margin-top: 31px;">
+                            <td><h6 >Gram</h6></td></span>
+                            </div>
+                            
+                            <div class="row">
+                              <div class="col-md-4">
+                            <td><h6> Lemak
+                                <input type="text" class="form-control" name="lemak" step="0.01">
+                            </h6></td>
+                          </div>
+                          <span 
+                              style="margin-top: 31px;">
+                            <td><h6 >%</h6></td>
+                          </span>
+                            <div class="col-md-4">
+                            <td><h6> 
+                          
+                             <br>
+                                <input type="text" class="form-control">
+                      </div>
+                      <span style="margin-top: 31px;">
+                          <td><h6 >Gram</h6></td></span>
+                          </div>
+                          <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>   
+                         </form>
+                      </div>
+                       </div>
+                    </div>
+                  </div>
+  
+              </div>
+          </div>
 <div class="content">
     <div class="container-fluid">
       <div class="row">
@@ -705,31 +788,34 @@
               <h4 class="card-title">Edit </h4>
               <p class="card-category">Monitoring dan Evaluasi</p>
             </div>
-            
             <div class="card-body">
               <form action="#">
-                <!--TODO: update monitoring data--->
+                
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Tanggal</label>
-                      <input type="text" class="form-control" name="mon_date">
+                      <input type="text" class="form-control">
                     </div>
                   </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Monitor dan Evaluasi</label>
-                      <textarea class="form-control" rows="5" name="result"></textarea>
+                      <textarea class="form-control" rows="5"></textarea>
                     </div>
                   </div>
+     
                 <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
+              
               </form>
             </div>
           </div>
         </div>
+     
     </div>
   </div>
+
 </div>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>

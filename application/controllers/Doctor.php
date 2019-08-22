@@ -51,7 +51,7 @@ class Doctor extends CI_Controller {
 
 	public function updateNutritionRecord($id)
 	{
-		//TODO: update nutrition record data (ANTO ONLY)
+		//TODO: update nutrition record data
 		$data = array(
 			'id_record' => 0,
 			'id_student' => $id,
@@ -61,11 +61,55 @@ class Doctor extends CI_Controller {
 			'imt' => $this->input->post('imt'),
 			'bbi' => $this->input->post('bbi'),
 			'status' => $this->input->post('status'),
+			'gda' => $this->input->post('gda'), 
+			'gdp' => $this->input->post('gdp'), 
+			'gd2jpp' => $this->input->post('gd2jpp'), 
+			'asam_urat' => $this->input->post('asam_urat'), 
+			'trigliserida' => $this->input->post('trigliserida'), 
+			'kolesterol' => $this->input->post('kolesterol'), 
+			'ldl' => $this->input->post('ldl'), 
+			'hdl' => $this->input->post('hdl'), 
+			'ureum' => $this->input->post('ureum'), 
+			'kreatinin' => $this->input->post('kreatinin'), 
+			'sgot' => $this->input->post('sgot'), 
+			'sgpt' => $this->input->post('sgpt'), 
+			'tensi' => $this->input->post('tensi'), 
+			'rr' => $this->input->post('rr'), 
+			'suhu' => $this->input->post('suhu'), 
+			'oedema' => $this->input->post('oedema'), 
+			'aktivitas' => $this->input->post('aktivitas'), 
+			'olahraga' => $this->input->post('olahraga'), 
+			'jenis_olahraga' => $this->input->post('jenis_olahraga'), 
+			'diagnosa_dahulu' => $this->input->post('diagnosa_dahulu'), 
+			'diagnosa_skrg' => $this->input->post('diagnosa_skrg'), 
+			'nafsu_makan' => $this->input->post('nafsu_makan'), 
+			'frekuensi_makan' => $this->input->post('frekuensi_makan'), 
+			'alergi' => $this->input->post('alergi'), 
+			'makanan_kesukaan' => $this->input->post('makanan_kesukaan'), 
+			'dietary_nasi' => $this->input->post('dietary_nasi'), 
+			'dietary_lauk_hewani' => $this->input->post('dietary_lauk_hewani'), 
+			'dietary_lauk_nabati' => $this->input->post('dietary_lauk_nabati'), 
+			'dietary_sayur' => $this->input->post('dietary_sayur'), 
+			'dietary_sumber_minyak' => $this->input->post('dietary_sumber_minyak'), 
+			'dietary_susu' => $this->input->post('dietary_susu'), 
+			'dietary_jus' => $this->input->post('dietary_jus'), 
+			'dietary_suplemen' => $this->input->post('dietary_suplemen'), 
+			'dietary_lainnya' => $this->input->post('dietary_lainnya'), 
+			'lain_lain' => $this->input->post('lain_lain'), 
+			'diagnosa' => $this->input->post('diagnosa'), 
+			'karbohidrat' => $this->input->post('karbohidrat'), 
+			'protein' => $this->input->post('protein'), 
+			'lemak' => $this->input->post('lemak')
 		);
 		$this->Nutrition_records->addNutritionRecord($data);
 		echo("<script>alert('Data profil gizi siswa berhasil diubah!')</script>");
 		redirect(base_url('Doctor/viewEditStudent/' . $id),'refresh');
 	}
+
+	// public function updateMonitoringRecord($id)
+	// {
+	// 	//TODO: update monitoring data
+	// }
 
 	public function exportToExcel()
 	{
