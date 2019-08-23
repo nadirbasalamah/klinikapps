@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Student's Page
+    Consultation
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -22,36 +22,41 @@
   <!-- CSS Files -->
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
-<body>
+
+<body style="background-image: url('https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiQkYTX9ZDkAhWBuo8KHU4iBUoQjRx6BAgBEAQ&url=https%3A%2F%2Fwebgradients.com%2F&psig=AOvVaw3mnMBPWmq-C9OH6YZxMSs0&ust=1566372268059189')">
   <div class="wrapper ">
-    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
-      <div class="logo">
-        <a href="#" class="simple-text logo-normal">
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg')?>">
+ 
+ 
+    <div class="logo">
+        <a href="" class="simple-text logo-normal">
           <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
+          
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item">
+          <li class="nav-item  ">
             <a class="nav-link" href="<?php echo base_url('User/viewDashboard'); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
+              
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="<?php echo base_url('User/editProfile'); ?>">
-              <i class="material-icons">person</i>
+              <i class="material-icons">edit</i>
               <p>Edit Profil</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="<?php echo base_url('User/viewStudents'); ?>">
               <i class="material-icons">content_paste</i>
               <p>Daftar Siswa</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('User/viewConsultation'); ?>">
+          <li class="nav-item active ">
+            <a class="nav-link" href="#">
               <i class="material-icons">contact_mail</i>
               <p>Konsultasi</p>
             </a>
@@ -60,10 +65,11 @@
       </div>
     </div>
     <div class="main-panel">
-    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Halaman Siswa</a>
+            <a class="navbar-brand" href="#pablo">Konsultasi </a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -73,8 +79,6 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form">
-              <div class="input-group no-border">
-              </div>
             </form>
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
@@ -86,6 +90,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="<?php echo base_url('User/editProfile');?>">Profil</a>
+                
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?php echo base_url('User/logout');?>">Log out</a>
                 </div>
@@ -95,169 +100,54 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php foreach($student as $stdnt):?>
+ 
+
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <div class="card">
                 <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="#pablo">
-                    <img class="img" src="<?php echo base_url('profile_pictures/') . $stdnt->profile_picture; ?>" />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title"><?php echo $stdnt->fullname;?></h4>                
-              </div>
+              
+            
             </div>
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Data Siswa</h4>
+                  <h4 class="card-title">Konsultasi</h4>
+                  <p class="card-category">Silahkan lakukan konsultasi gizi dengan ahli gizi</p>
                 </div>
+                
                 <div class="card-body">
-                  <form>
+                  <form action="<?php echo base_url('User/sendConsultationMessage/' . $username);?>" method="post">
                     <div class="row">
                       <div class="col-md-6">
-                        <h6>Nama Pasien</h6>       
-                        <h5><?php echo $stdnt->fullname;?></h5> 
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Nama Putra / Putri </label>
+                          <input type="text" class="form-control" name="child">
+                          <br>
+                          <br>
+                        </div>
                       </div>
-                      <div class="col-md-6">
-                            <h6>Pendidikan</h6>       
-                            <h5><?php echo $stdnt->education;?></h5> 
-                          </div>
                     </div>
-                    <div class="row">
-                            <div class="col-md-6">
-                              <h6>Tempat Tanggal lahir</h6>       
-                              <h5><?php echo $stdnt->birthdate;?></h5> 
-                            </div>
-                            <div class="col-md-6">
-                                    <h6>Pekerjaan</h6>       
-                                    <h5><?php echo $stdnt->job;?></h5> 
-                                  </div>
+                    <form>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>Keluhan</label>
+                            <textarea class="form-control" rows="5" name="complaint"></textarea>
+                           </div>
                           </div>
-                          <div class="row">
-                                <div class="col-md-6">
-                                  <h6>Usia</h6>       
-                                  <h5><?php echo $stdnt->age;?> Tahun</h5> 
-                                </div>
-                                <div class="col-md-6">
-                                        <h6>Agama / Suku</h6>       
-                                        <h5><?php echo $stdnt->religion;?></h5> 
-                                      </div>
-                              </div>
-                              <div class="row">
-                                    <div class="col-md-6">
-                                      <h6>Alamat</h6>       
-                                      <h5><?php echo $stdnt->address;?></h5> 
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                        <div class="col-md-6">
-                                          <h6>No Telp</h6>       
-                                          <h5><?php echo $stdnt->phone_number;?></h5> 
-                                        </div>
-                                      </div>
-                    </div>
-              </form>
+                          </div>
+                        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                       </form>
                 </div>
               </div>
             </div>
-           </div>
-           <?php endforeach;?>
-      <div class="content">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-10">
-                  <div class="card">                
-                    <div class="card-header card-header-primary">
-                      <h4 class="card-title">Intervensi </h4>
-                    </div>
-                    <div class="card-body">
-                            <div class="table-responsive">
-                                    <table class="table">
-                                      <thead class=" text-primary">
-                                        <th><h6>Kebutuhan Energi</h6></th>
-                                        <th><h6>%</h6></th>
-                                        <th><h6>Kalori</h6></th>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td><h6> Karbohidrat</h6></td>
-                                          <td>0</td>
-                                          <td>0</td>
-                                          <td><h6>Gram</h6></td>
-                                          
-                                        
-                                        </tr>
-                                        <tr>
-                                          <td> <h6>Protein</h6></td>
-                                          <td>0</td>
-                                          <td> 0 </td>
-                                          <td><h6>Gram</h6></td>
-                                          </td>
-                                  
-                                        <tr>
-                            
-                                          <td><h6>Lemak</h6></td>
-                                          <td>0</td>
-                                          <td>0</td>
-                                          <td><h6>Gram</h6></td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                </div>
-                                 </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-          <div class="content">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-md-10">
-                      <div class="card">
-                        <div class="card-header card-header-primary">
-                          <h4 class="card-title">Monitorig dan Evaluasi</h4>
-                        </div>
-                        <div class="card-body">
-                                <div class="table-responsive">
-                                        <table class="table">
-                                          <thead class=" text-primary">
-                                            <th><h6>Tanggal</h6></th>
-                                            <th><h6>Monitoring dan Evaluasi</h6></th>
-                                            <th><h6></h6></th>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                              
-                                             
-                                              <td>Date</td>
-                                              <td>Empty</td>
-                                              
-                                            
-                                            </tr>
-                                            <tr>
-                                                    <td>Date</td>
-                                                    <td>Empty</td>
-                                      
-                                         
-                                          </tbody>
-                                        </table>
-                                    </div>
-                                     </div>
-                                  </div>
-                                </div>
-                
-                            </div>
-           
-                        </div>
-                      </div>
-                    </div>
-                   </div>
-              </div>  
-  </body>
+        </div>
+      </div>
+      
+
+      
+ 
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
@@ -440,16 +330,11 @@
           if (md.misc.sidebar_mini_active == true) {
             $('body').removeClass('sidebar-mini');
             md.misc.sidebar_mini_active = false;
-
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
           } else {
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
+          $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
             setTimeout(function() {
               $('body').addClass('sidebar-mini');
-
               md.misc.sidebar_mini_active = true;
             }, 300);
           }
