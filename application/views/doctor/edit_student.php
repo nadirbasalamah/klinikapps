@@ -434,13 +434,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="bmd-label-floating">Nafsu Makan ( + / -)</label>
-                        <input type="text" class="form-control" name="nafsu_makan">
+                        <input type="text" class="form-control" name="nafsu_makan" value=<?php echo $rec->nafsu_makan;?>>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="bmd-label-floating">Frekuensi Makan( x/hari , teratur/tidak teratur ) </label>
-                        <input type="text" class="form-control" name="frekuensi_makan">
+                        <input type="text" class="form-control" name="frekuensi_makan" value=<?php echo $rec->frekuensi_makan;?>>
                       </div>
                     </div>
                    
@@ -449,13 +449,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Alergi / Pantangan</label>
-                            <input type="text" class="form-control" name="alergi">
+                            <input type="text" class="form-control" name="alergi" value=<?php echo $rec->alergi;?>>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Kesukaan</label>
-                            <input type="text" class="form-control" name="makanan_kesukaan">
+                            <input type="text" class="form-control" name="makanan_kesukaan" value=<?php echo $rec->makanan_kesukaan;?>>
                           </div>
                         </div>
                         
@@ -485,7 +485,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="bmd-label-floating">Nasi</label>
-                        <input type="text" class="form-control" name="dietary_nasi">
+                        <input type="text" class="form-control" name="dietary_nasi" value=<?php echo $rec->dietary_nasi;?>>
                       </div>
                     </div>
                     </div>
@@ -500,7 +500,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Keterangan :</label>
-                          <input type="text" class="form-control" name="dietary_susu">
+                          <input type="text" class="form-control" name="dietary_susu" value=<?php echo $rec->dietary_susu;?>>
                         </div>
                       </div>
                       </div>
@@ -509,13 +509,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Lauk Hewani</label>
-                            <input type="text" class="form-control" name="dietary_lauk_hewani">
+                            <input type="text" class="form-control" name="dietary_lauk_hewani" value=<?php echo $rec->dietary_lauk_hewani;?>>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Softdrink</label>
-                            <input type="text" class="form-control" name="dietary_softdrink">
+                            <input type="text" class="form-control" name="dietary_softdrink" value=<?php echo $rec->dietary_softdrink;?>>
                           </div>
                         </div>
                         </div>
@@ -523,13 +523,13 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Lauk Nabati</label>
-                                <input type="text" class="form-control" name="dietary_lauk_nabati">
+                                <input type="text" class="form-control" name="dietary_lauk_nabati" value=<?php echo $rec->dietary_lauk_nabati;?>>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Jus / Buah</label>
-                                <input type="text" class="form-control" name="dietary_jus">
+                                <input type="text" class="form-control" name="dietary_jus" value=<?php echo $rec->dietary_jus;?>>
                               </div>
                             </div>
                           </div>
@@ -537,13 +537,13 @@
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <label class="bmd-label-floating">Sayur</label>
-                                            <input type="text" class="form-control" name="dietary_sayur">
+                                            <input type="text" class="form-control" name="dietary_sayur" value=<?php echo $rec->dietary_sayur;?>>
                                           </div>
                                         </div>
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <label class="bmd-label-floating">Suplemen</label>
-                                            <input type="text" class="form-control" name="dietary_suplemen">
+                                            <input type="text" class="form-control" name="dietary_suplemen" value=<?php echo $rec->dietary_suplemen;?>>
                                           </div>
                                         </div>
                                         </div>
@@ -551,13 +551,13 @@
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label class="bmd-label-floating">Sumber Minyak</label>
-                                                        <input type="text" class="form-control" name="dietary_sumber_minyak">
+                                                        <input type="text" class="form-control" name="dietary_sumber_minyak" value=<?php echo $rec->dietary_sumber_minyak;?>>
                                                       </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label class="bmd-label-floating">Lainnya</label>
-                                                        <input type="text" class="form-control" name="dietary_lainnya">
+                                                        <input type="text" class="form-control" name="dietary_lainnya" value=<?php echo $rec->dietary_lainnya;?>>
                                                       </div>
                                                     </div>
                                                     
@@ -586,7 +586,9 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Lain Lain</label>
-                    <textarea class="form-control" rows="5" name="lain_lain"></textarea>
+                    <textarea class="form-control" rows="5" name="lain_lain">
+                    <?php echo $rec->lain_lain;?>
+                    </textarea>
                    </div>
                   </div>
                   </div>
@@ -614,7 +616,9 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Diagnosa</label>
-                  <textarea class="form-control" rows="5" name="diagnosa"></textarea>
+                  <textarea class="form-control" rows="5" name="diagnosa">
+                  <?php echo $rec->diagnosa;?>
+                  </textarea>
                  </div>
                 </div>
                 </div>
@@ -647,7 +651,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                      <label class="bmd-label-floating">Agka</label>
+                      <label class="bmd-label-floating">Angka</label>
                       <input type="text" class="form-control">
                     </div>
                   </div>
@@ -699,7 +703,7 @@
                            <div class="row">
                                 <div class="col-md-6">
                                 <th><h6>Kebutuhan Energi
-                                <input type="number" class="form-control" name="energi">
+                                <input type="number" class="form-control" name="energi" value=<?php echo $rec->energi;?>>
                               </h6></th>
                                 </div>
                                 <div class="col-md-6">
@@ -714,7 +718,7 @@
                               <div class="row">
                                   <div class="col-md-4">
                                 <td><h6> Karbohidrat
-                                    <input type="number" class="form-control" name="karbohidrat" step="0.01">
+                                    <input type="number" class="form-control" name="karbohidrat" step="0.01" value=<?php echo $rec->karbohidrat;?>>
                                 </h6></td>
                               </div>
                               <span 
@@ -733,7 +737,7 @@
                               <div class="row">
                                 <div class="col-md-4">
                               <td><h6> Protein
-                                  <input type="number" class="form-control" name="protein" step="0.01">
+                                  <input type="number" class="form-control" name="protein" step="0.01" value=<?php echo $rec->protein;?>>
                               </h6></td>
                             </div>
                             <span 
@@ -753,7 +757,7 @@
                             <div class="row">
                               <div class="col-md-4">
                             <td><h6> Lemak
-                                <input type="number" class="form-control" name="lemak" step="0.01">
+                                <input type="number" class="form-control" name="lemak" step="0.01" value=<?php echo $rec->lemak;?>>
                             </h6></td>
                           </div>
                           <span 
