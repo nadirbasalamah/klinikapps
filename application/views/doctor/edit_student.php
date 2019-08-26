@@ -62,7 +62,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Ubah Data Siswa</a>
+            <a class="navbar-brand" href="#pablo">Ubah Data Gizi Siswa</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -382,7 +382,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Olahraga (x dalam 1 minggu,selama x menit)</label>
-                          <input type="text" class="form-control" name="olahraga" value=<?php echo $rec->olahraga;?>>
+                          <input type="text" class="form-control" name="durasi_olahraga" value=<?php echo $rec->durasi_olahraga;?>>
                         </div>
                       </div>
                      
@@ -500,7 +500,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Keterangan :</label>
-                          <input type="text" class="form-control" name="dietary_susu" value=<?php echo $rec->dietary_susu;?>>
+                          <input type="text" class="form-control" name="dietary_minuman" value=<?php echo $rec->dietary_minuman;?>>
                         </div>
                       </div>
                       </div>
@@ -697,14 +697,13 @@
           </div>
           
           <div class="card-body">
-
-                  
-                            <form>
                            <div class="row">
                                 <div class="col-md-6">
-                                <th><h6>Kebutuhan Energi
+                                <th><h6>Kebutuhan Energi</h6>
+                                <div class="form-group">
                                 <input type="number" class="form-control" name="energi" value=<?php echo $rec->energi;?>>
-                              </h6></th>
+                                </div>
+                              </th>
                                 </div>
                                 <div class="col-md-6">
                                   <br>
@@ -717,9 +716,11 @@
                               </div>
                               <div class="row">
                                   <div class="col-md-4">
-                                <td><h6> Karbohidrat
-                                    <input type="number" class="form-control" name="karbohidrat" step="0.01" value=<?php echo $rec->karbohidrat;?>>
-                                </h6></td>
+                                <td><h6> Karbohidrat</h6>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="persen_karbohidrat" step="0.01" value=<?php echo $rec->persen_karbohidrat;?>>
+                                </div>
+                                </td>
                               </div>
                               <span 
                                   style="margin-top: 31px;">
@@ -729,16 +730,20 @@
                                 <td><h6> 
                               
                                  <br>
-                                    <input type="number" class="form-control">
+                                 <div class="form-group">
+                                    <input type="number" class="form-control" name="gram_karbohidrat" step="0.01" value=<?php echo $rec->gram_karbohidrat;?>>
+                                  </div>
                           </div>
                           <span style="margin-top: 31px;">
                               <td><h6 >Gram</h6></td></span>
                               </div>
                               <div class="row">
                                 <div class="col-md-4">
-                              <td><h6> Protein
-                                  <input type="number" class="form-control" name="protein" step="0.01" value=<?php echo $rec->protein;?>>
-                              </h6></td>
+                              <td><h6> Protein</h6>
+                              <div class="form-group">
+                                  <input type="number" class="form-control" name="persen_protein" step="0.01" value=<?php echo $rec->persen_protein;?>>
+                              </div>
+                              </td>
                             </div>
                             <span 
                                 style="margin-top: 31px;">
@@ -748,7 +753,9 @@
                               <td><h6> 
                             
                                <br>
-                                  <input type="number" class="form-control">
+                               <div class="form-group">
+                                  <input type="number" class="form-control" name="gram_protein" step="0.01" value=<?php echo $rec->gram_protein;?>>
+                                </div>
                         </div>
                         <span style="margin-top: 31px;">
                             <td><h6 >Gram</h6></td></span>
@@ -756,9 +763,11 @@
                             
                             <div class="row">
                               <div class="col-md-4">
-                            <td><h6> Lemak
-                                <input type="number" class="form-control" name="lemak" step="0.01" value=<?php echo $rec->lemak;?>>
-                            </h6></td>
+                            <td><h6> Lemak</h6>
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="persen_lemak" step="0.01" value=<?php echo $rec->persen_lemak;?>>
+                            </div>
+                              </td>
                           </div>
                           <span 
                               style="margin-top: 31px;">
@@ -768,7 +777,9 @@
                             <td><h6> 
                           
                              <br>
-                                <input type="number" class="form-control">
+                             <div class="form-group">
+                                <input type="number" class="form-control" name="gram_lemak" step="0.01" value=<?php echo $rec->gram_lemak;?>>
+                              </div>
                       </div>
                       <span style="margin-top: 31px;">
                           <td><h6 >Gram</h6></td></span>
@@ -780,7 +791,6 @@
                        </div>
                     </div>
                   </div>
-  
               </div>
           </div>
 <div class="content">
