@@ -25,7 +25,7 @@
 
 <body style="background-image: url('https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiQkYTX9ZDkAhWBuo8KHU4iBUoQjRx6BAgBEAQ&url=https%3A%2F%2Fwebgradients.com%2F&psig=AOvVaw3mnMBPWmq-C9OH6YZxMSs0&ust=1566372268059189')">
   <div class="wrapper ">
-    <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
  
  
     <div class="logo">
@@ -45,7 +45,7 @@
           </li>
           <li class="nav-item active ">
             <a class="nav-link" href="#">
-              <i class="material-icons">edit</i>
+              <i class="material-icons">assignment</i>
               <p>Lihat Profil Siswa</p>
             </a>
           </li>
@@ -63,7 +63,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Edit </a>
+            <a class="navbar-brand" href="#">Data Siswa</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -290,7 +290,7 @@
                                 <h6>Status Gizi (Kategori)</h6>
                                 <div class="form-check form-check-radio">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" required <?= $stdnt->status=="underweight" ? "checked" : ""?>>
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" <?= $stdnt->status=="underweight" ? "checked" : ""?> disabled>
                                       Underweight
                                       <span class="circle">
                                           <span class="check"></span>
@@ -299,7 +299,7 @@
                               </div>
                               <div class="form-check form-check-radio">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" <?= $stdnt->status=="normal" ? "checked" : ""?>>
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" <?= $stdnt->status=="normal" ? "checked" : ""?> disabled>
                                       Normal
                                       <span class="circle">
                                           <span class="check"></span>
@@ -308,7 +308,7 @@
                               </div>
                               <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" <?= $stdnt->status=="overweight" ? "checked" : ""?>>
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" <?= $stdnt->status=="overweight" ? "checked" : ""?> disabled>
                                     Overweight
                                     <span class="circle">
                                         <span class="check"></span>
@@ -317,7 +317,7 @@
                             </div>
                             <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" <?= $stdnt->status=="obese" ? "checked" : ""?>>
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" <?= $stdnt->status=="obese" ? "checked" : ""?> disabled>
                                     Obese
                                     <span class="circle">
                                         <span class="check"></span>
@@ -492,10 +492,9 @@
                               <div class="col-md-4">
                             <br>
                             <div class="form-group">
-                              <label class="bmd-label-floating">Aktivitas</label>
                               <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios1" value="ringan" required <?= $rec->aktivitas=="ringan" ? "checked" : ""?>>
+                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios1" value="ringan" required <?= $stdnt->aktivitas=="ringan" ? "checked" : ""?> disabled>
                                     Ringan
                                     <span class="circle">
                                         <span class="check"></span>
@@ -504,7 +503,7 @@
                             </div>
                             <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="sedang" <?= $rec->aktivitas=="sedang" ? "checked" : ""?>>
+                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="sedang" <?= $stdnt->aktivitas=="sedang" ? "checked" : ""?> disabled>
                                     Sedang
                                     <span class="circle">
                                         <span class="check"></span>
@@ -513,7 +512,7 @@
                             </div>
                             <div class="form-check form-check-radio">
                               <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="berat" <?= $rec->aktivitas=="berat" ? "checked" : ""?>>
+                                  <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="berat" <?= $stdnt->aktivitas=="berat" ? "checked" : ""?> disabled>
                                   Berat
                                   <span class="circle">
                                       <span class="check"></span>
@@ -578,7 +577,7 @@
               </div>
               
               <div class="card-body">
-                <form>
+                <form action="#">
                   
                   <div class="row">
                     <div class="col-md-6">
@@ -628,18 +627,18 @@
             <div class="card">
              
               <div class="card-header card-header-primary">
-                <h4 class="card-title">Edit </h4>
+                <h4 class="card-title">Data </h4>
                 <p class="card-category">Dietary</p>
               </div>
               
               <div class="card-body">
-                <form>
+                <form action="#">
                   
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <h6 >Nasi</h6>
-                        <p></p>
+                        <p><?php echo $stdnt->dietary_nasi;?></p>
                       </div>
                     </div>
                     </div>
@@ -656,7 +655,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <h6 >Keterangan :</h6>
-                          <p></p>
+                          <p><?php echo $stdnt->dietary_minuman;?></p>
                         </div>
                       </div>
                       </div>
@@ -667,13 +666,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <h6 >Lauk Hewani</h6>
-                            <p></p>
+                            <p><?php echo $stdnt->dietary_lauk_hewani;?></p>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <h6 >Softdrink</h6>
-                            <p></p>
+                            <p><?php echo $stdnt->dietary_softdrink;?></p>
                           </div>
                         </div>
                         </div>
@@ -681,13 +680,13 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <h6 >Lauk Nabati</h6>
-                                <p></p>
+                                <p><?php echo $stdnt->dietary_lauk_nabati;?></p>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
                                 <h6 >Jus / Buah</h6>
-                                <p></p>
+                                <p><?php echo $stdnt->dietary_jus;?></p>
                               </div>
                             </div>
                           </div>
@@ -695,13 +694,13 @@
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <h6 >Sayur</h6>
-                                            <p></p>
+                                            <p><?php echo $stdnt->dietary_sayur;?></p>
                                           </div>
                                         </div>
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <h6 >Suplemen</h6>
-                                            <p></p>
+                                            <p><?php echo $stdnt->dietary_suplemen;?></p>
                                           </div>
                                         </div>
                                         </div>
@@ -709,21 +708,16 @@
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <h6 >Sumber Minyak</h6>
-                                                        <p></p>
+                                                        <p><?php echo $stdnt->dietary_sumber_minyak;?></p>
                                                       </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <h6 >Lainnya</h6>
-                                                        <p></p>
+                                                        <p><?php echo $stdnt->dietary_lainnya;?></p>
                                                       </div>
                                                     </div>
-                                                    
                                                             </div>
-                                                            
-       
-                  <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                
                 </form>
               </div>
             </div>
@@ -740,26 +734,26 @@
           <div class="card">
            
             <div class="card-header card-header-primary">
-              <h4 class="card-title">Edit </h4>
-              <p class="card-category"></p>
+              <h4 class="card-title">Data </h4>
+              <p class="card-category">Lain-lain</p>
             </div>
             
             <div class="card-body">
-              <form>
+              <form action="#">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
                       <h6>Lain Lain</h6>
-                    <textarea class="form-control" rows="5" placeholder="" readonly></textarea>
+                    <textarea class="form-control" rows="5" readonly>
+                    <?php echo $stdnt->lain_lain;?>
+                    </textarea>
                    </div>
                   </div>
                   </div>
-                <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
                </form>
             </div>
           </div>
         </div>
-     
     </div>
   </div>
 
@@ -771,21 +765,22 @@
         <div class="card">
          
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Edit </h4>
-            <p class="card-category"></p>
+            <h4 class="card-title">Data</h4>
+            <p class="card-category">Diagnosa</p>
           </div>
           
           <div class="card-body">
-            <form>
+            <form action="#">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <h6>Diagnosa</h6>
-                  <textarea class="form-control" rows="5" placeholder="" readonly></textarea>
+                  <textarea class="form-control" rows="5" readonly>
+                  <?php echo $stdnt->diagnosa;?>
+                  </textarea>
                  </div>
                 </div>
                 </div>
-              <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
              </form>
           </div>
         </div>
@@ -808,7 +803,7 @@
           
           <div class="card-body">
             
-            <form>
+            <form action="#">
 
               <div class="row">
                 <div class="col-md-6">
@@ -852,9 +847,6 @@
 </div>
 
 </div>
-
-
-
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -868,29 +860,27 @@
           </div>
           
           <div class="card-body">
-
-                  
-                            <form>
                            <div class="row">
                                 <div class="col-md-6">
-                                <th><h6>Kebutuhan Energi
-                                <p></p>
-                              </h6></th>
+                                <th>
+                                <div class="form-group">
+                                <h6>Kebutuhan Energi</h6>
+                                <p><?php echo $stdnt->energi;?></p>
+                                </div>
+                              </th>
                                 </div>
                                 <div class="col-md-6">
                                   <br>
-                                 
-                               
                                   <td><h6>kalori</h6></td>
-                              
-                              
                                 </div>
                               </div>
                               <div class="row">
                                   <div class="col-md-4">
-                                <td><h6> Karbohidrat
-                                    <p></p>
-                                </h6></td>
+                                <td><h6> Karbohidrat</h6>
+                                <div class="form-group">
+                                <p><?php echo $stdnt->persen_karbohidrat;?></p>
+                                </div>
+                                </td>
                               </div>
                               <span 
                                   style="margin-top: 31px;">
@@ -900,16 +890,20 @@
                                 <td><h6> 
                               
                                  <br>
-                                    <p></p>
+                                 <div class="form-group">
+                                 <p><?php echo $stdnt->gram_karbohidrat;?></p>
+                                  </div>
                           </div>
                           <span style="margin-top: 31px;">
                               <td><h6 >Gram</h6></td></span>
                               </div>
                               <div class="row">
                                 <div class="col-md-4">
-                              <td><h6> Protein
-                                  <p></p>
-                              </h6></td>
+                              <td><h6> Protein</h6>
+                              <div class="form-group">
+                              <p><?php echo $stdnt->persen_protein;?></p>
+                              </div>
+                              </td>
                             </div>
                             <span 
                                 style="margin-top: 31px;">
@@ -919,7 +913,9 @@
                               <td><h6> 
                             
                                <br>
-                                  <p></p>
+                               <div class="form-group">
+                               <p><?php echo $stdnt->gram_protein;?></p>
+                                </div>
                         </div>
                         <span style="margin-top: 31px;">
                             <td><h6 >Gram</h6></td></span>
@@ -927,9 +923,11 @@
                             
                             <div class="row">
                               <div class="col-md-4">
-                            <td><h6> Lemak
-                                <p></p>
-                            </h6></td>
+                            <td><h6> Lemak</h6>
+                            <div class="form-group">
+                            <p><?php echo $stdnt->persen_lemak;?></p>
+                            </div>
+                              </td>
                           </div>
                           <span 
                               style="margin-top: 31px;">
@@ -939,21 +937,22 @@
                             <td><h6> 
                           
                              <br>
-                                <p></p>
+                             <div class="form-group">
+                             <p><?php echo $stdnt->gram_lemak;?></p>
+                              </div>
                       </div>
                       <span style="margin-top: 31px;">
                           <td><h6 >Gram</h6></td></span>
                           </div>
-                          <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                          <?php endforeach;?>
+                          <?php endforeach;?>           
                          </form>
                       </div>
                        </div>
                     </div>
                   </div>
-  
               </div>
           </div>
+
 <div class="content">
     <div class="container-fluid">
       <div class="row">
@@ -965,7 +964,7 @@
               <p class="card-category">Monitoring dan Evaluasi</p>
             </div>
             <div class="card-body">
-              <form>
+              <form action="#">
                 
                 <div class="row">
                   <div class="col-md-6">
@@ -980,18 +979,13 @@
                       <h6 >Monitor dan Evaluasi</h6>
                       <textarea class="form-control" rows="5" placeholder="" readonly></textarea>
                     </div>
-                  </div>
-     
-                <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-              
+                  </div>         
               </form>
             </div>
           </div>
         </div>
-     
     </div>
   </div>
-
 </div>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>

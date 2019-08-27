@@ -32,6 +32,12 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/students_list',$data);
 	}
 
+	public function viewStudent($id)
+	{
+		$data['student'] = $this->Students->getStudentById($id);
+		$this->load->view('admin/view_student',$data);
+	}
+
 	public function editProfile()
 	{
 		$this->load->view('admin/edit_profile');

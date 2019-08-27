@@ -129,7 +129,9 @@
                           <td><?php echo $student['fullname'];?></td>
                           <td><?php echo $student['address'];?></td>
                           <td>
-                          <a href="<?php echo base_url('Doctor/viewEditStudent/' . $student['id_student']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
+                          <a href="<?php echo base_url('Doctor/viewStudent/' . $student['id_student']);?>" button class="btn btn-primary"><i class="material-icons">visibility</i>lihat</button></a>
+                          <span>
+                          <a href="<?php echo base_url('Doctor/viewEditStudent/' . $student['id_student']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></span></a>
                           </td>
                       </tr>
                         <?php endforeach; } else {

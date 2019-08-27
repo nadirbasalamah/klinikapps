@@ -33,6 +33,12 @@ class Doctor extends CI_Controller {
 		$this->load->view('doctor/students_list',$data);
 	}
 
+	public function viewStudent($id)
+	{
+		$data['student'] = $this->Nutrition_records->getNutritionRecordById($id);
+		$this->load->view('doctor/view_student',$data);
+	}
+
 	public function editProfile()
 	{
 		$this->load->view('doctor/edit_profile');
