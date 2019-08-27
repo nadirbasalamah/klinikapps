@@ -122,7 +122,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nama Putra / Putri </label>
-                          <input type="text" class="form-control" name="child">
+                          <input type="text" class="form-control" name="child" required>
                           <br>
                           <br>
                         </div>
@@ -133,7 +133,7 @@
                           <div class="col-md-12">
                             <div class="form-group">
                               <label>Keluhan</label>
-                            <textarea class="form-control" rows="5" name="complaint"></textarea>
+                            <textarea class="form-control" rows="5" name="complaint" required></textarea>
                            </div>
                           </div>
                           </div>

@@ -133,7 +133,7 @@
                       <div class="col-md-10">
                         <div class="form-group">
                           <label class="bmd-label-floating">Username</label>
-                          <input type="text" class="form-control" value=<?php echo $username;?> name="username">
+                          <input type="text" class="form-control" value=<?php echo $username;?> name="username" required>
                         </div>
                       </div>
                  
@@ -142,13 +142,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Alamat Email</label>
-                          <input type="email" class="form-control" value=<?php echo $email;?> name="email">
+                          <input type="email" class="form-control" value=<?php echo $email;?> name="email" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Password</label>
-                          <input type="password" class="form-control" value=<?php echo $password;?> name="password">
+                          <input type="password" class="form-control" value=<?php echo $password;?> name="password" required>
                         </div>
                       </div>
                     </div>
@@ -156,7 +156,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Alamat Tempat Tinggal</label>
-                          <input type="text" class="form-control" value=<?php echo $address;?> name="address">
+                          <input type="text" class="form-control" value=<?php echo $address;?> name="address" required>
                         </div>
                       </div>
                     </div>
@@ -164,7 +164,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">No Telp</label>
-                          <input type="number" class="form-control" value=<?php echo $phone_number;?> name="phone_number">
+                          <input type="number" class="form-control" value=<?php echo $phone_number;?> name="phone_number" required>
                         </div>
                       </div>
                   

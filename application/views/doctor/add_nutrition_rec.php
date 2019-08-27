@@ -112,13 +112,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">BB</label>
-                          <input type="number" class="form-control" name="bb" step="0.01">
+                          <input type="number" class="form-control" name="bb" step="0.01" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">IMT</label>
-                          <input type="number" class="form-control" name="imt" step="0.01">
+                          <input type="number" class="form-control" name="imt" step="0.01" required>
                         </div>
                       </div>
                     </div>
@@ -126,13 +126,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">TB</label>
-                          <input type="number" class="form-control" name="tb" step="0.01">
+                          <input type="number" class="form-control" name="tb" step="0.01" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">BBI</label>
-                          <input type="number" class="form-control" name="bbi" step="0.01">
+                          <input type="number" class="form-control" name="bbi" step="0.01" required>
                         </div>
                       </div>
                     </div>
@@ -140,7 +140,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">LILA/Lingkar Kepala</label>
-                          <input type="number" class="form-control" name="lila" step="0.01">
+                          <input type="number" class="form-control" name="lila" step="0.01" required>
                         </div>
                       </div>
                       <br>
@@ -149,7 +149,7 @@
                                 <label class="bmd-label-floating">Status Gizi (Kategori)</label>
                                 <div class="form-check form-check-radio">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" >
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" required>
                                       Underweight
                                       <span class="circle">
                                           <span class="check"></span>
@@ -212,19 +212,19 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="bmd-label-floating">GDA</label>
-                        <input type="number" class="form-control" name="gda" step="0.01">
+                        <input type="number" class="form-control" name="gda" step="0.01" required>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="bmd-label-floating">Trigliserida</label>
-                        <input type="number" class="form-control" name="trigliserida" step="0.01">
+                        <input type="number" class="form-control" name="trigliserida" step="0.01" required>
                       </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Ureum</label>
-                          <input type="number" class="form-control" name="ureum" step="0.01">
+                          <input type="number" class="form-control" name="ureum" step="0.01" required>
                         </div>
                       </div>
                     </div>
@@ -232,19 +232,19 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">GDP</label>
-                            <input type="number" class="form-control" name="gdp" step="0.01">
+                            <input type="number" class="form-control" name="gdp" step="0.01" required>
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">Kolesterol Total</label>
-                            <input type="number" class="form-control" name="kolesterol" step="0.01">
+                            <input type="number" class="form-control" name="kolesterol" step="0.01" required>
                           </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                               <label class="bmd-label-floating">Kreatinin</label>
-                              <input type="number" class="form-control" name="kreatinin" step="0.01">
+                              <input type="number" class="form-control" name="kreatinin" step="0.01" required>
                             </div>
                           </div>
                         </div>
@@ -252,19 +252,19 @@
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label class="bmd-label-floating">GD2JPP</label>
-                                <input type="number" class="form-control" name="gd2jpp" step="0.01">
+                                <input type="number" class="form-control" name="gd2jpp" step="0.01" required>
                               </div>
                             </div>
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label class="bmd-label-floating">LDL</label>
-                                <input type="number" class="form-control" name="ldl" step="0.01">
+                                <input type="number" class="form-control" name="ldl" step="0.01" required>
                               </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                   <label class="bmd-label-floating">SGOT</label>
-                                  <input type="number" class="form-control" name="sgot" step="0.01">
+                                  <input type="number" class="form-control" name="sgot" step="0.01" required>
                                 </div>
                               </div>
                             </div>
@@ -272,19 +272,19 @@
                                 <div class="col-md-4">
                                   <div class="form-group">
                                     <label class="bmd-label-floating">Asam Urat</label>
-                                    <input type="number" class="form-control" name="asam_urat" step="0.01">
+                                    <input type="number" class="form-control" name="asam_urat" step="0.01" required>
                                   </div>
                                 </div>
                                 <div class="col-md-4">
                                   <div class="form-group">
                                     <label class="bmd-label-floating">HDL</label>
-                                    <input type="number" class="form-control" name="hdl" step="0.01">
+                                    <input type="number" class="form-control" name="hdl" step="0.01" required>
                                   </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                       <label class="bmd-label-floating">SGPT</label>
-                                      <input type="number" class="form-control" name="sgpt" step="0.01">
+                                      <input type="number" class="form-control" name="sgpt" step="0.01" required>
                                     </div>
                                   </div>
                                 </div>
@@ -311,20 +311,20 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="bmd-label-floating">Tensi (mmHg)</label>
-                        <input type="number" class="form-control" name="tensi" step="0.01">
+                        <input type="number" class="form-control" name="tensi" step="0.01" required>
                       </div>
                     </div>
                    
                     <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Suhu(Celcius)</label>
-                          <input type="number" class="form-control" name="suhu" step="0.01">
+                          <input type="number" class="form-control" name="suhu" step="0.01" required>
                         </div>
                       </div>
                       <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">lainnya</label>
-                            <input type="text" class="form-control" name="lainnya">
+                            <input type="text" class="form-control" name="lainnya" required>
                           </div>
                         </div>
                     </div>
@@ -332,14 +332,14 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">RR(x/menit)</label>
-                            <input type="number" class="form-control" name="rr" step="0.01">
+                            <input type="number" class="form-control" name="rr" step="0.01" required>
                           </div>
                         </div>
                        
                         <div class="col-md-4">
                             <div class="form-group">
                               <label class="bmd-label-floating">Oedema</label>
-                              <input type="number" class="form-control" name="oedema" step="0.01">
+                              <input type="number" class="form-control" name="oedema" step="0.01" required>
                             </div>
                           </div>
                           <div class="col-md-4">
@@ -348,7 +348,7 @@
                               <label class="bmd-label-floating">Aktivitas</label>
                               <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios1" value="ringan" >
+                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios1" value="ringan" required>
                                     Ringan
                                     <span class="circle">
                                         <span class="check"></span>
@@ -382,14 +382,14 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Olahraga (x dalam 1 minggu,selama x menit)</label>
-                          <input type="text" class="form-control" name="durasi_olahraga">
+                          <input type="text" class="form-control" name="durasi_olahraga" required>
                         </div>
                       </div>
                      
                       <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Jenis Olahraga</label>
-                            <input type="text" class="form-control" name="jenis_olahraga">
+                            <input type="text" class="form-control" name="jenis_olahraga" required>
                           </div>
                         </div>
                        
@@ -398,7 +398,7 @@
                           <div class="col-md-12">
                             <div class="form-group">
                               <label class="bmd-label-floating">Diagnosa Dahulu </label>
-                              <input type="text" class="form-control" name="diagnosa_dahulu">
+                              <input type="text" class="form-control" name="diagnosa_dahulu" required>
                             </div>
                           </div>
                         </div>
@@ -406,7 +406,7 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Diagnosa Sekarang </label>
-                                <input type="text" class="form-control" name="diagnosa_skrg">
+                                <input type="text" class="form-control" name="diagnosa_skrg" required>
                               </div>
                             </div>
                           </div>
@@ -434,13 +434,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="bmd-label-floating">Nafsu Makan ( + / -)</label>
-                        <input type="text" class="form-control" name="nafsu_makan">
+                        <input type="text" class="form-control" name="nafsu_makan" required>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="bmd-label-floating">Frekuensi Makan( x/hari , teratur/tidak teratur ) </label>
-                        <input type="text" class="form-control" name="frekuensi_makan">
+                        <input type="text" class="form-control" name="frekuensi_makan" required>
                       </div>
                     </div>
                    
@@ -449,13 +449,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Alergi / Pantangan</label>
-                            <input type="text" class="form-control" name="alergi">
+                            <input type="text" class="form-control" name="alergi" required>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Kesukaan</label>
-                            <input type="text" class="form-control" name="makanan_kesukaan">
+                            <input type="text" class="form-control" name="makanan_kesukaan" required>
                           </div>
                         </div>
                         
@@ -485,7 +485,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="bmd-label-floating">Nasi</label>
-                        <input type="text" class="form-control" name="dietary_nasi">
+                        <input type="text" class="form-control" name="dietary_nasi" required>
                       </div>
                     </div>
                     </div>
@@ -500,7 +500,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Keterangan :</label>
-                          <input type="text" class="form-control" name="dietary_minuman">
+                          <input type="text" class="form-control" name="dietary_minuman" required>
                         </div>
                       </div>
                       </div>
@@ -509,13 +509,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Lauk Hewani</label>
-                            <input type="text" class="form-control" name="dietary_lauk_hewani">
+                            <input type="text" class="form-control" name="dietary_lauk_hewani" required>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Softdrink</label>
-                            <input type="text" class="form-control" name="dietary_softdrink">
+                            <input type="text" class="form-control" name="dietary_softdrink" required>
                           </div>
                         </div>
                         </div>
@@ -523,13 +523,13 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Lauk Nabati</label>
-                                <input type="text" class="form-control" name="dietary_lauk_nabati">
+                                <input type="text" class="form-control" name="dietary_lauk_nabati" required>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Jus / Buah</label>
-                                <input type="text" class="form-control" name="dietary_jus">
+                                <input type="text" class="form-control" name="dietary_jus" required>
                               </div>
                             </div>
                           </div>
@@ -537,13 +537,13 @@
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <label class="bmd-label-floating">Sayur</label>
-                                            <input type="text" class="form-control" name="dietary_sayur">
+                                            <input type="text" class="form-control" name="dietary_sayur" required>
                                           </div>
                                         </div>
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <label class="bmd-label-floating">Suplemen</label>
-                                            <input type="text" class="form-control" name="dietary_suplemen">
+                                            <input type="text" class="form-control" name="dietary_suplemen" required>
                                           </div>
                                         </div>
                                         </div>
@@ -551,13 +551,13 @@
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label class="bmd-label-floating">Sumber Minyak</label>
-                                                        <input type="text" class="form-control" name="dietary_sumber_minyak">
+                                                        <input type="text" class="form-control" name="dietary_sumber_minyak" required>
                                                       </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label class="bmd-label-floating">Lainnya</label>
-                                                        <input type="text" class="form-control" name="dietary_lainnya">
+                                                        <input type="text" class="form-control" name="dietary_lainnya" required>
                                                       </div>
                                                     </div>
                                                     
@@ -586,7 +586,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Lain Lain</label>
-                    <textarea class="form-control" rows="5" name="lain_lain"></textarea>
+                    <textarea class="form-control" rows="5" name="lain_lain" required></textarea>
                    </div>
                   </div>
                   </div>
@@ -614,7 +614,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Diagnosa</label>
-                  <textarea class="form-control" rows="5" name="diagnosa"></textarea>
+                  <textarea class="form-control" rows="5" name="diagnosa" required></textarea>
                  </div>
                 </div>
                 </div>
@@ -631,7 +631,7 @@
     <div class="row">
       <div class="col-md-10">
         <div class="card">
-         
+         <!--TODO: insert other data (BB/U,TB/U...)-->
           <div class="card-header card-header-primary">
             <h4 class="card-title">Edit </h4>
             <p class="card-category">Status Gizi</p>
@@ -695,9 +695,10 @@
           <div class="card-body">
                            <div class="row">
                                 <div class="col-md-6">
-                                <th><h6>Kebutuhan Energi</h6>
+                                <th>
                                 <div class="form-group">
-                                <input type="number" class="form-control" name="energi">
+                                <label class="bmd-label-floating">Kebutuhan Energi </label>
+                                <input type="number" class="form-control" name="energi" required>
                                 </div>
                               </th>
                                 </div>
@@ -714,7 +715,7 @@
                                   <div class="col-md-4">
                                 <td><h6> Karbohidrat</h6>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" name="persen_karbohidrat" step="0.01">
+                                    <input type="number" class="form-control" name="persen_karbohidrat" step="0.01" required>
                                 </div>
                                 </td>
                               </div>
@@ -727,7 +728,7 @@
                               
                                  <br>
                                  <div class="form-group">
-                                    <input type="number" class="form-control" name="gram_karbohidrat" step="0.01">
+                                    <input type="number" class="form-control" name="gram_karbohidrat" step="0.01" required>
                                   </div>
                           </div>
                           <span style="margin-top: 31px;">
@@ -737,7 +738,7 @@
                                 <div class="col-md-4">
                               <td><h6> Protein</h6>
                               <div class="form-group">
-                                  <input type="number" class="form-control" name="persen_protein" step="0.01">
+                                  <input type="number" class="form-control" name="persen_protein" step="0.01" required>
                               </div>
                               </td>
                             </div>
@@ -750,7 +751,7 @@
                             
                                <br>
                                <div class="form-group">
-                                  <input type="number" class="form-control" name="gram_protein" step="0.01">
+                                  <input type="number" class="form-control" name="gram_protein" step="0.01" required>
                                 </div>
                         </div>
                         <span style="margin-top: 31px;">
@@ -761,7 +762,7 @@
                               <div class="col-md-4">
                             <td><h6> Lemak</h6>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="persen_lemak" step="0.01">
+                                <input type="number" class="form-control" name="persen_lemak" step="0.01" required>
                             </div>
                             </td>
                           </div>
@@ -774,7 +775,7 @@
                           
                              <br>
                              <div class="form-group">
-                                <input type="number" class="form-control" name="gram_lemak" step="0.01">
+                                <input type="number" class="form-control" name="gram_lemak" step="0.01" required>
                             </div>
                       </div>
                       <span style="margin-top: 31px;">
