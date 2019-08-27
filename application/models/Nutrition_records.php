@@ -82,6 +82,8 @@ class Nutrition_records extends CI_Model {
         $this->db->set('gram_protein',$data['gram_protein']);
         $this->db->set('persen_lemak',$data['persen_lemak']);
         $this->db->set('gram_lemak',$data['gram_lemak']);
+        $this->db->set('mon_date',$data['mon_date']);
+        $this->db->set('result',$data['result']);
         $this->db->where('id_student',$data['id_student']);
         $this->db->update('nutrition_records');
 

@@ -781,9 +781,6 @@
                       <span style="margin-top: 31px;">
                           <td><h6 >Gram</h6></td></span>
                           </div>
-                          <?php endforeach;?>           
-                          <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>   
-                         </form>
                       </div>
                        </div>
                     </div>
@@ -795,14 +792,11 @@
       <div class="row">
         <div class="col-md-10">
           <div class="card">
-           
             <div class="card-header card-header-primary">
               <h4 class="card-title">Edit </h4>
               <p class="card-category">Monitoring dan Evaluasi</p>
             </div>
             <div class="card-body">
-              <form action="#">
-                
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
@@ -817,17 +811,14 @@
                       <textarea class="form-control" rows="5"></textarea>
                     </div>
                   </div>
-     
+                  <?php endforeach;?>           
                 <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-              
               </form>
             </div>
           </div>
         </div>
-     
     </div>
   </div>
-
 </div>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>

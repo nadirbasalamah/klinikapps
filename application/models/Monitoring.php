@@ -8,7 +8,7 @@ class Monitoring extends CI_Model {
 
     public function getMonitoringDataById($id)
     {
-        $this->db->where('id_record',$id);
+        $this->db->where('id_student',$id);
         $query = $this->db->get('monitoring',1);
         if ($query->num_rows() == 1) {
         return $query->result();
@@ -29,7 +29,7 @@ class Monitoring extends CI_Model {
 
     public function deleteMonitoringData($id)
     {
-        $this->db->where('id_record',$id);
+        $this->db->where('id_student',$id);
         $query = $this->db->delete('monitoring');
         if ($query) {
         return true;

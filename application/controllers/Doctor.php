@@ -57,7 +57,7 @@ class Doctor extends CI_Controller {
 
 	public function updateNutritionRecord($id)
 	{
-		//TODO: update nutrition record data
+		//TODO: update monitoring data
 		$data = array(
 			'id_record' => 0,
 			'id_student' => $id,
@@ -111,17 +111,14 @@ class Doctor extends CI_Controller {
 			'persen_protein' => $this->input->post('persen_protein'), 
 			'gram_protein' => $this->input->post('gram_protein'), 
 			'persen_lemak' => $this->input->post('persen_lemak'),
-			'gram_lemak' => $this->input->post('gram_lemak')
+			'gram_lemak' => $this->input->post('gram_lemak'),
+			'mon_date' => $this->input->post('mon_date'),
+			'result' => $this->input->post('result')
 		);
 		$this->Nutrition_records->addNutritionRecord($data);
 		echo("<script>alert('Data profil gizi siswa berhasil diubah!')</script>");
 		redirect(base_url('Doctor/viewEditStudent/' . $id),'refresh');
 	}
-
-	// public function updateMonitoringRecord($id)
-	// {
-	// 	//TODO: update monitoring data
-	// }
 
 	public function exportToExcel()
 	{

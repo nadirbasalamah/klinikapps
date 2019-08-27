@@ -781,8 +781,6 @@
                       <span style="margin-top: 31px;">
                           <td><h6>Gram</h6></td></span>
                           </div>
-                          <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>   
-                        </form>
                         </div>
                       </div>
                     </div>
@@ -800,34 +798,28 @@
               <h4 class="card-title">Edit </h4>
               <p class="card-category">Monitoring dan Evaluasi</p>
             </div>
-            <div class="card-body">
-              <form action="#">
-                
+            <div class="card-body">                
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Tanggal</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="mon_date">
                     </div>
                   </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Monitor dan Evaluasi</label>
-                      <textarea class="form-control" rows="5"></textarea>
+                      <textarea class="form-control" rows="5" name="result"></textarea>
                     </div>
                   </div>
-     
                 <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-              
               </form>
             </div>
           </div>
         </div>
-     
     </div>
   </div>
-
 </div>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
