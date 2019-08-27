@@ -801,14 +801,14 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Tanggal</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" value="<?php echo $rec->mon_date;?>" required>
                     </div>
                   </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Monitor dan Evaluasi</label>
-                      <textarea class="form-control" rows="5"></textarea>
+                      <textarea class="form-control" rows="5" required><?php echo $rec->result;?></textarea>
                     </div>
                   </div>
                   <?php endforeach;?>           

@@ -803,14 +803,14 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Tanggal</label>
-                      <input type="text" class="form-control" name="mon_date">
+                      <input type="text" class="form-control" name="mon_date" required>
                     </div>
                   </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Monitor dan Evaluasi</label>
-                      <textarea class="form-control" rows="5" name="result"></textarea>
+                      <textarea class="form-control" rows="5" name="result" required></textarea>
                     </div>
                   </div>
                 <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
