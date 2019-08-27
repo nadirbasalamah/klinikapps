@@ -324,7 +324,7 @@
                       <div class="col-md-4">
                           <div class="form-group">
                             <label class="bmd-label-floating">lainnya</label>
-                            <input type="text" class="form-control" name="lainnya" value=<?php echo $rec->lainnya;?> required>
+                            <input type="text" class="form-control" name="lainnya" value="<?php echo $rec->lainnya;?>" required>
                           </div>
                         </div>
                     </div>
@@ -382,14 +382,14 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Olahraga (x dalam 1 minggu,selama x menit)</label>
-                          <input type="text" class="form-control" name="durasi_olahraga" value=<?php echo $rec->durasi_olahraga;?> required>
+                          <input type="text" class="form-control" name="durasi_olahraga" value="<?php echo $rec->durasi_olahraga;?>" required>
                         </div>
                       </div>
                      
                       <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Jenis Olahraga</label>
-                            <input type="text" class="form-control" name="jenis_olahraga" value=<?php echo $rec->jenis_olahraga;?> required>
+                            <input type="text" class="form-control" name="jenis_olahraga" value="<?php echo $rec->jenis_olahraga;?>" required>
                           </div>
                         </div>
                        
@@ -398,7 +398,7 @@
                           <div class="col-md-12">
                             <div class="form-group">
                               <label class="bmd-label-floating">Diagnosa Dahulu </label>
-                              <input type="text" class="form-control" name="diagnosa_dahulu" value=<?php echo $rec->diagnosa_dahulu;?> required>
+                              <input type="text" class="form-control" name="diagnosa_dahulu" value="<?php echo $rec->diagnosa_dahulu;?>" required>
                             </div>
                           </div>
                         </div>
@@ -406,7 +406,7 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Diagnosa Sekarang </label>
-                                <input type="text" class="form-control" name="diagnosa_skrg" value=<?php echo $rec->diagnosa_skrg;?> required>
+                                <input type="text" class="form-control" name="diagnosa_skrg" value="<?php echo $rec->diagnosa_skrg;?>" required>
                               </div>
                             </div>
                           </div>
@@ -434,13 +434,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="bmd-label-floating">Nafsu Makan ( + / -)</label>
-                        <input type="text" class="form-control" name="nafsu_makan" value=<?php echo $rec->nafsu_makan;?> required>
+                        <input type="text" class="form-control" name="nafsu_makan" value="<?php echo $rec->nafsu_makan;?>" required>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="bmd-label-floating">Frekuensi Makan( x/hari , teratur/tidak teratur ) </label>
-                        <input type="text" class="form-control" name="frekuensi_makan" value=<?php echo $rec->frekuensi_makan;?> required>
+                        <input type="text" class="form-control" name="frekuensi_makan" value="<?php echo $rec->frekuensi_makan;?>" required>
                       </div>
                     </div>
                    
@@ -449,13 +449,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Alergi / Pantangan</label>
-                            <input type="text" class="form-control" name="alergi" value=<?php echo $rec->alergi;?> required>
+                            <input type="text" class="form-control" name="alergi" value="<?php echo $rec->alergi;?>" required>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Kesukaan</label>
-                            <input type="text" class="form-control" name="makanan_kesukaan" value=<?php echo $rec->makanan_kesukaan;?> required>
+                            <input type="text" class="form-control" name="makanan_kesukaan" value="<?php echo $rec->makanan_kesukaan;?>" required>
                           </div>
                         </div>
                         
@@ -485,7 +485,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="bmd-label-floating">Nasi</label>
-                        <input type="text" class="form-control" name="dietary_nasi" value=<?php echo $rec->dietary_nasi;?> required>
+                        <input type="text" class="form-control" name="dietary_nasi" value="<?php echo $rec->dietary_nasi;?>" required>
                       </div>
                     </div>
                     </div>
@@ -500,7 +500,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Keterangan :</label>
-                          <input type="text" class="form-control" name="dietary_minuman" value=<?php echo $rec->dietary_minuman;?> required>
+                          <input type="text" class="form-control" name="dietary_minuman" value="<?php echo $rec->dietary_minuman;?>" required>
                         </div>
                       </div>
                       </div>
@@ -509,13 +509,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Lauk Hewani</label>
-                            <input type="text" class="form-control" name="dietary_lauk_hewani" value=<?php echo $rec->dietary_lauk_hewani;?> required>
+                            <input type="text" class="form-control" name="dietary_lauk_hewani" value="<?php echo $rec->dietary_lauk_hewani;?>" required>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label class="bmd-label-floating">Softdrink</label>
-                            <input type="text" class="form-control" name="dietary_softdrink" value=<?php echo $rec->dietary_softdrink;?> required>
+                            <input type="text" class="form-control" name="dietary_softdrink" value="<?php echo $rec->dietary_softdrink;?>" required>
                           </div>
                         </div>
                         </div>
@@ -523,13 +523,13 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Lauk Nabati</label>
-                                <input type="text" class="form-control" name="dietary_lauk_nabati" value=<?php echo $rec->dietary_lauk_nabati;?> required>
+                                <input type="text" class="form-control" name="dietary_lauk_nabati" value="<?php echo $rec->dietary_lauk_nabati;?>" required>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="bmd-label-floating">Jus / Buah</label>
-                                <input type="text" class="form-control" name="dietary_jus" value=<?php echo $rec->dietary_jus;?> required>
+                                <input type="text" class="form-control" name="dietary_jus" value="<?php echo $rec->dietary_jus;?>" required>
                               </div>
                             </div>
                           </div>
@@ -537,13 +537,13 @@
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <label class="bmd-label-floating">Sayur</label>
-                                            <input type="text" class="form-control" name="dietary_sayur" value=<?php echo $rec->dietary_sayur;?> required>
+                                            <input type="text" class="form-control" name="dietary_sayur" value="<?php echo $rec->dietary_sayur;?>" required>
                                           </div>
                                         </div>
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <label class="bmd-label-floating">Suplemen</label>
-                                            <input type="text" class="form-control" name="dietary_suplemen" value=<?php echo $rec->dietary_suplemen;?> required>
+                                            <input type="text" class="form-control" name="dietary_suplemen" value="<?php echo $rec->dietary_suplemen;?>" required>
                                           </div>
                                         </div>
                                         </div>
@@ -551,13 +551,13 @@
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label class="bmd-label-floating">Sumber Minyak</label>
-                                                        <input type="text" class="form-control" name="dietary_sumber_minyak" value=<?php echo $rec->dietary_sumber_minyak;?> required>
+                                                        <input type="text" class="form-control" name="dietary_sumber_minyak" value="<?php echo $rec->dietary_sumber_minyak;?>" required>
                                                       </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label class="bmd-label-floating">Lainnya</label>
-                                                        <input type="text" class="form-control" name="dietary_lainnya" value=<?php echo $rec->dietary_lainnya;?> required>
+                                                        <input type="text" class="form-control" name="dietary_lainnya" value="<?php echo $rec->dietary_lainnya;?>" required>
                                                       </div>
                                                     </div>
                                                     
@@ -586,9 +586,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Lain Lain</label>
-                    <textarea class="form-control" rows="5" name="lain_lain" required>
-                    <?php echo $rec->lain_lain;?>
-                    </textarea>
+                    <textarea class="form-control" rows="5" name="lain_lain" required><?php echo $rec->lain_lain;?></textarea>
                    </div>
                   </div>
                   </div>
@@ -616,9 +614,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Diagnosa</label>
-                  <textarea class="form-control" rows="5" name="diagnosa" required>
-                  <?php echo $rec->diagnosa;?>
-                  </textarea>
+                  <textarea class="form-control" rows="5" name="diagnosa" required><?php echo $rec->diagnosa;?></textarea>
                  </div>
                 </div>
                 </div>
