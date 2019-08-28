@@ -164,99 +164,147 @@
               </div>
             </div>
            </div>
-           <?php endforeach;?>
-      <div class="content">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-10">
-                  <div class="card">                
-                    <div class="card-header card-header-primary">
-                      <h4 class="card-title">Intervensi </h4>
-                    </div>
-                    <div class="card-body">
-                            <div class="table-responsive">
-                                    <table class="table">
-                                      <thead class=" text-primary">
-                                        <th><h6>Kebutuhan Energi</h6></th>
-                                        <th><h6>%</h6></th>
-                                        <th><h6>Kalori</h6></th>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td><h6> Karbohidrat</h6></td>
-                                          <td>0</td>
-                                          <td>0</td>
-                                          <td><h6>Gram</h6></td>
-                                          
-                                        
-                                        </tr>
-                                        <tr>
-                                          <td> <h6>Protein</h6></td>
-                                          <td>0</td>
-                                          <td> 0 </td>
-                                          <td><h6>Gram</h6></td>
-                                          </td>
-                                  
-                                        <tr>
-                            
-                                          <td><h6>Lemak</h6></td>
-                                          <td>0</td>
-                                          <td>0</td>
-                                          <td><h6>Gram</h6></td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
+           <div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+     
+      
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Interenvensi </h4>
+         
+          </div>
+          
+          <div class="card-body">
+                           <div class="row">
+                                <div class="col-md-6">
+                                <th>
+                                <div class="form-group">
+                                <h6>Kebutuhan Energi</h6>
+                                <p><?php echo $stdnt->energi;?></p>
                                 </div>
-                                 </div>
+                              </th>
+                                </div>
+                                <div class="col-md-6">
+                                  <br>
+                                  <td><h6>kalori</h6></td>
+                                </div>
                               </div>
+                              <div class="row">
+                                  <div class="col-md-4">
+                                <td><h6> Karbohidrat</h6>
+                                <div class="form-group">
+                                <p><?php echo $stdnt->persen_karbohidrat;?></p>
+                                </div>
+                                </td>
+                              </div>
+                              <span 
+                                  style="margin-top: 31px;">
+                                <td><h6 >%</h6></td>
+                              </span>
+                                <div class="col-md-4">
+                                <td><h6> 
+                              
+                                 <br>
+                                 <div class="form-group">
+                                 <p><?php echo $stdnt->gram_karbohidrat;?></p>
+                                  </div>
+                          </div>
+                          <span style="margin-top: 31px;">
+                              <td><h6 >Gram</h6></td></span>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                              <td><h6> Protein</h6>
+                              <div class="form-group">
+                              <p><?php echo $stdnt->persen_protein;?></p>
+                              </div>
+                              </td>
                             </div>
+                            <span 
+                                style="margin-top: 31px;">
+                              <td><h6 >%</h6></td>
+                            </span>
+                              <div class="col-md-4">
+                              <td><h6> 
+                            
+                               <br>
+                               <div class="form-group">
+                               <p><?php echo $stdnt->gram_protein;?></p>
+                                </div>
                         </div>
+                        <span style="margin-top: 31px;">
+                            <td><h6 >Gram</h6></td></span>
+                            </div>
+                            
+                            <div class="row">
+                              <div class="col-md-4">
+                            <td><h6> Lemak</h6>
+                            <div class="form-group">
+                            <p><?php echo $stdnt->persen_lemak;?></p>
+                            </div>
+                              </td>
+                          </div>
+                          <span 
+                              style="margin-top: 31px;">
+                            <td><h6 >%</h6></td>
+                          </span>
+                            <div class="col-md-4">
+                            <td><h6> 
+                          
+                             <br>
+                             <div class="form-group">
+                             <p><?php echo $stdnt->gram_lemak;?></p>
+                              </div>
+                      </div>
+                      <span style="margin-top: 31px;">
+                          <td><h6 >Gram</h6></td></span>
+                          </div>
+                          
+                         </form>
+                      </div>
+                       </div>
                     </div>
                   </div>
-          <div class="content">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-md-10">
-                      <div class="card">
-                        <div class="card-header card-header-primary">
-                          <h4 class="card-title">Monitorig dan Evaluasi</h4>
-                        </div>
-                        <div class="card-body">
-                                <div class="table-responsive">
-                                        <table class="table">
-                                          <thead class=" text-primary">
-                                            <th><h6>Tanggal</h6></th>
-                                            <th><h6>Monitoring dan Evaluasi</h6></th>
-                                            <th><h6></h6></th>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                              
-                                             
-                                              <td>Date</td>
-                                              <td>Empty</td>
-                                              
-                                            
-                                            </tr>
-                                            <tr>
-                                                    <td>Date</td>
-                                                    <td>Empty</td>
-                                      
-                                         
-                                          </tbody>
-                                        </table>
-                                    </div>
-                                     </div>
-                                  </div>
-                                </div>
-                
-                            </div>
+              </div>
+          </div>
+
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="card">
            
-                        </div>
-                      </div>
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Data </h4>
+              <p class="card-category">Monitoring dan Evaluasi</p>
+            </div>
+            <div class="card-body">
+              <form action="#">
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Tanggal</h6>
+                      <p><?php echo $stdnt->mon_date;?></p>
                     </div>
-                   </div>
-              </div>  
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Monitor dan Evaluasi</h6>
+                      <textarea class="form-control" rows="5" placeholder="" readonly><?php echo $stdnt->result;?></textarea>
+                    </div>
+                  </div>  
+                  <?php endforeach;?>                  
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
   </body>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>

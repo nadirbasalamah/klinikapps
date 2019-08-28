@@ -13,6 +13,7 @@ class User extends CI_Controller {
 
 		$this->load->model('Users');
 		$this->load->model('Students');
+		$this->load->model('Nutrition_records');
 	}
 
 	public function index()
@@ -200,7 +201,7 @@ class User extends CI_Controller {
 
 		public function viewStudent($id)
 		{
-			$data['student'] = $this->Students->getStudentById($id);
+			$data['student'] = $this->Nutrition_records->getNutritionRecordById($id);
 			$this->load->view('user/student_page',$data);
 		}
 
