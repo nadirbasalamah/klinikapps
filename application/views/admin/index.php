@@ -107,10 +107,10 @@
 
       </div>
       <div class="col">
-        <!--TODO: change mockup picture-->
+        <br>
+        <br>
         <img style="  box-shadow:  rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         " src="<?php echo  base_url('assets/img/halaman_login.png');?>" alt="Halaman Dashboard" width="495" height="355">
-    
       </div>
     </div>
 </div>
