@@ -23,9 +23,9 @@
   <!-- CSS Files -->
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
-<body style="background-image:<?php echo 'url(' . base_url('assets/img/w.png') . ')'?>;">
+<body>
     <div class="wrapper ">
-      <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg')?>">
+      <div class="sidebar" data-color="azure" data-background-color="white" data-image="">
         <div class="logo">
           <a href="#" class="simple-text logo-normal">
             <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
@@ -51,7 +51,12 @@
                 <p>Daftar Siswa</p>
               </a>
             </li>
-         
+            <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('User/viewConsultation'); ?>">
+              <i class="material-icons">contact_mail</i>
+              <p>Konsultasi</p>
+            </a>
+          </li>
           </ul>
         </div>
       </div>
@@ -91,6 +96,11 @@
             </div>
           </nav>
       <!-- End Navbar -->
+    <style>
+body{
+  background-image: url('/w.png');
+}
+    </style>
    <br>
    <br>
    <br>
@@ -107,9 +117,8 @@
 
       </div>
       <div class="col">
-        <!--TODO: change mockup picture-->
         <img style="  box-shadow:  rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        " src="<?php echo  base_url('assets/img/halaman_login.png');?>" alt="Halaman Dashboard" width="495" height="355">
+        " src="../halaman_login.png" alt="Halaman Dashboard" width="495" height="355">
     
       </div>
     </div>
@@ -124,10 +133,10 @@
 
 
 <div class="d-flex justify-content-center">
-<div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/instagram.png');?>" alt="" width="35" height="35" alt=""></div>
-    <div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/twitter-logo-button.png');?>" alt="" width="35" height="35" alt=""></div>
-    <div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/facebook-logo-button.png');?>" alt="" width="35" height="35" alt=""></div>
-    <div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/whatsapp.png');?>" alt="" width="35" height="35" alt=""></div>
+<div class="p-2 bd-highlight"><img src="../instagram.png" alt="" width="35" height="35" alt=""></div>
+    <div class="p-2 bd-highlight"><img src="../twitter-logo-button.png" alt="" width="35" height="35" alt=""></div>
+    <div class="p-2 bd-highlight"><img src="../facebook-logo-button.png" alt="" width="35" height="35" alt=""></div>
+    <div class="p-2 bd-highlight"><img src="../whatsapp.png" alt="" width="35" height="35" alt=""></div>
   </div>
 
 </div>

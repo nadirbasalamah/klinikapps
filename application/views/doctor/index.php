@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--TODO: inserting some pictures-->
 <html lang="en">
 <?php
     if (isset($this->session->userdata['logged_in'])) {
@@ -22,88 +23,123 @@
   <!-- CSS Files -->
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
-
-<body>
-  <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg')?>">
-    <div class="logo">
-        <a href="#" class="simple-text logo-normal">
-          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">      
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="#">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/editProfile'); ?>">
-              <i class="material-icons">person</i>
-              <p>Edit Profil</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/viewStudents'); ?>">
-              <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
-            </a>
-          </li>         
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form" action="#" method="post">
-              <div class="input-group no-border">
-                  <div class="ripple-container"></div>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="<?php echo base_url('Doctor/editProfile');?>">Profil</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="<?php echo base_url('User/logout');?>">Log out</a>
-                </div>
-              </li>
-            </ul>
-          </div>
+<body style="background-image:<?php echo 'url(' . base_url('assets/img/w.png') . ')'?>;">
+    <div class="wrapper ">
+      <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg')?>">
+        <div class="logo">
+          <a href="#" class="simple-text logo-normal">
+            <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
+          </a>
         </div>
-      </nav>
-      <!-- End Navbar -->
-      <div container>
-        <div class="rows">
-          <br>
-          <br>
-          <br>
-<h1>Selamat datang, </h1><?php echo $username; ?> !
-</div>
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item active ">
+              <a class="nav-link" href="#">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="<?php echo base_url('Doctor/editProfile'); ?>">
+                <i class="material-icons">person</i>
+                <p>Edit Profil</p>
+              </a>
+            </li>
+            <li class="nav-item  ">
+              <a class="nav-link" href="<?php echo base_url('Doctor/viewStudents'); ?>">
+                <i class="material-icons">content_paste</i>
+                <p>Daftar Siswa</p>
+              </a>
+            </li>
+         
+          </ul>
+        </div>
       </div>
-      
-      </footer>
+      <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+            <div class="container-fluid">
+              <div class="navbar-wrapper">
+                <a class="navbar-brand" href="#pablo"></a>
+              </div>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end">
+                <form class="navbar-form">
+               
+                </form>
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="material-icons">person</i>
+                      <p class="d-lg-none d-md-block">
+                        Account
+                      </p>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                      <a class="dropdown-item" href="<?php echo base_url('Doctor/editProfile');?>">Profil</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="<?php echo base_url('User/logout');?>">Log out</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+      <!-- End Navbar -->
+    <style>
+body{
+  background-image: url('/w.png');
+}
+    </style>
+   <br>
+   <br>
+   <br>
+   <div class="container">
+    <div class="row">
+      <div class="col">
+          <br>
+          <br>
+          <br>
+        <h1 style="margin-left:30px;">Selamat Datang  <br>
+          di Klinik Apps</h1>
+          <p style="margin-left:30px;">Peduli Berbagi dan Mengedukasi</p>
+          <button style="margin-left:31px;" type="button" class="btn btn-info">Get Started</button>
+
+      </div>
+      <div class="col">
+        <img style="  box-shadow:  rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        " src="<?php echo  base_url('assets/img/mockup_dokter.png');?>" alt="Halaman Dashboard" width="495" height="355">
+    
+      </div>
     </div>
+</div>
+<footer>
+<div class="container">
+  <br>
+  <br>
+  <br>
+
+
+
+
+<div class="d-flex justify-content-center">
+<div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/instagram.png');?>" alt="" width="35" height="35" alt=""></div>
+    <div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/twitter-logo-button.png');?>" alt="" width="35" height="35" alt=""></div>
+    <div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/facebook-logo-button.png');?>" alt="" width="35" height="35" alt=""></div>
+    <div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/whatsapp.png');?>" alt="" width="35" height="35" alt=""></div>
   </div>
+
+</div>
+
+
+<h6 style="text-align: center">© 2019 Copyright Klinik Apps</h6>
+
+</footer>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
@@ -138,6 +174,7 @@
   <!-- Library for adding dinamically elements -->
   
   <!-- Chartist JS -->
+  
   <!--  Notifications Plugin    -->
   <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js');?>"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
