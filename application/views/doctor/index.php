@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--TODO: inserting some pictures-->
 <html lang="en">
 <?php
     if (isset($this->session->userdata['logged_in'])) {

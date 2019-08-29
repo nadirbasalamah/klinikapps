@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--TODO: inserting some pictures-->
 <html lang="en">
 <?php
     if (isset($this->session->userdata['logged_in'])) {
@@ -104,13 +103,12 @@
           di Klinik Apps</h1>
           <p style="margin-left:30px;">Peduli Berbagi dan Mengedukasi</p>
           <button style="margin-left:31px;" type="button" class="btn btn-info">Get Started</button>
-
       </div>
       <div class="col">
         <br>
         <br>
         <img style="  box-shadow:  rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        " src="<?php echo  base_url('assets/img/halaman_login.png');?>" alt="Halaman Dashboard" width="495" height="355">
+        " src="<?php echo  base_url('assets/img/mockup_admin.png');?>" alt="Halaman Dashboard" width="495" height="355">
       </div>
     </div>
 </div>
