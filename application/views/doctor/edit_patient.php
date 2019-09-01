@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Edit Student's Profile
+    Edit Patient's Profile
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -45,13 +45,13 @@
           <li class="nav-item active ">
             <a class="nav-link" href="#">
               <i class="material-icons">edit</i>
-              <p>Edit Profil Siswa</p>
+              <p>Edit Profil Pasien</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/viewStudents'); ?>">
+            <a class="nav-link" href="<?php echo base_url('Doctor/viewPatients'); ?>">
               <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
+              <p>Daftar Pasien</p>
             </a>
           </li>
         </ul>
@@ -62,7 +62,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Ubah Data Gizi Siswa</a>
+            <a class="navbar-brand" href="#pablo">Ubah Data Gizi Pasien</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -107,7 +107,7 @@
                 </div>
                 <div class="card-body">
                 <?php foreach($record as $rec):?>
-                <?php echo form_open(base_url('Doctor/updateNutritionRecord/' . $rec->id_student)); ?>
+                <?php echo form_open(base_url('Doctor/updateNutritionRecord/' . $rec->id_patient)); ?>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -117,6 +117,7 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
+                          <!--TODO: USE IMT FORMULA-->
                           <label class="bmd-label-floating">IMT</label>
                           <input type="number" class="form-control" name="imt" step="0.01" value=<?php echo $rec->imt;?> required>
                         </div>
@@ -143,6 +144,37 @@
                           <input type="number" class="form-control" name="lila" step="0.01" value=<?php echo $rec->lila;?> required>
                         </div>
                       </div>
+  </div>
+  <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Fat (%)</label>
+                          <input type="number" class="form-control" name="fat" step="0.01" value=<?php echo $rec->fat;?> required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <!--TODO: USE IMT FORMULA-->
+                          <label class="bmd-label-floating">Visceral Fat</label>
+                          <input type="number" class="form-control" name="visceral_fat" step="0.01" value=<?php echo $rec->visceral_fat;?> required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Muscle (%)</label>
+                          <input type="number" class="form-control" name="muscle" step="0.01" value=<?php echo $rec->muscle;?> required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Body Age</label>
+                          <input type="number" class="form-control" name="body_age" step="0.01" value=<?php echo $rec->body_age;?> required>
+                        </div>
+                      </div>
+                    </div>
+
                       <br>
                           <div class="col-md-12">
                               <div class="form-group">
@@ -185,7 +217,6 @@
                             </div>
                                 </div>
                           </div>
-                    </div>
                     
                 </div>
               </div>
@@ -193,8 +224,7 @@
          
         </div>
       </div>
-    </div>
-   
+
     <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -633,18 +663,192 @@
         <div class="card">
          
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Edit </h4>
+            <h4 class="card-title">Edit TB/BB</h4>
             <p class="card-category">Status Gizi</p>
           </div>
+          <!--TODO: update another data-->
           <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="form-group">
-                     <!--TODO: update another data-->
-                    <label class="bmd-label-floating">TB/BB </label>
-                    <input type="text" class="form-control">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Angka</label>
+                      <input type="text" class="form-control">
+                    </div>
                   </div>
-                </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Upload Image</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                               <label class="bmd-label-floating"></label>
+                          <input type="file">
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                         
+                        <label class="bmd-label-floating">Keterangan </label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Edit BB/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <!--TODO: update another data-->
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Angka</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Upload Image</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                               <label class="bmd-label-floating"></label>
+                          <input type="file">
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                         
+                        <label class="bmd-label-floating">Keterangan </label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Edit TB/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <!--TODO: update another data-->
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Angka</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Upload Image</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                               <label class="bmd-label-floating"></label>
+                          <input type="file">
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                         
+                        <label class="bmd-label-floating">Keterangan </label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Edit IMT/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <!--TODO: update another data-->
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Angka</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Upload Image</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                               <label class="bmd-label-floating"></label>
+                          <input type="file">
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                         
+                        <label class="bmd-label-floating">Keterangan </label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Edit HC/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <!--TODO: update another data-->
+          <div class="card-body">
+              <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
@@ -801,18 +1005,22 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Tanggal</label>
-                      <input type="text" class="form-control" value="<?php echo $rec->mon_date;?>" required>
+                      <input type="text" name="mon_date" class="form-control" value="<?php echo $rec->mon_date;?>" required >
                     </div>
                   </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Monitor dan Evaluasi</label>
-                      <textarea class="form-control" rows="5" required><?php echo $rec->result;?></textarea>
+                      <textarea class="form-control" name="result" rows="5" required><?php echo $rec->result;?></textarea>
                     </div>
                   </div>
                   <?php endforeach;?>           
                 <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
+                
+                <a href="<?php echo base_url('Doctor/sendMessage');?>">
+                <img src="<?php echo base_url('assets/img/whatsapp.png');?>" alt="Whatsapp" width="35" height="35">
+              </a>
               </form>
             </div>
           </div>

@@ -8,7 +8,7 @@ class Nutrition_records extends CI_Model {
 
     public function addNutritionRecord($data)
     {
-        $this->db->where('id_student',$data['id_student']);
+        $this->db->where('id_patient',$data['id_patient']);
         $query = $this->db->get('nutrition_records',1);
         if ($query->num_rows() == 0) {
             $this->db->insert('nutrition_records',$data);
@@ -84,7 +84,7 @@ class Nutrition_records extends CI_Model {
         $this->db->set('gram_lemak',$data['gram_lemak']);
         $this->db->set('mon_date',$data['mon_date']);
         $this->db->set('result',$data['result']);
-        $this->db->where('id_student',$data['id_student']);
+        $this->db->where('id_patient',$data['id_patient']);
         $this->db->update('nutrition_records');
 
         if ($this->db->affected_rows() > 0) {
@@ -97,9 +97,9 @@ class Nutrition_records extends CI_Model {
     public function getNutritionRecordById($id)
     {
         $this->db->select('*');
-        $this->db->from('students');
-        $this->db->join('nutrition_records','students.id_student = nutrition_records.id_student');
-        $this->db->where('students.id_student',$id);
+        $this->db->from('patients');
+        $this->db->join('nutrition_records','patients.id_patient = nutrition_records.id_patient');
+        $this->db->where('patients.id_patient',$id);
         $query = $this->db->get();
         if ($query->num_rows() >= 1) {
             return $query->result();

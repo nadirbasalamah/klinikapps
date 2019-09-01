@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Students List
+    Patients List
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -34,21 +34,21 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/index');?>">
+            <a class="nav-link" href="<?php echo base_url('Admin/index');?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/editProfile');?>">
+            <a class="nav-link" href="<?php echo base_url('Admin/editProfile');?>">
               <i class="material-icons">person</i>
               <p>Edit Profil</p>
             </a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/viewStudents'); ?>">
+            <a class="nav-link" href="<?php echo base_url('Admin/viewPatients'); ?>">
               <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
+              <p>Daftar Pasien</p>
             </a>
           </li>       
         </ul>
@@ -59,7 +59,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Daftar Siswa</a>
+            <a class="navbar-brand" href="#pablo">Daftar Pasien</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -68,13 +68,9 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form" action="<?php echo base_url('Doctor/getStudent');?>" method="post">
+            <form class="navbar-form" action="#" method="post">
               <div class="input-group no-border">
-                <input type="text" class="form-control" placeholder="Cari siswa..." name="student_name">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
                   <div class="ripple-container"></div>
-                </button>
               </div>
             </form>
             <ul class="navbar-nav">
@@ -86,7 +82,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="<?php echo base_url('Doctor/editProfile');?>">Profil</a>
+                  <a class="dropdown-item" href="<?php echo base_url('Admin/editProfile');?>">Profil</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?php echo base_url('User/logout');?>">Log out</a>
                 </div>
@@ -98,7 +94,12 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-            <?= form_open_multipart(base_url('Doctor/exportToExcel')); ?>
+            <?= form_open_multipart(base_url('Admin/importFromExcel')); ?>
+            <input type="file" name="excel" />
+            <button type="submit" name="submit" class="btn btn-info" value="upload">Impor</button>
+            <?= form_close(); ?>
+            
+            <?= form_open_multipart(base_url('Admin/exportToExcel')); ?>
             <button center type="submit" class="btn btn-success" width="50" height="100" >Ekspor</button>
             <?= form_close(); ?>
             </span>
@@ -106,7 +107,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Daftar Siswa</h4>
+                  <h4 class="card-title ">Daftar Pasien</h4>
                   <p class="card-category"></p>
                 </div>
                 <div class="card-body">
@@ -119,24 +120,18 @@
                         <th> Aksi</th>
                       </thead>
                       <tbody>
-                      <?php 
-                      $count = 1; 
-                      if (is_array($students) && count($students) > 0) {
-                        foreach($students as $student):  
-                      ?>
+                      <?php $count = 1; foreach($patients as $patient):?>
                       <tr>
                           <th scope="row"><?php echo $count++;?></th>
-                          <td><?php echo $student['fullname'];?></td>
-                          <td><?php echo $student['address'];?></td>
+                          <td><?php echo $patient->fullname;?></td>
+                          <td><?php echo $patient->address;?></td>
                           <td>
-                          <a href="<?php echo base_url('Doctor/viewStudent/' . $student['id_student']);?>" button class="btn btn-primary"><i class="material-icons">visibility</i>lihat</button></a>
+                          <a href="<?php echo base_url('Admin/viewEditPatient/' . $patient->id_patient);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
                           <span>
-                          <a href="<?php echo base_url('Doctor/viewEditStudent/' . $student['id_student']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></span></a>
+                          <a href="<?php echo base_url('Admin/deletePatient/' . $patient->id_patient);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
                           </td>
                       </tr>
-                        <?php endforeach; } else {
-                          echo "Tidak ada data siswa";
-                      }?>
+                      <?php endforeach; ?>
                       </tbody>
                     </table>
                 </div>
@@ -144,7 +139,8 @@
               </div>
             </div>
             <div 
-            class="container">            
+            class="container">
+            <a href="<?php echo base_url('Admin/viewAddPatient');?>" button class="btn btn-success" width="50" height="100" >Tambah</button></a>
           </div>
         </div>
           </div>
@@ -190,6 +186,7 @@
   <!-- Library for adding dinamically elements -->
   
   <!-- Chartist JS -->
+  
   <!--  Notifications Plugin    -->
   <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js');?>"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

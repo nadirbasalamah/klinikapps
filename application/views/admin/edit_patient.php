@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    View Student's Profile
+    Edit Patient's Profile
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -23,14 +23,14 @@
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
 
-<body>
+<body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
  
  
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
+          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">      
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -44,16 +44,17 @@
           </li>
           <li class="nav-item active ">
             <a class="nav-link" href="#">
-              <i class="material-icons">assignment</i>
-              <p>Lihat Profil Siswa</p>
+              <i class="material-icons">edit</i>
+              <p>Edit Profil Pasien</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Admin/viewStudents'); ?>">
+            <a class="nav-link" href="<?php echo base_url('Admin/viewPatients'); ?>">
               <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
+              <p>Daftar Pasien</p>
             </a>
           </li>
+          
         </ul>
       </div>
     </div>
@@ -62,7 +63,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Data Siswa</a>
+            <a class="navbar-brand" href="#pablo">Ubah Data Pasien </a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -72,7 +73,9 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form">
-            
+              <div class="input-group no-border">
+                  <div class="ripple-container"></div>
+              </div>
             </form>
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
@@ -84,7 +87,6 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="<?php echo base_url('Admin/editProfile');?>">Profil</a>
-                
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?php echo base_url('User/logout');?>">Log out</a>
                 </div>
@@ -94,62 +96,7 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php foreach($student as $stdnt):?>
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-10">
-              <div class="card">
-                <div class="card card-profile">
-            </div>
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">Identitas Pasien (Registrasi)</h4>
-                </div>
-                <div class="card-body">
-                  <form action="#">
-                    <div class="row">
-               <div class="col-md-12">
-                        <div class="form-group">
-                          <h6>Nomor RM</h6>
-                          <p><?php echo $stdnt->rm_number;?></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                    
-                      <div class="col-md-12">
-                        <div class="form-group">
-                        <h6>Nomor RM Gizi</h6>
-                          <p><?php echo $stdnt->rmgizi_number;?></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <h6>Tanggal Kunjungan</h6>
-                          <p><?php echo $stdnt->visitdate;?></p>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <h6>Rujukan</h6>
-                          <p><?php echo $stdnt->referral;?></p>
-                          <br>
-                          <br>
-                        </div>
-                      </div>
-                    </div>
-       
-                  </form>
-                </div>
-              </div>
-            </div>
-          
-        </div>
-      </div>
-      
-
+      <?php foreach($patient as $ptnt):?>
       <div class="content">
         <div class="container-fluid">
           <div class="row">
@@ -158,89 +105,91 @@
                 <div class="card card-profile">
                 <div class="card-avatar">
                   <a href="#">
-                    <img class="img" src="<?php echo base_url('profile_pictures/') . $stdnt->profile_picture; ?>" />
+                    <img class="img" src="<?php echo base_url('profile_pictures/') . $ptnt->profile_picture; ?>" />
                   </a>
                 </div>
+                <div class="card-body">
+                  <h4 class="card-title"><?php echo $ptnt->fullname;?></h4>
+              </div>
             </div>
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Identitas Pasien (Data Diri)</h4>
+                  <h4 class="card-title">Edit </h4>
+                  <p class="card-category">Identitas Pasien</p>
                 </div>
-                
                 <div class="card-body">
-                  <form action="#">
-                    
+                <?php echo form_open(base_url('Admin/editPatient/' . $ptnt->id_patient)) ?>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <h6>Nama Pasien</h6>
-                          <p><?php echo $stdnt->fullname;?></p>
+                          <label class="bmd-label-floating">Nama Pasien</label>
+                          <input type="text" class="form-control" value="<?php echo $ptnt->fullname;?>" name="fullname" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <h6>Tempat Tanggal Lahir</h6>
-                          <p><?php echo $stdnt->birthdate;?></p>
+                          <label class="bmd-label-floating">Tempat Tanggal Lahir</label>
+                          <input type="text" class="form-control" value=<?php echo $ptnt->birthdate;?> readonly>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <h6>Alamat Email</h6>
-                          <p><?php echo $stdnt->email;?></p>
+                          <label class="bmd-label-floating">Alamat Email</label>
+                          <input type="email" class="form-control" value=<?php echo $ptnt->email;?> name="email" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <h6>No Telp</h6>
-                          <p><?php echo $stdnt->phone_number;?></p>
+                          <label class="bmd-label-floating">No Telp</label>
+                          <input type="text" class="form-control" value=<?php echo $ptnt->phone_number;?> name="phone_number" required>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
-                          <h6>Alamat Tempat Tinggal</h6>
-                          <p><?php echo $stdnt->address;?></p>
+                          <label class="bmd-label-floating">Alamat Tempat Tinggal</label>
+                          <input type="text" class="form-control" value="<?php echo $ptnt->address;?>" name="address" required>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <h6>Pendidikan</h6>
-                          <p><?php echo $stdnt->education;?></p>
+                          <label class="bmd-label-floating">Pendidikan</label>
+                          <input type="text" class="form-control" value=<?php echo $ptnt->education;?> name="education" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <h6>Pekerjaan</h6>
-                          <p><?php echo $stdnt->job;?></p>
+                          <label class="bmd-label-floating">Pekerjaan</label>
+                          <input type="text" class="form-control" value="<?php echo $ptnt->job;?>" name="job" required>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <h6>Agama</h6>
-                          <p><?php echo $stdnt->religion;?></p>
+                          <label class="bmd-label-floating">Agama</label>
+                          <input type="text" class="form-control" value="<?php echo $ptnt->religion;?>" name="religion" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <h6>Usia</h6>
-                          <p><?php echo $stdnt->age;?></p>
+                          <label class="bmd-label-floating">Usia</label>
+                          <input type="number" class="form-control" value=<?php echo $ptnt->age;?> readonly>
                         </div>
                       </div>
                     </div>
-              <?php endforeach;?>
+                 <?php endforeach;?>
+               <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
               </form>
                 </div>
               </div>
             </div>
            </div>
       </div>
-</div>   
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
@@ -448,4 +397,5 @@
     });
   </script>
 </body>
+
 </html>

@@ -12,7 +12,7 @@ class User extends CI_Controller {
 		$this->load->library('session');
 
 		$this->load->model('Users');
-		$this->load->model('Students');
+		$this->load->model('Patients');
 		$this->load->model('Nutrition_records');
 	}
 
@@ -67,11 +67,7 @@ class User extends CI_Controller {
 			'id_type' => $this->input->post('id_type'),
 			'profile_picture' => "default.png"
 		);
-		// $data['birthdate'] = date('Y-m-d');
-		if ($data['id_type'] == 'nip') {
-			$data['role'] = 'admin';
-			$result = $this->Users->registration($data);
-		} else if(strpos($data['fullname'], 'Dr.') !== false) {
+		if(strpos($data['fullname'], 'Dr.') !== false) {
 			$data['role'] = 'doctor';
 			$result = $this->Users->registration($data);
 		} else {
@@ -147,10 +143,10 @@ class User extends CI_Controller {
 			$this->load->view('user/index');
 		}
 
-		public function viewStudents()
+		public function viewPatients()
 		{
-			$data['students'] = $this->Students->getAllStudents();
-			$this->load->view('user/students_list', $data);
+			$data['patients'] = $this->Patients->getAllPatients();
+			$this->load->view('user/patients_list', $data);
 		}
 
 		public function editProfile()
@@ -199,17 +195,17 @@ class User extends CI_Controller {
 			}
 		}
 
-		public function viewStudent($id)
+		public function viewPatient($id)
 		{
-			$data['student'] = $this->Nutrition_records->getNutritionRecordById($id);
-			$this->load->view('user/student_page',$data);
+			$data['patient'] = $this->Nutrition_records->getNutritionRecordById($id);
+			$this->load->view('user/patient_page',$data);
 		}
 
-		public function getStudent()
+		public function getPatient()
 		{
-			$fullname = $this->input->post('student_name');
-			$data['students'] = $this->Students->getStudentByName($fullname);
-			$this->load->view('user/students_result',$data);
+			$fullname = $this->input->post('patient_name');
+			$data['patients'] = $this->Patients->getPatientByName($fullname);
+			$this->load->view('user/patients_result',$data);
 		}
 
 		public function viewConsultation()

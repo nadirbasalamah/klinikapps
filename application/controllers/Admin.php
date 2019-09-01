@@ -18,7 +18,7 @@ class Admin extends CI_Controller {
 		$this->load->library('session');
 
 		$this->load->model('Users');
-		$this->load->model('Students');
+		$this->load->model('Patients');
 	}
 
 	public function index()
@@ -26,16 +26,16 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/index');
 	}	
 
-	public function viewStudents()
+	public function viewPatients()
 	{
-		$data['students'] = $this->Students->getAllStudents();
-		$this->load->view('admin/students_list',$data);
+		$data['patients'] = $this->Patients->getAllPatients();
+		$this->load->view('admin/patients_list',$data);
 	}
 
-	public function viewStudent($id)
+	public function viewPatient($id)
 	{
-		$data['student'] = $this->Students->getStudentById($id);
-		$this->load->view('admin/view_student',$data);
+		$data['patient'] = $this->Patients->getPatientById($id);
+		$this->load->view('admin/view_patient',$data);
 	}
 
 	public function editProfile()
@@ -43,25 +43,25 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/edit_profile');
 	}
 
-	public function deleteStudent($id)
+	public function deletePatient($id)
 	{
-		$result = $this->Students->deleteStudent($id);
+		$result = $this->Patients->deletePatient($id);
 		if ($result) {
-			echo("<script>alert('Data siswa berhasil dihapus!')</script>");
-			redirect(base_url('Admin/viewStudents'),'refresh');
+			echo("<script>alert('Data pasien berhasil dihapus!')</script>");
+			redirect(base_url('Admin/viewPatients'),'refresh');
 		} else {
-			echo("<script>alert('Proses penghapusan data siswa gagal!')</script>");
-			redirect(base_url('Admin/viewStudents'),'refresh');
+			echo("<script>alert('Proses penghapusan data pasien gagal!')</script>");
+			redirect(base_url('Admin/viewPatients'),'refresh');
 		}
 	}
 
-	public function viewEditStudent($id)
+	public function viewEditPatient($id)
 	{
-		$data['student'] = $this->Students->getStudentById($id);
-		$this->load->view('admin/edit_student',$data);
+		$data['patient'] = $this->Patients->getPatientById($id);
+		$this->load->view('admin/edit_patient',$data);
 	}
 
-	public function editStudent($id)
+	public function editPatient($id)
 	{
 		$data = array(
 			'id' => $id,
@@ -73,28 +73,19 @@ class Admin extends CI_Controller {
 			'job' => $this->input->post('job'),
 			'religion' => $this->input->post('religion')
 		);
-		$this->Students->updateStudent($data);
-		echo("<script>alert('Data profil siswa berhasil diubah!')</script>");
-		redirect(base_url('Admin/viewStudents'),'refresh');
+		$this->Patients->updatePatient($data);
+		echo("<script>alert('Data profil pasien berhasil diubah!')</script>");
+		redirect(base_url('Admin/viewPatients'),'refresh');
 	}
 	
-	public function viewAddStudent()
+	public function viewAddPatient()
 	{
-		$this->load->view('admin/add_student');
+		$this->load->view('admin/add_patient');
 	}
 
-	public function addStudent()
+	public function addPatient()
 	{
-		$this->form_validation->set_rules('fullname', 'Nama Lengkap', 'trim|required');
 		$this->form_validation->set_rules('birthdate', 'Tanggal Lahir', 'callback_checkDateFormat');
-		$this->form_validation->set_rules('gender', 'Jenis Kelamin', 'trim|required');
-		$this->form_validation->set_rules('age', 'Umur', 'trim|required');
-		$this->form_validation->set_rules('phone_number', 'Nomor ponsel', 'trim|required');
-		$this->form_validation->set_rules('email', 'Alamat Email', 'trim|required');
-		$this->form_validation->set_rules('address', 'Alamat Tempat Tinggal', 'trim|required');
-		$this->form_validation->set_rules('education', 'Pendidikan', 'trim|required');
-		$this->form_validation->set_rules('job', 'Pekerjaan', 'trim|required');
-		$this->form_validation->set_rules('religion', 'Agama / suku', 'trim|required');
 		$this->form_validation->set_message('checkDateFormat', 'Format tanggal salah (gunakan format:dd/mm/yyyy)');
 
 		$new_name = time().$_FILES["profile_picture"]['name'];
@@ -112,10 +103,10 @@ class Admin extends CI_Controller {
 		$file_loc = $upload_data['file_name'];
 		}
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('admin/add_student'); 
+			$this->load->view('admin/add_patient'); 
 		} else {
 			$data = array(
-			'id_student' => 0,
+			'id_patient' => 0,
 			'rm_number' => $this->input->post('rm_number'),
 			'rmgizi_number' => $this->input->post('rmgizi_number'),
 			'visitdate' => $this->input->post('visitdate'),
@@ -132,14 +123,14 @@ class Admin extends CI_Controller {
 			'job' => $this->input->post('job'),
 			'religion' => $this->input->post('religion')
 		);
-		$result = $this->Students->addStudent($data);
+		$result = $this->Patients->addPatient($data);
 
 		if ($result == TRUE) {
-			echo("<script>alert('Data siswa berhasil ditambahkan!')</script>");
-			redirect(base_url('Admin/viewStudents'),'refresh');
+			echo("<script>alert('Data pasien berhasil ditambahkan!')</script>");
+			redirect(base_url('Admin/viewPatients'),'refresh');
 		} else {
-			echo("<script>alert('Penambahan gagal, data siswa sebelumnya telah tersimpan!')</script>");
-			$this->load->view('admin/add_student', $data);
+			echo("<script>alert('Penambahan gagal, data pasien sebelumnya telah tersimpan!')</script>");
+			$this->load->view('admin/add_patient', $data);
 		}
 		}
 	}
@@ -178,7 +169,7 @@ class Admin extends CI_Controller {
 				for($i = 1;$i < count($sheetData);$i++)
 				{
 					$data = array (
-						'id_student' 	=> 0,
+						'id_patient' 	=> 0,
 						'fullname' 		=> $sheetData[$i]['1'],
 						'age' 			=> $sheetData[$i]['2'],
 						'gender'        => $sheetData[$i]['3'],
@@ -193,9 +184,9 @@ class Admin extends CI_Controller {
 					);
 					array_push($save,$data);
 				}
-				$this->Students->addBatchStudents($save);
+				$this->Patients->addBatchPatients($save);
                     echo    '<script type="text/javascript">alert(\'Data berhasil disimpan\');</script>';
-					redirect(base_url('Admin/viewStudents'),'refresh');
+					redirect(base_url('Admin/viewPatients'),'refresh');
                 }
             else
             {
@@ -203,14 +194,14 @@ class Admin extends CI_Controller {
 				echo '<script type="text/javascript">alert('. $err .');</script>';
             }
         }
-        redirect(base_url('Admin/viewStudents'),'refresh');
+        redirect(base_url('Admin/viewPatients'),'refresh');
 	}
 
 	public function exportToExcel()
 	{
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
-		$sheet->setCellValue('A1', 'ID_Student');
+		$sheet->setCellValue('A1', 'ID_Patient');
 		$sheet->setCellValue('B1', 'Nama Lengkap');
 		$sheet->setCellValue('C1', 'Umur');
 		$sheet->setCellValue('D1', 'Jenis Kelamin');
@@ -224,19 +215,19 @@ class Admin extends CI_Controller {
 		$i = 2;
 
 		
-		$data = $this->Students->getAllStudents();
-		foreach($data as $student) {
-			$sheet->setCellValue('A'.$i, $student['id_student']);
-			$sheet->setCellValue('B'.$i, $student['fullname']);
-			$sheet->setCellValue('C'.$i, $student['age']);
-			$sheet->setCellValue('D'.$i, $student['gender']);
-			$sheet->setCellValue('E'.$i, $student['address']);
-			$sheet->setCellValue('F'.$i, $student['phone_number']);
-			$sheet->setCellValue('G'.$i, $student['email']);
-			$sheet->setCellValue('H'.$i, $student['birthdate']);
-			$sheet->setCellValue('I'.$i, $student['education']);
-			$sheet->setCellValue('J'.$i, $student['job']);
-			$sheet->setCellValue('K'.$i, $student['religion']);
+		$data = $this->Patients->getAllPatients();
+		foreach($data as $patient) {
+			$sheet->setCellValue('A'.$i, $patient['id_patient']);
+			$sheet->setCellValue('B'.$i, $patient['fullname']);
+			$sheet->setCellValue('C'.$i, $patient['age']);
+			$sheet->setCellValue('D'.$i, $patient['gender']);
+			$sheet->setCellValue('E'.$i, $patient['address']);
+			$sheet->setCellValue('F'.$i, $patient['phone_number']);
+			$sheet->setCellValue('G'.$i, $patient['email']);
+			$sheet->setCellValue('H'.$i, $patient['birthdate']);
+			$sheet->setCellValue('I'.$i, $patient['education']);
+			$sheet->setCellValue('J'.$i, $patient['job']);
+			$sheet->setCellValue('K'.$i, $patient['religion']);
 			$i++;
 		}
 		
@@ -256,41 +247,10 @@ class Admin extends CI_Controller {
 
 	}
 
-	public function getStudent()
+	public function getPatient()
 	{
-		$fullname = $this->input->post('student_name');
-		$data['students'] = $this->Students->getStudentByName($fullname);
-		$this->load->view('admin/students_result',$data);
+		$fullname = $this->input->post('patient_name');
+		$data['patients'] = $this->Patients->getPatientByName($fullname);
+		$this->load->view('admin/patients_result',$data);
 	}
-
-	// public function viewPosts()
-	// {
-	// 	//TODO: get all posts
-	// }
-
-	// public function viewCreatePost()
-	// {
-	// 	//TODO: render create post view
-	// }
-
-	// public function createPost()
-	// {
-	// 	//TODO: create a new post
-	// }
-
-	// public function viewUpdatePost($id)
-	// {
-	// 	//TODO: render update post view
-	// }
-
-	// public function updatePost($id)
-	// {
-	// 	//TODO: update post
-	// }
-
-	// public function deletePost($id)
-	// {
-	// 	//TODO: remove post by id
-	// }
-
 }

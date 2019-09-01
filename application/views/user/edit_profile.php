@@ -56,15 +56,9 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('User/viewStudents'); ?>">
+            <a class="nav-link" href="<?php echo base_url('User/viewPatients'); ?>">
               <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('User/viewConsultation'); ?>">
-              <i class="material-icons">contact_mail</i>
-              <p>Konsultasi</p>
+              <p>Daftar Pasien</p>
             </a>
           </li>
         </ul>

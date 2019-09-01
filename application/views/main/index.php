@@ -19,7 +19,7 @@
 				<div style="background-color:darkcyan;" class="form-left">
 				
 					<h1>	Welcome To <br>
-					Klinik Apps</h1>
+					Poli Gizi Klinik UB Apps</h1>
 					<p  >Don't have an account? </p>
 					<a href="<?php echo base_url('user/register');?>">
 					<p>Sign Up</p>

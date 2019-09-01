@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    View Student's Profile
+    View Patient's Profile
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -46,13 +46,13 @@
           <li class="nav-item active ">
             <a class="nav-link" href="#">
               <i class="material-icons">assignment</i>
-              <p>Lihat Profil Siswa</p>
+              <p>Lihat Profil Pasien</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/viewStudents'); ?>">
+            <a class="nav-link" href="<?php echo base_url('Doctor/viewPatients'); ?>">
               <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
+              <p>Daftar Pasien</p>
             </a>
           </li>
         </ul>
@@ -63,7 +63,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#">Data Siswa</a>
+            <a class="navbar-brand" href="#">Data Pasien</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -95,7 +95,7 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php foreach($student as $stdnt):?>
+      <?php foreach($patient as $ptnt):?>
       <div class="content">
         <div class="container-fluid">
           <div class="row">
@@ -112,7 +112,7 @@
                <div class="col-md-12">
                         <div class="form-group">
                           <h6>Nomor RM</h6>
-                          <p><?php echo $stdnt->rm_number;?></p>
+                          <p><?php echo $ptnt->rm_number;?></p>
                         </div>
                       </div>
                     </div>
@@ -121,7 +121,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                         <h6>Nomor RM Gizi</h6>
-                          <p><?php echo $stdnt->rmgizi_number;?></p>
+                          <p><?php echo $ptnt->rmgizi_number;?></p>
                         </div>
                       </div>
                     </div>
@@ -129,13 +129,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>Tanggal Kunjungan</h6>
-                          <p><?php echo $stdnt->visitdate;?></p>
+                          <p><?php echo $ptnt->visitdate;?></p>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>Rujukan</h6>
-                          <p><?php echo $stdnt->referral;?></p>
+                          <p><?php echo $ptnt->referral;?></p>
                           <br>
                           <br>
                         </div>
@@ -159,7 +159,7 @@
                 <div class="card card-profile">
                 <div class="card-avatar">
                   <a href="#">
-                    <img class="img" src="<?php echo base_url('profile_pictures/') . $stdnt->profile_picture; ?>" />
+                    <img class="img" src="<?php echo base_url('profile_pictures/') . $ptnt->profile_picture; ?>" />
                   </a>
                 </div>
             </div>
@@ -174,13 +174,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>Nama Pasien</h6>
-                          <p><?php echo $stdnt->fullname;?></p>
+                          <p><?php echo $ptnt->fullname;?></p>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>Tempat Tanggal Lahir</h6>
-                          <p><?php echo $stdnt->birthdate;?></p>
+                          <p><?php echo $ptnt->birthdate;?></p>
                         </div>
                       </div>
                     </div>
@@ -188,13 +188,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>Alamat Email</h6>
-                          <p><?php echo $stdnt->email;?></p>
+                          <p><?php echo $ptnt->email;?></p>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>No Telp</h6>
-                          <p><?php echo $stdnt->phone_number;?></p>
+                          <p><?php echo $ptnt->phone_number;?></p>
                         </div>
                       </div>
                     </div>
@@ -202,7 +202,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <h6>Alamat Tempat Tinggal</h6>
-                          <p><?php echo $stdnt->address;?></p>
+                          <p><?php echo $ptnt->address;?></p>
                         </div>
                       </div>
                     </div>
@@ -210,13 +210,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>Pendidikan</h6>
-                          <p><?php echo $stdnt->education;?></p>
+                          <p><?php echo $ptnt->education;?></p>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>Pekerjaan</h6>
-                          <p><?php echo $stdnt->job;?></p>
+                          <p><?php echo $ptnt->job;?></p>
                         </div>
                       </div>
                     </div>
@@ -224,13 +224,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>Agama</h6>
-                          <p><?php echo $stdnt->religion;?></p>
+                          <p><?php echo $ptnt->religion;?></p>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>Usia</h6>
-                          <p><?php echo $stdnt->age;?></p>
+                          <p><?php echo $ptnt->age;?></p>
                         </div>
                       </div>
                     </div>
@@ -260,13 +260,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>BB</h6>
-                          <p><?php echo $stdnt->bb;?></p>
+                          <p><?php echo $ptnt->bb;?></p>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>IMT</h6>
-                          <p><?php echo $stdnt->imt;?></p>
+                          <p><?php echo $ptnt->imt;?></p>
                         </div>
                       </div>
                     </div>
@@ -274,13 +274,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>TB</h6>
-                          <p><?php echo $stdnt->tb;?></p>
+                          <p><?php echo $ptnt->tb;?></p>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6>BBI</h6>
-                          <p><?php echo $stdnt->bbi;?></p>
+                          <p><?php echo $ptnt->bbi;?></p>
                         </div>
                       </div>
                     </div>
@@ -290,7 +290,7 @@
                                 <h6>Status Gizi (Kategori)</h6>
                                 <div class="form-check form-check-radio">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" <?= $stdnt->status=="underweight" ? "checked" : ""?> disabled>
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" <?= $ptnt->status=="underweight" ? "checked" : ""?> disabled>
                                       Underweight
                                       <span class="circle">
                                           <span class="check"></span>
@@ -299,7 +299,7 @@
                               </div>
                               <div class="form-check form-check-radio">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" <?= $stdnt->status=="normal" ? "checked" : ""?> disabled>
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" <?= $ptnt->status=="normal" ? "checked" : ""?> disabled>
                                       Normal
                                       <span class="circle">
                                           <span class="check"></span>
@@ -308,7 +308,7 @@
                               </div>
                               <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" <?= $stdnt->status=="overweight" ? "checked" : ""?> disabled>
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" <?= $ptnt->status=="overweight" ? "checked" : ""?> disabled>
                                     Overweight
                                     <span class="circle">
                                         <span class="check"></span>
@@ -317,7 +317,7 @@
                             </div>
                             <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" <?= $stdnt->status=="obese" ? "checked" : ""?> disabled>
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" <?= $ptnt->status=="obese" ? "checked" : ""?> disabled>
                                     Obese
                                     <span class="circle">
                                         <span class="check"></span>
@@ -351,19 +351,19 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <h6>GDA</h6>
-                        <p><?php echo $stdnt->gda;?></p>
+                        <p><?php echo $ptnt->gda;?></p>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <h6>Trigliserida</h6>
-                        <p><?php echo $stdnt->trigliserida;?></p>
+                        <p><?php echo $ptnt->trigliserida;?></p>
                       </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                           <h6>Ureum</h6>
-                          <p><?php echo $stdnt->ureum;?></p>
+                          <p><?php echo $ptnt->ureum;?></p>
                         </div>
                       </div>
                     </div>
@@ -371,19 +371,19 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <h6>GDP</h6>
-                            <p><?php echo $stdnt->gdp;?></p>
+                            <p><?php echo $ptnt->gdp;?></p>
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <h6>Kolesterol Total</h6>
-                            <p><?php echo $stdnt->kolesterol;?></p>
+                            <p><?php echo $ptnt->kolesterol;?></p>
                           </div>
                         </div>
                         <div class="col-md-4">
                             <h6 class="form-group">
                               <h6>Kreatinin</h6>
-                              <p><?php echo $stdnt->kreatinin;?></p>
+                              <p><?php echo $ptnt->kreatinin;?></p>
                             </h6>
                           </div>
                         </div>
@@ -391,19 +391,19 @@
                             <div class="col-md-4">
                               <div class="form-group">
                                 <h6 >GD2JPP</h6>
-                                <p><?php echo $stdnt->gd2jpp;?></p>
+                                <p><?php echo $ptnt->gd2jpp;?></p>
                               </div>
                             </div>
                             <div class="col-md-4">
                               <div class="form-group">
                                 <h6>LDL</h6>
-                                <p><?php echo $stdnt->ldl;?></p>
+                                <p><?php echo $ptnt->ldl;?></p>
                               </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                   <h6>SGOT</h6>
-                                  <p><?php echo $stdnt->sgot;?></p>
+                                  <p><?php echo $ptnt->sgot;?></p>
                                 </div>
                               </div>
                             </div>
@@ -411,19 +411,19 @@
                                 <div class="col-md-4">
                                   <div class="form-group">
                                     <h6>Asam Urat</h6>
-                                    <p><?php echo $stdnt->asam_urat;?></p>
+                                    <p><?php echo $ptnt->asam_urat;?></p>
                                   </div>
                                 </div>
                                 <div class="col-md-4">
                                   <div class="form-group">
                                     <h6>HDL</h6>
-                                    <p><?php echo $stdnt->hdl;?></p>
+                                    <p><?php echo $ptnt->hdl;?></p>
                                   </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                       <h6>SGPT</h6>
-                                      <p><?php echo $stdnt->sgpt;?></p>
+                                      <p><?php echo $ptnt->sgpt;?></p>
                                     </div>
                                   </div>
                                 </div>
@@ -454,20 +454,20 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <h6>Tensi (mmHg)</h6>
-                        <p><?php echo $stdnt->tensi;?></p>
+                        <p><?php echo $ptnt->tensi;?></p>
                       </div>
                     </div>
                    
                     <div class="col-md-4">
                         <div class="form-group">
                           <h6 >Suhu(Celcius)</h6>
-                          <p><?php echo $stdnt->suhu;?></p>
+                          <p><?php echo $ptnt->suhu;?></p>
                         </div>
                       </div>
                       <div class="col-md-4">
                           <div class="form-group">
                             <h6 >lainnya</h6>
-                            <p><?php echo $stdnt->lainnya;?></p>
+                            <p><?php echo $ptnt->lainnya;?></p>
                           </div>
                         </div>
                     </div>
@@ -475,14 +475,14 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <h6 >RR(x/menit)</h6>
-                            <p><?php echo $stdnt->rr;?></p>
+                            <p><?php echo $ptnt->rr;?></p>
                           </div>
                         </div>
                        
                         <div class="col-md-4">
                             <div class="form-group">
                               <h6 >Oedema</h6>
-                              <p><?php echo $stdnt->oedema;?></p>
+                              <p><?php echo $ptnt->oedema;?></p>
                             </div>
                           </div>
                           <div class="col-md-4">
@@ -494,7 +494,7 @@
                             <div class="form-group">
                               <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios1" value="ringan" required <?= $stdnt->aktivitas=="ringan" ? "checked" : ""?> disabled>
+                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios1" value="ringan" required <?= $ptnt->aktivitas=="ringan" ? "checked" : ""?> disabled>
                                     Ringan
                                     <span class="circle">
                                         <span class="check"></span>
@@ -503,7 +503,7 @@
                             </div>
                             <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="sedang" <?= $stdnt->aktivitas=="sedang" ? "checked" : ""?> disabled>
+                                    <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="sedang" <?= $ptnt->aktivitas=="sedang" ? "checked" : ""?> disabled>
                                     Sedang
                                     <span class="circle">
                                         <span class="check"></span>
@@ -512,7 +512,7 @@
                             </div>
                             <div class="form-check form-check-radio">
                               <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="berat" <?= $stdnt->aktivitas=="berat" ? "checked" : ""?> disabled>
+                                  <input class="form-check-input" type="radio" name="aktivitas" id="exampleRadios2" value="berat" <?= $ptnt->aktivitas=="berat" ? "checked" : ""?> disabled>
                                   Berat
                                   <span class="circle">
                                       <span class="check"></span>
@@ -529,14 +529,14 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <h6 >Olahraga (x dalam 1 minggu,selama x menit)</h6>
-                          <p><?php echo $stdnt->durasi_olahraga;?></p>
+                          <p><?php echo $ptnt->durasi_olahraga;?></p>
                         </div>
                       </div>
                      
                       <div class="col-md-6">
                           <div class="form-group">
                             <h6 >Jenis Olahraga</h6>
-                            <p><?php echo $stdnt->jenis_olahraga;?></p>
+                            <p><?php echo $ptnt->jenis_olahraga;?></p>
                           </div>
                         </div>
                        
@@ -545,7 +545,7 @@
                           <div class="col-md-12">
                             <div class="form-group">
                               <h6 >Diagnosa Dahulu </h6>
-                              <p><?php echo $stdnt->diagnosa_dahulu;?></p>
+                              <p><?php echo $ptnt->diagnosa_dahulu;?></p>
                             </div>
                           </div>
                         </div>
@@ -553,7 +553,7 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                 <h6 >Diagnosa Sekarang </h6>
-                                <p><?php echo $stdnt->diagnosa_skrg;?></p>
+                                <p><?php echo $ptnt->diagnosa_skrg;?></p>
                               </div>
                             </div>
                           </div>
@@ -583,13 +583,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <h6 >Nafsu Makan ( + / -)</h6>
-                        <p><?php echo $stdnt->nafsu_makan;?></p>
+                        <p><?php echo $ptnt->nafsu_makan;?></p>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <h6 >Frekuensi Makan( x/hari , teratur/tidak teratur ) </h6>
-                        <p><?php echo $stdnt->frekuensi_makan;?></p>
+                        <p><?php echo $ptnt->frekuensi_makan;?></p>
                       </div>
                     </div>
                    
@@ -598,13 +598,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <h6 >Alergi / Pantangan</h6>
-                            <p><?php echo $stdnt->alergi;?></p>
+                            <p><?php echo $ptnt->alergi;?></p>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <h6 >Kesukaan</h6>
-                            <p><?php echo $stdnt->makanan_kesukaan;?></p>
+                            <p><?php echo $ptnt->makanan_kesukaan;?></p>
                           </div>
                         </div>
                         
@@ -638,7 +638,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <h6 >Nasi</h6>
-                        <p><?php echo $stdnt->dietary_nasi;?></p>
+                        <p><?php echo $ptnt->dietary_nasi;?></p>
                       </div>
                     </div>
                     </div>
@@ -655,7 +655,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <h6 >Keterangan :</h6>
-                          <p><?php echo $stdnt->dietary_minuman;?></p>
+                          <p><?php echo $ptnt->dietary_minuman;?></p>
                         </div>
                       </div>
                       </div>
@@ -666,13 +666,13 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <h6 >Lauk Hewani</h6>
-                            <p><?php echo $stdnt->dietary_lauk_hewani;?></p>
+                            <p><?php echo $ptnt->dietary_lauk_hewani;?></p>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <h6 >Softdrink</h6>
-                            <p><?php echo $stdnt->dietary_softdrink;?></p>
+                            <p><?php echo $ptnt->dietary_softdrink;?></p>
                           </div>
                         </div>
                         </div>
@@ -680,13 +680,13 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <h6 >Lauk Nabati</h6>
-                                <p><?php echo $stdnt->dietary_lauk_nabati;?></p>
+                                <p><?php echo $ptnt->dietary_lauk_nabati;?></p>
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
                                 <h6 >Jus / Buah</h6>
-                                <p><?php echo $stdnt->dietary_jus;?></p>
+                                <p><?php echo $ptnt->dietary_jus;?></p>
                               </div>
                             </div>
                           </div>
@@ -694,13 +694,13 @@
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <h6 >Sayur</h6>
-                                            <p><?php echo $stdnt->dietary_sayur;?></p>
+                                            <p><?php echo $ptnt->dietary_sayur;?></p>
                                           </div>
                                         </div>
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <h6 >Suplemen</h6>
-                                            <p><?php echo $stdnt->dietary_suplemen;?></p>
+                                            <p><?php echo $ptnt->dietary_suplemen;?></p>
                                           </div>
                                         </div>
                                         </div>
@@ -708,13 +708,13 @@
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <h6 >Sumber Minyak</h6>
-                                                        <p><?php echo $stdnt->dietary_sumber_minyak;?></p>
+                                                        <p><?php echo $ptnt->dietary_sumber_minyak;?></p>
                                                       </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                         <h6 >Lainnya</h6>
-                                                        <p><?php echo $stdnt->dietary_lainnya;?></p>
+                                                        <p><?php echo $ptnt->dietary_lainnya;?></p>
                                                       </div>
                                                     </div>
                                                             </div>
@@ -745,7 +745,7 @@
                     <div class="form-group">
                       <h6>Lain Lain</h6>
                     <textarea class="form-control" rows="5" readonly>
-                    <?php echo $stdnt->lain_lain;?>
+                    <?php echo $ptnt->lain_lain;?>
                     </textarea>
                    </div>
                   </div>
@@ -776,7 +776,7 @@
                   <div class="form-group">
                     <h6>Diagnosa</h6>
                   <textarea class="form-control" rows="5" readonly>
-                  <?php echo $stdnt->diagnosa;?>
+                  <?php echo $ptnt->diagnosa;?>
                   </textarea>
                  </div>
                 </div>
@@ -865,7 +865,7 @@
                                 <th>
                                 <div class="form-group">
                                 <h6>Kebutuhan Energi</h6>
-                                <p><?php echo $stdnt->energi;?></p>
+                                <p><?php echo $ptnt->energi;?></p>
                                 </div>
                               </th>
                                 </div>
@@ -878,7 +878,7 @@
                                   <div class="col-md-4">
                                 <td><h6> Karbohidrat</h6>
                                 <div class="form-group">
-                                <p><?php echo $stdnt->persen_karbohidrat;?></p>
+                                <p><?php echo $ptnt->persen_karbohidrat;?></p>
                                 </div>
                                 </td>
                               </div>
@@ -891,7 +891,7 @@
                               
                                  <br>
                                  <div class="form-group">
-                                 <p><?php echo $stdnt->gram_karbohidrat;?></p>
+                                 <p><?php echo $ptnt->gram_karbohidrat;?></p>
                                   </div>
                           </div>
                           <span style="margin-top: 31px;">
@@ -901,7 +901,7 @@
                                 <div class="col-md-4">
                               <td><h6> Protein</h6>
                               <div class="form-group">
-                              <p><?php echo $stdnt->persen_protein;?></p>
+                              <p><?php echo $ptnt->persen_protein;?></p>
                               </div>
                               </td>
                             </div>
@@ -914,7 +914,7 @@
                             
                                <br>
                                <div class="form-group">
-                               <p><?php echo $stdnt->gram_protein;?></p>
+                               <p><?php echo $ptnt->gram_protein;?></p>
                                 </div>
                         </div>
                         <span style="margin-top: 31px;">
@@ -925,7 +925,7 @@
                               <div class="col-md-4">
                             <td><h6> Lemak</h6>
                             <div class="form-group">
-                            <p><?php echo $stdnt->persen_lemak;?></p>
+                            <p><?php echo $ptnt->persen_lemak;?></p>
                             </div>
                               </td>
                           </div>
@@ -938,7 +938,7 @@
                           
                              <br>
                              <div class="form-group">
-                             <p><?php echo $stdnt->gram_lemak;?></p>
+                             <p><?php echo $ptnt->gram_lemak;?></p>
                               </div>
                       </div>
                       <span style="margin-top: 31px;">

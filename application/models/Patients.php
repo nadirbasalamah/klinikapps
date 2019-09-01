@@ -1,15 +1,15 @@
 <?php
-class Students extends CI_Model {
+class Patients extends CI_Model {
     public function __construct()
     {
         $this->load->database();
-        $this->load->model('Students');
+        $this->load->model('Patients');
     }
     
-    public function getStudentById($id)
+    public function getPatientById($id)
     {
-        $this->db->where('id_student',$id);
-        $query = $this->db->get('students',1);
+        $this->db->where('id_patient',$id);
+        $query = $this->db->get('patients',1);
         if ($query->num_rows() == 1) {
         return $query->result();
         } else {
@@ -17,9 +17,9 @@ class Students extends CI_Model {
         }
     }
 
-    public function getAllStudents()
+    public function getAllPatients()
     {
-        $query = $this->db->get('students');
+        $query = $this->db->get('patients');
         if ($query->num_rows() >= 1) {
         return $query->result_array();
         } else {
@@ -27,10 +27,10 @@ class Students extends CI_Model {
         }
     }
 
-    public function deleteStudent($id)
+    public function deletePatient($id)
     {
-        $this->db->where('id_student',$id);
-        $query = $this->db->delete('students');
+        $this->db->where('id_patient',$id);
+        $query = $this->db->delete('patients');
         if ($query) {
         return true;
         } else {
@@ -38,7 +38,7 @@ class Students extends CI_Model {
         }
     }
 
-    public function updateStudent($data)
+    public function updatePatient($data)
     {
         $this->db->set('fullname',$data['fullname']);
         $this->db->set('address',$data['address']);
@@ -47,16 +47,16 @@ class Students extends CI_Model {
         $this->db->set('education',$data['education']);
         $this->db->set('job',$data['job']);
         $this->db->set('religion',$data['religion']);
-        $this->db->where('id_student',$data['id']);
-        $this->db->update('students');
+        $this->db->where('id_patient',$data['id']);
+        $this->db->update('patients');
     }
 
-    public function addStudent($data)
+    public function addPatient($data)
     {
         $this->db->where('fullname',$data['fullname']);
-        $query = $this->db->get('students',1);
+        $query = $this->db->get('patients',1);
         if ($query->num_rows() == 0) {
-        $this->db->insert('students', $data);
+        $this->db->insert('patients', $data);
         if ($this->db->affected_rows() > 0) {
             return true;
         }
@@ -65,20 +65,20 @@ class Students extends CI_Model {
         }
     }
 
-    public function addBatchStudents($data = array())
+    public function addBatchPatients($data = array())
     {
         $jumlah_data = count($data);
 
         if ($jumlah_data > 0) {
-            $this->db->insert_batch('students', $data);
+            $this->db->insert_batch('patients', $data);
         }
 
     }
 
-    public function getStudentByName($fullname)
+    public function getPatientByName($fullname)
     {
         $this->db->where('fullname',$fullname);
-        $query = $this->db->get('students',1);
+        $query = $this->db->get('patients',1);
         if ($query->num_rows() == 1) {
         return $query->result();
         } else {

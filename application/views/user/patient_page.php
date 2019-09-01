@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Students List
+    Patient's Page
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -22,7 +22,6 @@
   <!-- CSS Files -->
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
-
 <body>
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
@@ -33,33 +32,32 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/index');?>">
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('User/viewDashboard'); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/editProfile');?>">
+            <a class="nav-link" href="<?php echo base_url('User/editProfile'); ?>">
               <i class="material-icons">person</i>
               <p>Edit Profil</p>
             </a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="<?php echo base_url('Doctor/viewStudents'); ?>">
+            <a class="nav-link" href="<?php echo base_url('User/viewPatients'); ?>">
               <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
+              <p>Daftar Pasien</p>
             </a>
-          </li>       
+          </li>
         </ul>
       </div>
     </div>
     <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Daftar Siswa</a>
+            <a class="navbar-brand" href="#pablo">Halaman Pasien</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -68,9 +66,8 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form" action="#" method="post">
+            <form class="navbar-form">
               <div class="input-group no-border">
-                  <div class="ripple-container"></div>
               </div>
             </form>
             <ul class="navbar-nav">
@@ -82,7 +79,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="<?php echo base_url('Doctor/editProfile');?>">Profil</a>
+                  <a class="dropdown-item" href="<?php echo base_url('User/editProfile');?>">Profil</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?php echo base_url('User/logout');?>">Log out</a>
                 </div>
@@ -92,92 +89,252 @@
         </div>
       </nav>
       <!-- End Navbar -->
+      <?php foreach($patient as $ptnt):?>
       <div class="content">
         <div class="container-fluid">
-            <?= form_open_multipart(base_url('Doctor/exportToExcel')); ?>
-            <button center type="submit" class="btn btn-success" width="50" height="100" >Ekspor</button>
-            <?= form_close(); ?>
-            </span>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
               <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Daftar Siswa</h4>
-                  <p class="card-category"></p>
+                <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <img class="img" src="<?php echo base_url('profile_pictures/') . $ptnt->profile_picture; ?>" />
+                  </a>
                 </div>
                 <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead class=" text-primary">
-                        <th>No </th>
-                        <th>Nama</th>
-                        <th>Alamat</th>
-                        <th> Aksi</th>
-                      </thead>
-                      <tbody>
-                      <?php $count = 1; foreach($students as $student):?>
-                      <tr>
-                          <th scope="row"><?php echo $count++;?></th>
-                          <td><?php echo $student->fullname;?></td>
-                          <td><?php echo $student->address;?></td>
-                          <td>
-                          <a href="<?php echo base_url('Doctor/viewEditStudent/' . $student->id_student);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
-                          </td>
-                      </tr>
-                      <?php endforeach; ?>
-                      </tbody>
-                    </table>
-                </div>
-                 </div>
+                  <h4 class="card-title"><?php echo $ptnt->fullname;?></h4>                
               </div>
             </div>
-            <div 
-            class="container">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Data Pasien</h4>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h6>Nama Pasien</h6>       
+                        <h5><?php echo $ptnt->fullname;?></h5> 
+                      </div>
+                      <div class="col-md-6">
+                            <h6>Pendidikan</h6>       
+                            <h5><?php echo $ptnt->education;?></h5> 
+                          </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-6">
+                              <h6>Tempat Tanggal lahir</h6>       
+                              <h5><?php echo $ptnt->birthdate;?></h5> 
+                            </div>
+                            <div class="col-md-6">
+                                    <h6>Pekerjaan</h6>       
+                                    <h5><?php echo $ptnt->job;?></h5> 
+                                  </div>
+                          </div>
+                          <div class="row">
+                                <div class="col-md-6">
+                                  <h6>Usia</h6>       
+                                  <h5><?php echo $ptnt->age;?> Tahun</h5> 
+                                </div>
+                                <div class="col-md-6">
+                                        <h6>Agama / Suku</h6>       
+                                        <h5><?php echo $ptnt->religion;?></h5> 
+                                      </div>
+                              </div>
+                              <div class="row">
+                                    <div class="col-md-6">
+                                      <h6>Alamat</h6>       
+                                      <h5><?php echo $ptnt->address;?></h5> 
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                        <div class="col-md-6">
+                                          <h6>No Telp</h6>       
+                                          <h5><?php echo $ptnt->phone_number;?></h5> 
+                                        </div>
+                                      </div>
+                    </div>
+              </form>
+                </div>
+              </div>
+            </div>
+           </div>
+           <div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+     
+      
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Interenvensi </h4>
+         
+          </div>
+          
+          <div class="card-body">
+                           <div class="row">
+                                <div class="col-md-6">
+                                <th>
+                                <div class="form-group">
+                                <h6>Kebutuhan Energi</h6>
+                                <p><?php echo $ptnt->energi;?></p>
+                                </div>
+                              </th>
+                                </div>
+                                <div class="col-md-6">
+                                  <br>
+                                  <td><h6>kalori</h6></td>
+                                </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-4">
+                                <td><h6> Karbohidrat</h6>
+                                <div class="form-group">
+                                <p><?php echo $ptnt->persen_karbohidrat;?></p>
+                                </div>
+                                </td>
+                              </div>
+                              <span 
+                                  style="margin-top: 31px;">
+                                <td><h6 >%</h6></td>
+                              </span>
+                                <div class="col-md-4">
+                                <td><h6> 
+                              
+                                 <br>
+                                 <div class="form-group">
+                                 <p><?php echo $ptnt->gram_karbohidrat;?></p>
+                                  </div>
+                          </div>
+                          <span style="margin-top: 31px;">
+                              <td><h6 >Gram</h6></td></span>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-4">
+                              <td><h6> Protein</h6>
+                              <div class="form-group">
+                              <p><?php echo $ptnt->persen_protein;?></p>
+                              </div>
+                              </td>
+                            </div>
+                            <span 
+                                style="margin-top: 31px;">
+                              <td><h6 >%</h6></td>
+                            </span>
+                              <div class="col-md-4">
+                              <td><h6> 
+                            
+                               <br>
+                               <div class="form-group">
+                               <p><?php echo $ptnt->gram_protein;?></p>
+                                </div>
+                        </div>
+                        <span style="margin-top: 31px;">
+                            <td><h6 >Gram</h6></td></span>
+                            </div>
+                            
+                            <div class="row">
+                              <div class="col-md-4">
+                            <td><h6> Lemak</h6>
+                            <div class="form-group">
+                            <p><?php echo $ptnt->persen_lemak;?></p>
+                            </div>
+                              </td>
+                          </div>
+                          <span 
+                              style="margin-top: 31px;">
+                            <td><h6 >%</h6></td>
+                          </span>
+                            <div class="col-md-4">
+                            <td><h6> 
+                          
+                             <br>
+                             <div class="form-group">
+                             <p><?php echo $ptnt->gram_lemak;?></p>
+                              </div>
+                      </div>
+                      <span style="margin-top: 31px;">
+                          <td><h6 >Gram</h6></td></span>
+                          </div>
+                          
+                         </form>
+                      </div>
+                       </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="card">
+           
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Data </h4>
+              <p class="card-category">Monitoring dan Evaluasi</p>
+            </div>
+            <div class="card-body">
+              <form action="#">
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Tanggal</h6>
+                      <p><?php echo $ptnt->mon_date;?></p>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Monitor dan Evaluasi</h6>
+                      <textarea class="form-control" rows="5" placeholder="" readonly><?php echo $ptnt->result;?></textarea>
+                    </div>
+                  </div>  
+                  <?php endforeach;?>                  
+              </form>
+            </div>
           </div>
         </div>
-          </div>
-        </div>
-      </div>
-            &copy;
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
+</div>
+  </body>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/bootstrap-material-design.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js');?>"></script>
   <!-- Plugin for the momentJs  -->
-  
+  <script src="<?php echo base_url('assets/js/plugins/moment.min.js');?>"></script>
   <!--  Plugin for Sweet Alert -->
-  
+  <script src="<?php echo base_url('assets/js/plugins/sweetalert2.js');?>"></script>
   <!-- Forms Validations Plugin -->
   <script src="<?php echo base_url('assets/js/plugins/jquery.validate.min.js');?>"></script>
   <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
   <script src="<?php echo base_url('assets/js/plugins/jquery.bootstrap-wizard.js');?>"></script>
   <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  
+  <script src="<?php echo base_url('assets/js/plugins/bootstrap-selectpicker.js');?>"></script>
   <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  
+  <script src="<?php echo base_url('assets/js/plugins/bootstrap-datetimepicker.min.js');?>"></script>
   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
   <script src="<?php echo base_url('assets/js/plugins/jquery.dataTables.min.js');?>"></script>
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="<?php echo base_url('assets/js/plugins/bootstrap-tagsinput.js');?>"></script>
   <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  
+  <script src="<?php echo base_url('assets/js/plugins/jasny-bootstrap.min.js');?>"></script>
   <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  
+  <script src="<?php echo base_url('assets/js/plugins/fullcalendar.min.js');?>"></script>
   <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-  
+  <script src="<?php echo base_url('assets/js/plugins/jquery-jvectormap.js');?>"></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="<?php echo base_url('assets/js/plugins/nouislider.min.js');?>"></script>
   <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <!-- Library for adding dinamically elements -->
-  
+  <script src="<?php echo base_url('assets/js/plugins/arrive.min.js');?>"></script>
   <!-- Chartist JS -->
+  <script src="<?php echo base_url('assets/js/plugins/chartist.min.js');?>"></script>
   <!--  Notifications Plugin    -->
   <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js');?>"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
@@ -325,11 +482,16 @@
           if (md.misc.sidebar_mini_active == true) {
             $('body').removeClass('sidebar-mini');
             md.misc.sidebar_mini_active = false;
+
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
           } else {
+
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
             setTimeout(function() {
               $('body').addClass('sidebar-mini');
+
               md.misc.sidebar_mini_active = true;
             }, 300);
           }

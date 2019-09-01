@@ -18,7 +18,7 @@ class Doctor extends CI_Controller {
 		$this->load->library('session');
 
 		$this->load->model('Users');
-		$this->load->model('Students');
+		$this->load->model('Patients');
         $this->load->model('Nutrition_records');
     }
 
@@ -27,16 +27,16 @@ class Doctor extends CI_Controller {
         $this->load->view('doctor/index');
 	}
 	
-	public function viewStudents()
+	public function viewPatients()
 	{
-		$data['students'] = $this->Students->getAllStudents();
-		$this->load->view('doctor/students_list',$data);
+		$data['patients'] = $this->Patients->getAllPatients();
+		$this->load->view('doctor/patients_list',$data);
 	}
 
-	public function viewStudent($id)
+	public function viewPatient($id)
 	{
-		$data['student'] = $this->Nutrition_records->getNutritionRecordById($id);
-		$this->load->view('doctor/view_student',$data);
+		$data['patient'] = $this->Nutrition_records->getNutritionRecordById($id);
+		$this->load->view('doctor/view_patient',$data);
 	}
 
 	public function editProfile()
@@ -44,23 +44,22 @@ class Doctor extends CI_Controller {
 		$this->load->view('doctor/edit_profile');
 	}
 
-	public function viewEditStudent($id)
+	public function viewEditPatient($id)
 	{
 		$data['record'] = $this->Nutrition_records->getNutritionRecordById($id);
 		if ($data['record'] !== null) {
-			$this->load->view('doctor/edit_student',$data);
+			$this->load->view('doctor/edit_patient',$data);
 		} else {
-			$data['student'] = $this->Students->getStudentById($id);
+			$data['patient'] = $this->Patients->getPatientById($id);
 			$this->load->view('doctor/add_nutrition_rec',$data);
 		}
 	}
 
 	public function updateNutritionRecord($id)
 	{
-		//TODO: update monitoring data
 		$data = array(
 			'id_record' => 0,
-			'id_student' => $id,
+			'id_patient' => $id,
 			'bb' => $this->input->post('bb'),
 			'tb' => $this->input->post('tb'),
 			'lila' => $this->input->post('lila'),
@@ -117,14 +116,14 @@ class Doctor extends CI_Controller {
 		);
 		$this->Nutrition_records->addNutritionRecord($data);
 		echo("<script>alert('Data profil gizi siswa berhasil diubah!')</script>");
-		redirect(base_url('Doctor/viewEditStudent/' . $id),'refresh');
+		redirect(base_url('Doctor/viewEditPatient/' . $id),'refresh');
 	}
 
 	public function exportToExcel()
 	{
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
-		$sheet->setCellValue('A1', 'ID_Student');
+		$sheet->setCellValue('A1', 'ID_Patient');
 		$sheet->setCellValue('B1', 'Nama Lengkap');
 		$sheet->setCellValue('C1', 'Umur');
 		$sheet->setCellValue('D1', 'Jenis Kelamin');
@@ -138,19 +137,19 @@ class Doctor extends CI_Controller {
 		$i = 2;
 
 		
-		$data = $this->Students->getAllStudents();
-		foreach($data as $student) {
-			$sheet->setCellValue('A'.$i, $student['id_student']);
-			$sheet->setCellValue('B'.$i, $student['fullname']);
-			$sheet->setCellValue('C'.$i, $student['age']);
-			$sheet->setCellValue('D'.$i, $student['gender']);
-			$sheet->setCellValue('E'.$i, $student['address']);
-			$sheet->setCellValue('F'.$i, $student['phone_number']);
-			$sheet->setCellValue('G'.$i, $student['email']);
-			$sheet->setCellValue('H'.$i, $student['birthdate']);
-			$sheet->setCellValue('I'.$i, $student['education']);
-			$sheet->setCellValue('J'.$i, $student['job']);
-			$sheet->setCellValue('K'.$i, $student['religion']);
+		$data = $this->Patients->getAllPatients();
+		foreach($data as $patient) {
+			$sheet->setCellValue('A'.$i, $patient['id_patient']);
+			$sheet->setCellValue('B'.$i, $patient['fullname']);
+			$sheet->setCellValue('C'.$i, $patient['age']);
+			$sheet->setCellValue('D'.$i, $patient['gender']);
+			$sheet->setCellValue('E'.$i, $patient['address']);
+			$sheet->setCellValue('F'.$i, $patient['phone_number']);
+			$sheet->setCellValue('G'.$i, $patient['email']);
+			$sheet->setCellValue('H'.$i, $patient['birthdate']);
+			$sheet->setCellValue('I'.$i, $patient['education']);
+			$sheet->setCellValue('J'.$i, $patient['job']);
+			$sheet->setCellValue('K'.$i, $patient['religion']);
 			$i++;
 		}
 		
@@ -170,10 +169,10 @@ class Doctor extends CI_Controller {
 
 	}
 
-	public function getStudent()
+	public function getPatient()
 	{
-		$fullname = $this->input->post('student_name');
-		$data['students'] = $this->Students->getStudentByName($fullname);
-		$this->load->view('doctor/students_result',$data);
+		$fullname = $this->input->post('patient_name');
+		$data['patients'] = $this->Patients->getPatientByName($fullname);
+		$this->load->view('doctor/patients_result',$data);
 	}
 }

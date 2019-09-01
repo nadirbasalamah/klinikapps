@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Students List
+    Patients List
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -42,19 +42,13 @@
           <li class="nav-item ">
             <a class="nav-link" href="<?php echo base_url('User/editProfile');?>">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p>Edit Profil</p>
             </a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="<?php echo base_url('User/viewStudents'); ?>">
+            <a class="nav-link" href="<?php echo base_url('User/viewPatients'); ?>">
               <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('User/viewConsultation'); ?>">
-              <i class="material-icons">contact_mail</i>
-              <p>Konsultasi</p>
+              <p>Daftar Pasien</p>
             </a>
           </li>
         </ul>
@@ -65,7 +59,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Daftar Siswa</a>
+            <a class="navbar-brand" href="#pablo">Daftar Pasien</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -74,9 +68,9 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form" action="<?php echo base_url('User/getStudent');?>" method="post">
+            <form class="navbar-form" action="<?php echo base_url('User/getPatient');?>" method="post">
               <div class="input-group no-border">
-                <input type="text" class="form-control" placeholder="Cari siswa..." name="student_name">
+                <input type="text" class="form-control" placeholder="Cari pasien..." name="patient_name">
                 <button type="submit" class="btn btn-white btn-round btn-just-icon">
                   <i class="material-icons">search</i>
                   <div class="ripple-container"></div>
@@ -122,7 +116,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Daftar Siswa</h4>
+                  <h4 class="card-title ">Daftar Pasien</h4>
                   <p class="card-category"></p>
                 </div>
                 <div class="card-body">
@@ -136,16 +130,16 @@
                       </thead>
                       <tbody>
                       <?php $count = 1; 
-                      if (is_array($students) && count($students) > 0) {
-                      foreach($students as $student):?>
+                      if (is_array($patients) && count($patients) > 0) {
+                      foreach($patients as $patient):?>
                       <tr>
                           <th scope="row"><?php echo $count++;?></th>
-                          <td><?php echo $student['fullname'];?></td>
-                          <td><?php echo $student['address'];?></td>
-                          <td><a href="<?php echo base_url('User/viewStudent/' . $student['id_student']);?>" button class="btn btn-info">lihat</button></a></td>
+                          <td><?php echo $patient['fullname'];?></td>
+                          <td><?php echo $patient['address'];?></td>
+                          <td><a href="<?php echo base_url('User/viewPatient/' . $patient['id_patient']);?>" button class="btn btn-info">lihat</button></a></td>
                       </tr>
                       <?php endforeach; } else {
-                          echo "Tidak ada data siswa";
+                          echo "Tidak ada data pasien";
                       }?>
                       </tbody>
                     </table>

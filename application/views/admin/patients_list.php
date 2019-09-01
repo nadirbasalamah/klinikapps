@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Add new Student Data
+    Patients List
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -22,10 +22,11 @@
   <!-- CSS Files -->
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
+
 <body>
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
-    <div class="logo">
+      <div class="logo">
         <a href="#" class="simple-text logo-normal">
           <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
         </a>
@@ -33,25 +34,23 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="<?php echo base_url('Admin/index'); ?>">
+            <a class="nav-link" href="<?php echo base_url('Admin/index');?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
-              
-            </a>
-          </li>
-          <li class="nav-item active ">
-            <a class="nav-link" href="#">
-              <i class="material-icons">add</i>
-              <p>Tambah Siswa</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Admin/viewStudents'); ?>">
-              <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
+            <a class="nav-link" href="<?php echo base_url('Admin/editProfile');?>">
+              <i class="material-icons">person</i>
+              <p>Edit Profil</p>
             </a>
           </li>
-          
+          <li class="nav-item active ">
+            <a class="nav-link" href="<?php echo base_url('Admin/viewPatients'); ?>">
+              <i class="material-icons">content_paste</i>
+              <p>Daftar Pasien</p>
+            </a>
+          </li>       
         </ul>
       </div>
     </div>
@@ -60,7 +59,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Tambah Data Siswa</a>
+            <a class="navbar-brand" href="#pablo">Daftar Pasien</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -69,9 +68,13 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form" action="#" method="post">
+            <form class="navbar-form" action="<?php echo base_url('Admin/getPatient');?>" method="post">
               <div class="input-group no-border">
+                <input type="text" class="form-control" placeholder="Cari pasien..." name="patient_name">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
                   <div class="ripple-container"></div>
+                </button>
               </div>
             </form>
             <ul class="navbar-nav">
@@ -95,154 +98,73 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+            <?= form_open_multipart(base_url('Admin/importFromExcel')); ?>
+            <input type="file" name="excel" />
+            <button type="submit" name="submit" class="btn btn-info" value="upload">Impor</button>
+            <?= form_close(); ?>
+            
+            <?= form_open_multipart(base_url('Admin/exportToExcel')); ?>
+            <button center type="submit" class="btn btn-success" width="50" height="100" >Ekspor</button>
+            <?= form_close(); ?>
+
+            <a href="<?php echo base_url('Admin/viewAddPatient');?>" button class="btn btn-default" width="50" height="100" >Tambah</button></a>
+            </span>
           <div class="row">
             <div class="col-md-12">
               <div class="card">
-                <div class="card card-profile">
-            </div>
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Tambah Data Siswa Baru </h4>
+                  <h4 class="card-title ">Daftar Pasien</h4>
+                  <p class="card-category"></p>
                 </div>
                 <div class="card-body">
-                <?php echo validation_errors(); ?>
-                <?php echo form_open_multipart(base_url('Admin/addStudent')) ?>
-                <div class="row">
-               <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">No. RM</label>
-                          <input type="text" class="form-control" name="rm_number">
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">No. RM Gizi</label>
-                          <input type="text" class="form-control" name="rmgizi_number">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating"> Tanggal Kunjungan (dd/mm/yyyy)</label>
-                          <input type="text" class="form-control" name="visitdate">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Rujukan</label>
-                          <input type="text" class="form-control" name="referral">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Nama Lengkap</label>
-                          <input type="text" class="form-control" name="fullname">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Alamat Email</label>
-                          <input type="email" class="form-control" name="email">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Tanggal Lahir (dd/mm/yyyy)</label>
-                          <input type="text" class="form-control" name="birthdate">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Alamat Tempat Tinggal</label>
-                          <input type="text" class="form-control" name="address">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Umur</label>
-                          <input type="number" class="form-control" name="age">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">No Telp</label>
-                          <input type="number" class="form-control" name="phone_number">
-                        </div>
-                      </div>
-                    </div>
-                    <br><label>Upload Foto</label><br>
-                   <div style="padding:10px;margin-left:-10px;  " container>
-                            <label class="bmd-label-floating"></label>
-                       <input type="file" id="gambar" name="profile_picture">
-                   </div>
-                   <div style="padding:5px; " container>
-                   <p>Jenis Kelamin</p>
-                   <div class="form-check form-check-radio">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="gender" value="lakilaki" >
-                        Laki-laki
-                        <span class="circle">
-                            <span class="check"></span>
-                        </span>
-                    </label>
-                  </div>
-                  <div class="form-check form-check-radio">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="gender" value="perempuan" >
-                        Perempuan
-                        <span class="circle">
-                            <span class="check"></span>
-                        </span>
-                    </label>
-                  </div>
-             </div>
-             <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">Pendidikan</label>
-                    <input type="text" class="form-control" name="education">
-                  </div>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>No </th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th> Aksi</th>
+                      </thead>
+                      <tbody>
+                      <?php 
+                      $count = 1; 
+                      if (is_array($patients) && count($patients) > 0) {
+                        foreach($patients as $patient):  
+                      ?>
+                      <tr>
+                          <th scope="row"><?php echo $count++;?></th>
+                          <td><?php echo $patient['fullname'];?></td>
+                          <td><?php echo $patient['address'];?></td>
+                          <td>
+                          <a href="<?php echo base_url('Admin/viewPatient/' . $patient['id_patient']);?>" button class="btn btn-primary"><i class="material-icons">visibility</i>lihat</button></a>
+                          <span>
+                          <a href="<?php echo base_url('Admin/viewEditPatient/' . $patient['id_patient']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></span></a>
+                          <span>
+                          <a href="<?php echo base_url('Admin/deletePatient/' . $patient['id_patient']);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
+                          
+                          </td>
+                      </tr>
+                        <?php endforeach; } else {
+                          echo "Tidak ada data pasien";
+                      }?>
+                      </tbody>
+                    </table>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="bmd-label-floating">Pekerjaan</label>
-                      <input type="text" class="form-control" name="job">
-                    </div>
-                  </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">Agama / suku</label>
-                    <input type="text" class="form-control" name="religion">
-                  </div>
-                </div>
-              </div>
-                    <button type="submit" class="btn btn-primary pull-right">Tambah</button>
-                    <div class="clearfix"></div>
-                  </form>
-                </div>
+                 </div>
               </div>
             </div>
+            <div 
+            class="container">            
+          </div>
+        </div>
+          </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-          
-          </nav>
-         
+            &copy;
+          </div>
+        </div>
       </footer>
     </div>
-  </div>
-  <div class="fixed-plugin">
-    
   </div>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
@@ -431,7 +353,6 @@
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
             setTimeout(function() {
               $('body').addClass('sidebar-mini');
-
               md.misc.sidebar_mini_active = true;
             }, 300);
           }

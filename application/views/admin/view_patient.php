@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Students List
+    View Patient's Profile
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -26,7 +26,9 @@
 <body>
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
-      <div class="logo">
+ 
+ 
+    <div class="logo">
         <a href="#" class="simple-text logo-normal">
           <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
         </a>
@@ -34,23 +36,24 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="<?php echo base_url('Admin/index');?>">
+            <a class="nav-link" href="<?php echo base_url('Admin/index'); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('Admin/editProfile');?>">
-              <i class="material-icons">person</i>
-              <p>Edit Profil</p>
+              
             </a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="<?php echo base_url('Admin/viewStudents'); ?>">
-              <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
+            <a class="nav-link" href="#">
+              <i class="material-icons">assignment</i>
+              <p>Lihat Profil Pasien</p>
             </a>
-          </li>       
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url('Admin/viewPatients'); ?>">
+              <i class="material-icons">content_paste</i>
+              <p>Daftar Pasien</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -59,7 +62,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Daftar Siswa</a>
+            <a class="navbar-brand" href="#pablo">Data Pasien</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -68,14 +71,8 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form" action="<?php echo base_url('Admin/getStudent');?>" method="post">
-              <div class="input-group no-border">
-                <input type="text" class="form-control" placeholder="Cari siswa..." name="student_name">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
+            <form class="navbar-form">
+            
             </form>
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
@@ -87,6 +84,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="<?php echo base_url('Admin/editProfile');?>">Profil</a>
+                
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?php echo base_url('User/logout');?>">Log out</a>
                 </div>
@@ -96,76 +94,153 @@
         </div>
       </nav>
       <!-- End Navbar -->
+      <?php foreach($patient as $ptnt):?>
       <div class="content">
         <div class="container-fluid">
-            <?= form_open_multipart(base_url('Admin/importFromExcel')); ?>
-            <input type="file" name="excel" />
-            <button type="submit" name="submit" class="btn btn-info" value="upload">Impor</button>
-            <?= form_close(); ?>
-            
-            <?= form_open_multipart(base_url('Admin/exportToExcel')); ?>
-            <button center type="submit" class="btn btn-success" width="50" height="100" >Ekspor</button>
-            <?= form_close(); ?>
-
-            <a href="<?php echo base_url('Admin/viewAddStudent');?>" button class="btn btn-default" width="50" height="100" >Tambah</button></a>
-            </span>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
               <div class="card">
+                <div class="card card-profile">
+            </div>
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Daftar Siswa</h4>
-                  <p class="card-category"></p>
+                  <h4 class="card-title">Identitas Pasien (Registrasi)</h4>
                 </div>
                 <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead class=" text-primary">
-                        <th>No </th>
-                        <th>Nama</th>
-                        <th>Alamat</th>
-                        <th> Aksi</th>
-                      </thead>
-                      <tbody>
-                      <?php 
-                      $count = 1; 
-                      if (is_array($students) && count($students) > 0) {
-                        foreach($students as $student):  
-                      ?>
-                      <tr>
-                          <th scope="row"><?php echo $count++;?></th>
-                          <td><?php echo $student['fullname'];?></td>
-                          <td><?php echo $student['address'];?></td>
-                          <td>
-                          <a href="<?php echo base_url('Admin/viewStudent/' . $student['id_student']);?>" button class="btn btn-primary"><i class="material-icons">visibility</i>lihat</button></a>
-                          <span>
-                          <a href="<?php echo base_url('Admin/viewEditStudent/' . $student['id_student']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></span></a>
-                          <span>
-                          <a href="<?php echo base_url('Admin/deleteStudent/' . $student['id_student']);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
-                          
-                          </td>
-                      </tr>
-                        <?php endforeach; } else {
-                          echo "Tidak ada data siswa";
-                      }?>
-                      </tbody>
-                    </table>
+                  <form action="#">
+                    <div class="row">
+               <div class="col-md-12">
+                        <div class="form-group">
+                          <h6>Nomor RM</h6>
+                          <p><?php echo $ptnt->rm_number;?></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                    
+                      <div class="col-md-12">
+                        <div class="form-group">
+                        <h6>Nomor RM Gizi</h6>
+                          <p><?php echo $ptnt->rmgizi_number;?></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>Tanggal Kunjungan</h6>
+                          <p><?php echo $ptnt->visitdate;?></p>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>Rujukan</h6>
+                          <p><?php echo $ptnt->referral;?></p>
+                          <br>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+       
+                  </form>
                 </div>
-                 </div>
               </div>
             </div>
-            <div 
-            class="container">            
-          </div>
-        </div>
-          </div>
+          
         </div>
       </div>
-            &copy;
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
+      
+
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#">
+                    <img class="img" src="<?php echo base_url('profile_pictures/') . $ptnt->profile_picture; ?>" />
+                  </a>
+                </div>
+            </div>
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Identitas Pasien (Data Diri)</h4>
+                </div>
+                
+                <div class="card-body">
+                  <form action="#">
+                    
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>Nama Pasien</h6>
+                          <p><?php echo $ptnt->fullname;?></p>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>Tempat Tanggal Lahir</h6>
+                          <p><?php echo $ptnt->birthdate;?></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>Alamat Email</h6>
+                          <p><?php echo $ptnt->email;?></p>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>No Telp</h6>
+                          <p><?php echo $ptnt->phone_number;?></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <h6>Alamat Tempat Tinggal</h6>
+                          <p><?php echo $ptnt->address;?></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>Pendidikan</h6>
+                          <p><?php echo $ptnt->education;?></p>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>Pekerjaan</h6>
+                          <p><?php echo $ptnt->job;?></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>Agama</h6>
+                          <p><?php echo $ptnt->religion;?></p>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>Usia</h6>
+                          <p><?php echo $ptnt->age;?></p>
+                        </div>
+                      </div>
+                    </div>
+              <?php endforeach;?>
+              </form>
+                </div>
+              </div>
+            </div>
+           </div>
+      </div>
+</div>   
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
@@ -349,6 +424,7 @@
             $('body').removeClass('sidebar-mini');
             md.misc.sidebar_mini_active = false;
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
           } else {
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
             setTimeout(function() {

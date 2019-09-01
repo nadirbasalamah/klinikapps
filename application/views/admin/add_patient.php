@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Student's Page
+    Add new Patient Data
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -25,45 +25,42 @@
 <body>
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
-      <div class="logo">
+    <div class="logo">
         <a href="#" class="simple-text logo-normal">
           <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('User/viewDashboard'); ?>">
+          <li class="nav-item  ">
+            <a class="nav-link" href="<?php echo base_url('Admin/index'); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('User/editProfile'); ?>">
-              <i class="material-icons">person</i>
-              <p>Edit Profil</p>
+              
             </a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="<?php echo base_url('User/viewStudents'); ?>">
+            <a class="nav-link" href="#">
+              <i class="material-icons">add</i>
+              <p>Tambah Pasien</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="<?php echo base_url('Admin/viewPatients'); ?>">
               <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
+              <p>Daftar Pasien</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('User/viewConsultation'); ?>">
-              <i class="material-icons">contact_mail</i>
-              <p>Konsultasi</p>
-            </a>
-          </li>
+          
         </ul>
       </div>
     </div>
     <div class="main-panel">
-    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Halaman Siswa</a>
+            <a class="navbar-brand" href="#pablo">Tambah Data Pasien</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -72,8 +69,9 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
+            <form class="navbar-form" action="#" method="post">
               <div class="input-group no-border">
+                  <div class="ripple-container"></div>
               </div>
             </form>
             <ul class="navbar-nav">
@@ -85,7 +83,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="<?php echo base_url('User/editProfile');?>">Profil</a>
+                  <a class="dropdown-item" href="<?php echo base_url('Admin/editProfile');?>">Profil</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?php echo base_url('User/logout');?>">Log out</a>
                 </div>
@@ -95,252 +93,192 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php foreach($student as $stdnt):?>
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <div class="card">
                 <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="#pablo">
-                    <img class="img" src="<?php echo base_url('profile_pictures/') . $stdnt->profile_picture; ?>" />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title"><?php echo $stdnt->fullname;?></h4>                
-              </div>
             </div>
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Data Siswa</h4>
+                  <h4 class="card-title">Tambah Data Pasien Baru </h4>
                 </div>
                 <div class="card-body">
-                  <form>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <h6>Nama Pasien</h6>       
-                        <h5><?php echo $stdnt->fullname;?></h5> 
+                <?php echo validation_errors(); ?>
+                <?php echo form_open_multipart(base_url('Admin/addPatient')) ?>
+                <div class="row">
+               <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">No. RM</label>
+                          <input type="text" class="form-control" name="rm_number" required>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">No. RM Gizi</label>
+                          <input type="text" class="form-control" name="rmgizi_number" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating"> Tanggal Kunjungan (dd/mm/yyyy)</label>
+                          <input type="text" class="form-control" name="visitdate" required>
+                        </div>
                       </div>
                       <div class="col-md-6">
-                            <h6>Pendidikan</h6>       
-                            <h5><?php echo $stdnt->education;?></h5> 
-                          </div>
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Rujukan</label>
+                          <input type="text" class="form-control" name="referral" required>
+                        </div>
+                      </div>
                     </div>
                     <div class="row">
-                            <div class="col-md-6">
-                              <h6>Tempat Tanggal lahir</h6>       
-                              <h5><?php echo $stdnt->birthdate;?></h5> 
-                            </div>
-                            <div class="col-md-6">
-                                    <h6>Pekerjaan</h6>       
-                                    <h5><?php echo $stdnt->job;?></h5> 
-                                  </div>
-                          </div>
-                          <div class="row">
-                                <div class="col-md-6">
-                                  <h6>Usia</h6>       
-                                  <h5><?php echo $stdnt->age;?> Tahun</h5> 
-                                </div>
-                                <div class="col-md-6">
-                                        <h6>Agama / Suku</h6>       
-                                        <h5><?php echo $stdnt->religion;?></h5> 
-                                      </div>
-                              </div>
-                              <div class="row">
-                                    <div class="col-md-6">
-                                      <h6>Alamat</h6>       
-                                      <h5><?php echo $stdnt->address;?></h5> 
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                        <div class="col-md-6">
-                                          <h6>No Telp</h6>       
-                                          <h5><?php echo $stdnt->phone_number;?></h5> 
-                                        </div>
-                                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Nama Lengkap</label>
+                          <input type="text" class="form-control" name="fullname" required>
+                        </div>
+                      </div>
                     </div>
-              </form>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Alamat Email</label>
+                          <input type="email" class="form-control" name="email" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Tanggal Lahir (dd/mm/yyyy)</label>
+                          <input type="text" class="form-control" name="birthdate" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Alamat Tempat Tinggal</label>
+                          <input type="text" class="form-control" name="address" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Umur</label>
+                          <input type="number" class="form-control" name="age" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">No Telp</label>
+                          <input type="number" class="form-control" name="phone_number" required>
+                        </div>
+                      </div>
+                    </div>
+                    <br><label>Upload Foto</label><br>
+                   <div style="padding:10px;margin-left:-10px;  " container>
+                            <label class="bmd-label-floating"></label>
+                       <input type="file" id="gambar" name="profile_picture">
+                   </div>
+                   <div style="padding:5px; " container>
+                   <p>Jenis Kelamin</p>
+                   <div class="form-check form-check-radio">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="gender" value="lakilaki" required>
+                        Laki-laki
+                        <span class="circle">
+                            <span class="check"></span>
+                        </span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="gender" value="perempuan" >
+                        Perempuan
+                        <span class="circle">
+                            <span class="check"></span>
+                        </span>
+                    </label>
+                  </div>
+             </div>
+             <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Pendidikan</label>
+                    <input type="text" class="form-control" name="education" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Pekerjaan</label>
+                      <input type="text" class="form-control" name="job" required>
+                    </div>
+                  </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Agama / suku</label>
+                    <input type="text" class="form-control" name="religion" required>
+                  </div>
+                </div>
+              </div>
+                    <button type="submit" class="btn btn-primary pull-right">Tambah</button>
+                    <div class="clearfix"></div>
+                  </form>
                 </div>
               </div>
             </div>
-           </div>
-           <div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-10">
-        <div class="card">
-     
-      
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Interenvensi </h4>
-         
-          </div>
-          
-          <div class="card-body">
-                           <div class="row">
-                                <div class="col-md-6">
-                                <th>
-                                <div class="form-group">
-                                <h6>Kebutuhan Energi</h6>
-                                <p><?php echo $stdnt->energi;?></p>
-                                </div>
-                              </th>
-                                </div>
-                                <div class="col-md-6">
-                                  <br>
-                                  <td><h6>kalori</h6></td>
-                                </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                <td><h6> Karbohidrat</h6>
-                                <div class="form-group">
-                                <p><?php echo $stdnt->persen_karbohidrat;?></p>
-                                </div>
-                                </td>
-                              </div>
-                              <span 
-                                  style="margin-top: 31px;">
-                                <td><h6 >%</h6></td>
-                              </span>
-                                <div class="col-md-4">
-                                <td><h6> 
-                              
-                                 <br>
-                                 <div class="form-group">
-                                 <p><?php echo $stdnt->gram_karbohidrat;?></p>
-                                  </div>
-                          </div>
-                          <span style="margin-top: 31px;">
-                              <td><h6 >Gram</h6></td></span>
-                              </div>
-                              <div class="row">
-                                <div class="col-md-4">
-                              <td><h6> Protein</h6>
-                              <div class="form-group">
-                              <p><?php echo $stdnt->persen_protein;?></p>
-                              </div>
-                              </td>
-                            </div>
-                            <span 
-                                style="margin-top: 31px;">
-                              <td><h6 >%</h6></td>
-                            </span>
-                              <div class="col-md-4">
-                              <td><h6> 
-                            
-                               <br>
-                               <div class="form-group">
-                               <p><?php echo $stdnt->gram_protein;?></p>
-                                </div>
-                        </div>
-                        <span style="margin-top: 31px;">
-                            <td><h6 >Gram</h6></td></span>
-                            </div>
-                            
-                            <div class="row">
-                              <div class="col-md-4">
-                            <td><h6> Lemak</h6>
-                            <div class="form-group">
-                            <p><?php echo $stdnt->persen_lemak;?></p>
-                            </div>
-                              </td>
-                          </div>
-                          <span 
-                              style="margin-top: 31px;">
-                            <td><h6 >%</h6></td>
-                          </span>
-                            <div class="col-md-4">
-                            <td><h6> 
-                          
-                             <br>
-                             <div class="form-group">
-                             <p><?php echo $stdnt->gram_lemak;?></p>
-                              </div>
-                      </div>
-                      <span style="margin-top: 31px;">
-                          <td><h6 >Gram</h6></td></span>
-                          </div>
-                          
-                         </form>
-                      </div>
-                       </div>
-                    </div>
-                  </div>
-              </div>
-          </div>
-
-<div class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-10">
-          <div class="card">
-           
-            <div class="card-header card-header-primary">
-              <h4 class="card-title">Data </h4>
-              <p class="card-category">Monitoring dan Evaluasi</p>
-            </div>
-            <div class="card-body">
-              <form action="#">
-                
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <h6 >Tanggal</h6>
-                      <p><?php echo $stdnt->mon_date;?></p>
-                    </div>
-                  </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <h6 >Monitor dan Evaluasi</h6>
-                      <textarea class="form-control" rows="5" placeholder="" readonly><?php echo $stdnt->result;?></textarea>
-                    </div>
-                  </div>  
-                  <?php endforeach;?>                  
-              </form>
-            </div>
-          </div>
         </div>
+      </div>
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav class="float-left">
+          
+          </nav>
+         
+      </footer>
     </div>
   </div>
-</div>
-  </body>
+  <div class="fixed-plugin">
+    
+  </div>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/bootstrap-material-design.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js');?>"></script>
   <!-- Plugin for the momentJs  -->
-  <script src="<?php echo base_url('assets/js/plugins/moment.min.js');?>"></script>
+  
   <!--  Plugin for Sweet Alert -->
-  <script src="<?php echo base_url('assets/js/plugins/sweetalert2.js');?>"></script>
+  
   <!-- Forms Validations Plugin -->
   <script src="<?php echo base_url('assets/js/plugins/jquery.validate.min.js');?>"></script>
   <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
   <script src="<?php echo base_url('assets/js/plugins/jquery.bootstrap-wizard.js');?>"></script>
   <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  <script src="<?php echo base_url('assets/js/plugins/bootstrap-selectpicker.js');?>"></script>
+  
   <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  <script src="<?php echo base_url('assets/js/plugins/bootstrap-datetimepicker.min.js');?>"></script>
+  
   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
   <script src="<?php echo base_url('assets/js/plugins/jquery.dataTables.min.js');?>"></script>
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="<?php echo base_url('assets/js/plugins/bootstrap-tagsinput.js');?>"></script>
   <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="<?php echo base_url('assets/js/plugins/jasny-bootstrap.min.js');?>"></script>
+  
   <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  <script src="<?php echo base_url('assets/js/plugins/fullcalendar.min.js');?>"></script>
+  
   <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-  <script src="<?php echo base_url('assets/js/plugins/jquery-jvectormap.js');?>"></script>
+  
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="<?php echo base_url('assets/js/plugins/nouislider.min.js');?>"></script>
   <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <!-- Library for adding dinamically elements -->
-  <script src="<?php echo base_url('assets/js/plugins/arrive.min.js');?>"></script>
+  
   <!-- Chartist JS -->
-  <script src="<?php echo base_url('assets/js/plugins/chartist.min.js');?>"></script>
+  
   <!--  Notifications Plugin    -->
   <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js');?>"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
@@ -488,13 +426,9 @@
           if (md.misc.sidebar_mini_active == true) {
             $('body').removeClass('sidebar-mini');
             md.misc.sidebar_mini_active = false;
-
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
           } else {
-
             $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
             setTimeout(function() {
               $('body').addClass('sidebar-mini');
 
