@@ -95,7 +95,9 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php foreach($patient as $ptnt):?>
+      <?php 
+      if(!empty($patient)) {
+      foreach($patient as $ptnt):?>
       <div class="content">
         <div class="container-fluid">
           <div class="row">
@@ -944,7 +946,7 @@
                       <span style="margin-top: 31px;">
                           <td><h6 >Gram</h6></td></span>
                           </div>
-                          <?php endforeach;?>           
+                          
                          </form>
                       </div>
                        </div>
@@ -970,16 +972,19 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <h6 >Tanggal</h6>
-                      <p></p>
+                      <p><?php echo $ptnt->mon_date;?></p>
                     </div>
                   </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <h6 >Monitor dan Evaluasi</h6>
-                      <textarea class="form-control" rows="5" placeholder="" readonly></textarea>
+                      <textarea class="form-control" rows="5" placeholder="" readonly><?php echo $ptnt->result;?></textarea>
                     </div>
-                  </div>         
+                  </div>  
+                  <?php endforeach; 
+                          } else { echo "Tidak ada data gizi,silahkan melakukan pengisian data gizi";
+                          }?>                  
               </form>
             </div>
           </div>

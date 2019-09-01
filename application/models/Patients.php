@@ -80,7 +80,7 @@ class Patients extends CI_Model {
         $this->db->where('fullname',$fullname);
         $query = $this->db->get('patients',1);
         if ($query->num_rows() == 1) {
-        return $query->result();
+        return $query->result_array();
         } else {
         return null;
         }

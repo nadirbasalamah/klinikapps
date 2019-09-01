@@ -68,9 +68,13 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form" action="#" method="post">
+          <form class="navbar-form" action="<?php echo base_url('Admin/getPatient');?>" method="post">
               <div class="input-group no-border">
+                <input type="text" class="form-control" placeholder="Cari pasien..." name="patient_name">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
                   <div class="ripple-container"></div>
+                </button>
               </div>
             </form>
             <ul class="navbar-nav">
@@ -120,18 +124,22 @@
                         <th> Aksi</th>
                       </thead>
                       <tbody>
-                      <?php $count = 1; foreach($patients as $patient):?>
+                      <?php $count = 1; 
+                      if (is_array($patients) && count($patients) > 0) {
+                      foreach($patients as $patient):?>
                       <tr>
                           <th scope="row"><?php echo $count++;?></th>
-                          <td><?php echo $patient->fullname;?></td>
-                          <td><?php echo $patient->address;?></td>
+                          <td><?php echo $patient['fullname'];?></td>
+                          <td><?php echo $patient['address'];?></td>
                           <td>
-                          <a href="<?php echo base_url('Admin/viewEditPatient/' . $patient->id_patient);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
+                          <a href="<?php echo base_url('Admin/viewEditPatient/' . $patient['id_patient']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
                           <span>
-                          <a href="<?php echo base_url('Admin/deletePatient/' . $patient->id_patient);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
+                          <a href="<?php echo base_url('Admin/deletePatient/' . $patient['id_patient']);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
                           </td>
                       </tr>
-                      <?php endforeach; ?>
+                      <?php endforeach;  } else {
+                          echo "Data pasien tidak ditemukan";
+                      }?>
                       </tbody>
                     </table>
                 </div>

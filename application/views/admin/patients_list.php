@@ -141,7 +141,6 @@
                           <a href="<?php echo base_url('Admin/viewEditPatient/' . $patient['id_patient']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></span></a>
                           <span>
                           <a href="<?php echo base_url('Admin/deletePatient/' . $patient['id_patient']);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
-                          
                           </td>
                       </tr>
                         <?php endforeach; } else {
