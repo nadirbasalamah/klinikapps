@@ -55,17 +55,49 @@ class Doctor extends CI_Controller {
 		}
 	}
 
+	public function checkImt($imt)
+	{
+		if ($imt < 18.5) {
+			return "underweight";
+		} else if($imt >= 18.5 && $imt <= 22.9) {
+			return "normal";
+		} else if($imt >= 23 && $imt <= 29.9) {
+			return "overweight";
+		} else {
+			return "obese";
+		}
+	}
+
 	public function updateNutritionRecord($id)
 	{
+		$bb = $this->input->post('bb');
+		$tb = $this->input->post('tb');
+		$imt = $bb / pow($tb,2);
+		$status = $this->checkImt($imt);
+		
+		$energi = $this->input->post('energi');
+		$persen_karbohidrat = $this->input->post('persen_karbohidrat');
+		$gram_karbohidrat = ($persen_karbohidrat / 100) * $energi / 4;
+
+		$persen_protein = $this->input->post('persen_protein');
+		$gram_protein = ($persen_protein / 100) * $energi / 4;
+		
+		$persen_lemak = $this->input->post('persen_lemak');
+		$gram_lemak = ($persen_lemak / 100) * $energi / 9;
+
 		$data = array(
 			'id_record' => 0,
 			'id_patient' => $id,
-			'bb' => $this->input->post('bb'),
-			'tb' => $this->input->post('tb'),
+			'bb' => $bb,
+			'tb' => $tb,
 			'lila' => $this->input->post('lila'),
-			'imt' => $this->input->post('imt'),
+			'imt' => $imt,
 			'bbi' => $this->input->post('bbi'),
-			'status' => $this->input->post('status'),
+			'status' => $status,
+			'fat' => $this->input->post('fat'),
+			'visceral_fat' => $this->input->post('visceral_fat'),
+			'muscle' => $this->input->post('muscle'),
+			'body_age' => $this->input->post('body_age'),
 			'gda' => $this->input->post('gda'), 
 			'gdp' => $this->input->post('gdp'), 
 			'gd2jpp' => $this->input->post('gd2jpp'), 
@@ -104,13 +136,13 @@ class Doctor extends CI_Controller {
 			'dietary_lainnya' => $this->input->post('dietary_lainnya'), 
 			'lain_lain' => $this->input->post('lain_lain'), 
 			'diagnosa' => $this->input->post('diagnosa'), 
-			'energi' => $this->input->post('energi'), 
-			'persen_karbohidrat' => $this->input->post('persen_karbohidrat'),
-			'gram_karbohidrat' => $this->input->post('gram_karbohidrat'), 
-			'persen_protein' => $this->input->post('persen_protein'), 
-			'gram_protein' => $this->input->post('gram_protein'), 
-			'persen_lemak' => $this->input->post('persen_lemak'),
-			'gram_lemak' => $this->input->post('gram_lemak'),
+			'energi' => $energi, 
+			'persen_karbohidrat' => $persen_karbohidrat,
+			'gram_karbohidrat' => $gram_karbohidrat, 
+			'persen_protein' => $persen_protein, 
+			'gram_protein' => $gram_protein, 
+			'persen_lemak' => $persen_lemak,
+			'gram_lemak' => $gram_lemak,
 			'mon_date' => $this->input->post('mon_date'),
 			'result' => $this->input->post('result')
 		);

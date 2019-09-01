@@ -117,9 +117,8 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <!--TODO: USE IMT FORMULA-->
                           <label class="bmd-label-floating">IMT</label>
-                          <input type="number" class="form-control" name="imt" step="0.01" required>
+                          <input type="number" class="form-control" name="imt" step="0.01" disabled>
                         </div>
                       </div>
                     </div>
@@ -154,7 +153,6 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <!--TODO: USE IMT FORMULA-->
                           <label class="bmd-label-floating">Visceral Fat</label>
                           <input type="number" class="form-control" name="visceral_fat" step="0.01"  required>
                         </div>
@@ -181,7 +179,7 @@
                                 <label class="bmd-label-floating">Status Gizi (Kategori)</label>
                                 <div class="form-check form-check-radio">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" required >
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" disabled>
                                       Underweight
                                       <span class="circle">
                                           <span class="check"></span>
@@ -190,7 +188,7 @@
                               </div>
                               <div class="form-check form-check-radio">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" >
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" disabled>
                                       Normal
                                       <span class="circle">
                                           <span class="check"></span>
@@ -199,7 +197,7 @@
                               </div>
                               <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" >
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" disabled>
                                     Overweight
                                     <span class="circle">
                                         <span class="check"></span>
@@ -208,7 +206,7 @@
                             </div>
                             <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" >
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" disabled>
                                     Obese
                                     <span class="circle">
                                         <span class="check"></span>
@@ -932,7 +930,7 @@
                               
                                  <br>
                                  <div class="form-group">
-                                    <input type="number" class="form-control" name="gram_karbohidrat" step="0.01"  required>
+                                    <input type="number" class="form-control" name="gram_karbohidrat" step="0.01"  disabled>
                                   </div>
                           </div>
                           <span style="margin-top: 31px;">
@@ -955,7 +953,7 @@
                             
                                <br>
                                <div class="form-group">
-                                  <input type="number" class="form-control" name="gram_protein" step="0.01"  required>
+                                  <input type="number" class="form-control" name="gram_protein" step="0.01"  disabled>
                                 </div>
                         </div>
                         <span style="margin-top: 31px;">
@@ -979,7 +977,7 @@
                           
                              <br>
                              <div class="form-group">
-                                <input type="number" class="form-control" name="gram_lemak" step="0.01"  required>
+                                <input type="number" class="form-control" name="gram_lemak" step="0.01"  disabled>
                               </div>
                       </div>
                       <span style="margin-top: 31px;">

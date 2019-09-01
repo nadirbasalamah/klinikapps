@@ -117,9 +117,8 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <!--TODO: USE IMT FORMULA-->
                           <label class="bmd-label-floating">IMT</label>
-                          <input type="number" class="form-control" name="imt" step="0.01" value=<?php echo $rec->imt;?> required>
+                          <input type="number" class="form-control" name="imt" step="0.01" value=<?php echo $rec->imt;?> disabled>
                         </div>
                       </div>
                     </div>
@@ -154,7 +153,6 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <!--TODO: USE IMT FORMULA-->
                           <label class="bmd-label-floating">Visceral Fat</label>
                           <input type="number" class="form-control" name="visceral_fat" step="0.01" value=<?php echo $rec->visceral_fat;?> required>
                         </div>
@@ -181,7 +179,7 @@
                                 <label class="bmd-label-floating">Status Gizi (Kategori)</label>
                                 <div class="form-check form-check-radio">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" required <?= $rec->status=="underweight" ? "checked" : ""?>>
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" disabled <?= $rec->status=="underweight" ? "checked" : ""?>>
                                       Underweight
                                       <span class="circle">
                                           <span class="check"></span>
@@ -190,7 +188,7 @@
                               </div>
                               <div class="form-check form-check-radio">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" <?= $rec->status=="normal" ? "checked" : ""?>>
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" disabled <?= $rec->status=="normal" ? "checked" : ""?>>
                                       Normal
                                       <span class="circle">
                                           <span class="check"></span>
@@ -199,7 +197,7 @@
                               </div>
                               <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" <?= $rec->status=="overweight" ? "checked" : ""?>>
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" disabled <?= $rec->status=="overweight" ? "checked" : ""?>>
                                     Overweight
                                     <span class="circle">
                                         <span class="check"></span>
@@ -208,7 +206,7 @@
                             </div>
                             <div class="form-check form-check-radio">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" <?= $rec->status=="obese" ? "checked" : ""?>>
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" disabled <?= $rec->status=="obese" ? "checked" : ""?>>
                                     Obese
                                     <span class="circle">
                                         <span class="check"></span>
@@ -932,7 +930,7 @@
                               
                                  <br>
                                  <div class="form-group">
-                                    <input type="number" class="form-control" name="gram_karbohidrat" step="0.01" value=<?php echo $rec->gram_karbohidrat;?> required>
+                                    <input type="number" class="form-control" name="gram_karbohidrat" step="0.01" value=<?php echo $rec->gram_karbohidrat;?> disabled>
                                   </div>
                           </div>
                           <span style="margin-top: 31px;">
@@ -955,7 +953,7 @@
                             
                                <br>
                                <div class="form-group">
-                                  <input type="number" class="form-control" name="gram_protein" step="0.01" value=<?php echo $rec->gram_protein;?> required>
+                                  <input type="number" class="form-control" name="gram_protein" step="0.01" value=<?php echo $rec->gram_protein;?> disabled>
                                 </div>
                         </div>
                         <span style="margin-top: 31px;">
@@ -979,7 +977,7 @@
                           
                              <br>
                              <div class="form-group">
-                                <input type="number" class="form-control" name="gram_lemak" step="0.01" value=<?php echo $rec->gram_lemak;?> required>
+                                <input type="number" class="form-control" name="gram_lemak" step="0.01" value=<?php echo $rec->gram_lemak;?> disabled>
                               </div>
                       </div>
                       <span style="margin-top: 31px;">
