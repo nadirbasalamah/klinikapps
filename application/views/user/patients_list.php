@@ -23,7 +23,7 @@
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
 
-<body>
+<body style="background-image:<?php echo 'url(' . base_url('assets/img/w.png') . ')'?>;">
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('');?>assets/img/sidebar-1.jpg">
       <div class="logo">

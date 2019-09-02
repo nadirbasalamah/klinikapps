@@ -30,7 +30,6 @@ class Nutrition_records extends CI_Model {
 
     public function updateNutritionRecord($data)
     {
-        //TODO: update record nutrition (all of them)
         $this->db->set('bb',$data['bb']);
         $this->db->set('tb',$data['tb']);
         $this->db->set('lila',$data['lila']);

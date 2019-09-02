@@ -23,7 +23,7 @@
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
 
-<body style="background-image: url('https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiQkYTX9ZDkAhWBuo8KHU4iBUoQjRx6BAgBEAQ&url=https%3A%2F%2Fwebgradients.com%2F&psig=AOvVaw3mnMBPWmq-C9OH6YZxMSs0&ust=1566372268059189')">
+<body style="background-image:<?php echo 'url(' . base_url('assets/img/w.png') . ')'?>;">
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
  
