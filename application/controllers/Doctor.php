@@ -137,6 +137,7 @@ class Doctor extends CI_Controller {
 			'lain_lain' => $this->input->post('lain_lain'), 
 			'diagnosa' => $this->input->post('diagnosa'), 
 			'energi' => $energi, 
+			'keterangan_inter' => $this->input->post('keterangan_inter'),
 			'persen_karbohidrat' => $persen_karbohidrat,
 			'gram_karbohidrat' => $gram_karbohidrat, 
 			'persen_protein' => $persen_protein, 
@@ -149,6 +150,18 @@ class Doctor extends CI_Controller {
 		$this->Nutrition_records->addNutritionRecord($data);
 		echo("<script>alert('Data profil gizi siswa berhasil diubah!')</script>");
 		redirect(base_url('Doctor/viewEditPatient/' . $id),'refresh');
+	}
+
+	public function sendMessage($id)
+	{
+		$phone_number = "";
+		$patient = $this->Patients->getPatientById($id);
+		$message = $this->input->post('message');
+		foreach ($patient as $ptnt) {
+			$phone_number .= $ptnt->phone_number;
+		}
+		$link = " https://api.whatsapp.com/send?phone=". $phone_number . "&text=" . $message;
+		header("location:" . $link);
 	}
 
 	public function exportToExcel()

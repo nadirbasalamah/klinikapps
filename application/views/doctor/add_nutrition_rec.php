@@ -902,15 +902,15 @@
                                 <label class="bmd-label-floating">Kebutuhan Energi </label>
                                 <input type="number" class="form-control" name="energi"  required>
                                 </div>
+                                <div class="form-group">
+                                <label class="bmd-label-floating">Keterangan </label>
+                                <input type="text" class="form-control" name="keterangan_inter"  required>
+                                </div>
                               </th>
                                 </div>
                                 <div class="col-md-6">
-                                  <br>
-                                 
-                               
+                                  <br>       
                                   <td><h6>kalori</h6></td>
-                              
-                              
                                 </div>
                               </div>
                               <div class="row">
@@ -927,7 +927,6 @@
                               </span>
                                 <div class="col-md-4">
                                 <td><h6> 
-                              
                                  <br>
                                  <div class="form-group">
                                     <input type="number" class="form-control" name="gram_karbohidrat" step="0.01"  disabled>
@@ -1022,6 +1021,7 @@
     </div>
   </div>
 </div>
+
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>

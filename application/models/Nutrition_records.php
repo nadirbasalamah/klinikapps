@@ -76,6 +76,7 @@ class Nutrition_records extends CI_Model {
         $this->db->set('lain_lain',$data['lain_lain']);
         $this->db->set('diagnosa',$data['diagnosa']);
         $this->db->set('energi',$data['energi']);
+        $this->db->set('keterangan_inter',$data['keterangan_inter']);
         $this->db->set('persen_karbohidrat',$data['persen_karbohidrat']);
         $this->db->set('gram_karbohidrat',$data['gram_karbohidrat']);
         $this->db->set('persen_protein',$data['persen_protein']);

@@ -902,6 +902,10 @@
                                 <label class="bmd-label-floating">Kebutuhan Energi </label>
                                 <input type="number" class="form-control" name="energi" value=<?php echo $rec->energi;?> required>
                                 </div>
+                                <div class="form-group">
+                                <label class="bmd-label-floating">Keterangan </label>
+                                <input type="text" class="form-control" name="keterangan_inter"  value="<?php echo $rec->keterangan_inter;?>" required>
+                                </div>
                               </th>
                                 </div>
                                 <div class="col-md-6">
@@ -1015,10 +1019,6 @@
                   </div>
                   <?php endforeach;?>           
                 <button type="submit" class="btn btn-primary pull-right">Simpan Data</button>
-                
-                <a href="<?php echo base_url('Doctor/sendMessage');?>">
-                <img src="<?php echo base_url('assets/img/whatsapp.png');?>" alt="Whatsapp" width="35" height="35">
-              </a>
               </form>
             </div>
           </div>
@@ -1026,6 +1026,36 @@
     </div>
   </div>
 </div>
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-profile">
+            </div>
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Kirim Pesan</h4>
+                  <p class="card-category">Pesan dikirim melalui aplikasi Whatsapp</p>
+                </div>
+                <div class="card-body">
+                <?php foreach($record as $rec):?>
+                <?php echo form_open(base_url('Doctor/sendMessage/' . $rec->id_patient)); ?>
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Isi pesan</label>
+                          <textarea class="form-control" rows="5" name="message"></textarea>
+                        </div>
+                      </div>
+                      </div>
+                        <button type="submit" class="btn btn-primary pull-right">Kirim</button>      
+                      <?php endforeach;?>
+                       </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
