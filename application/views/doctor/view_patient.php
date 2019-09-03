@@ -791,7 +791,213 @@
   </div>
 </div>
 </div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data TB/BB</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_tb_bb;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><h6>Gambar</h6><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                        <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_tb_bb);?>" alt="Gambar TB/BB" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_tb_bb;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
 
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data BB/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_bb_u;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Gambar</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                      <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_bb_u);?>" alt="Gambar BB/U" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">   
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_bb_u;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data TB/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_tb_u;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Gambar</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                      <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_tb_u);?>" alt="Gambar TB/U" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_tb_u;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data IMT/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_imt_u;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Gambar</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                      <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_imt_u);?>" alt="Gambar IMT/U" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_imt_u;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data HC/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_hc_u;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Gambar</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                      <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_hc_u);?>" alt="Gambar HC/U" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_hc_u;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
 
 <div class="content">
   <div class="container-fluid">
