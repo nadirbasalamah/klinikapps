@@ -792,63 +792,7 @@
 </div>
 </div>
 
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-10">
-        <div class="card">
-         
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Edit </h4>
-            <p class="card-category">Status Gizi</p>
-          </div>
-          
-          <div class="card-body">
-            
-            <form action="#">
 
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                     
-                    <h6 >TB/BB </h6>
-                   
-                  </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                      <h6 >Agka</h6>
-                      <p></p>
-                    </div>
-                  </div>
-              </div>
-              
-                <div class="row">
-                  <div class="col-md-6">
-                      <br><h6>Upload Image</h6><br>
-                      <div style="padding:10px;margin-left:-10px;  " container>
-                               <h6  placeholder="" readonly></h6>
-                          <input type="file">
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                         
-                        <h6 >Keterangan </h6>
-                        <p></p>
-                      </div>
-                    </div>
-                  </div>
-             
-            </form>
-          </div>
-        </div>
-      </div>
-   
-  </div>
-</div>
-
-</div>
 <div class="content">
   <div class="container-fluid">
     <div class="row">

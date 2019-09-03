@@ -70,9 +70,17 @@ class Doctor extends CI_Controller {
 
 	public function updateNutritionRecord($id)
 	{
+		$nut_record = $this->Nutrition_records->getNutritionRecordById($id);
+		foreach ($nut_record as $rec) {
+			$gbr_tb_bb = $rec->gambar_tb_bb;
+			$gbr_bb_u = $rec->gambar_bb_u;
+			$gbr_tb_u = $rec->gambar_tb_u;
+			$gbr_imt_u = $rec->gambar_imt_u;
+			$gbr_hc_u = $rec->gambar_hc_u;
+		}
 		$bb = $this->input->post('bb');
 		$tb = $this->input->post('tb');
-		$imt = $bb / pow($tb,2);
+		$imt = $bb / pow(($tb / 100),2);
 		$status = $this->checkImt($imt);
 		
 		$energi = $this->input->post('energi');
@@ -84,6 +92,104 @@ class Doctor extends CI_Controller {
 		
 		$persen_lemak = $this->input->post('persen_lemak');
 		$gram_lemak = ($persen_lemak / 100) * $energi / 9;
+
+		//TODO: upload images
+		$new_name = time().$_FILES['gambar_tb_bb']['name'];
+		$config['upload_path'] = FCPATH ."./graph_pictures/";
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = $new_name;
+		$this->load->library('upload', $config); 
+		$this->upload->initialize($config);        
+		if ( ! $this->upload->do_upload('gambar_tb_bb'))  {
+			if ($nut_record !== null) {
+				$gambar_tb_bb = $gbr_tb_bb;
+			} else {
+				$gambar_tb_bb = $this->session->userdata['logged_in']['profile_picture'];
+			}
+		}
+		else
+		{ 
+			$upload_data = $this->upload->data();
+			$gambar_tb_bb = $upload_data['file_name'];
+		}
+
+		$new_name2 = time().$_FILES['gambar_bb_u']['name'];
+		$config['upload_path'] = FCPATH ."./graph_pictures/";
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = $new_name2;
+		$this->load->library('upload', $config); 
+		$this->upload->initialize($config);        
+		if ( ! $this->upload->do_upload('gambar_bb_u'))  {
+			if ($nut_record !== null) {
+				$gambar_bb_u = $gbr_bb_u;
+			} else {
+				$gambar_bb_u = $this->session->userdata['logged_in']['profile_picture'];
+			
+			}
+		}
+		else
+		{ 
+			$upload_data = $this->upload->data();
+			$gambar_bb_u = $upload_data['file_name'];
+		}
+
+		$new_name3 = time().$_FILES['gambar_tb_u']['name'];
+		$config['upload_path'] = FCPATH ."./graph_pictures/";
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = $new_name3;
+		$this->load->library('upload', $config); 
+		$this->upload->initialize($config);        
+		if ( ! $this->upload->do_upload('gambar_tb_u'))  {
+			if ($nut_record !== null) {
+				$gambar_tb_u = $gbr_tb_u;
+			} else {
+				$gambar_tb_u = $this->session->userdata['logged_in']['profile_picture'];
+			
+			}
+		}
+		else
+		{ 
+			$upload_data = $this->upload->data();
+			$gambar_tb_u = $upload_data['file_name'];
+		}
+
+		$new_name4 = time().$_FILES['gambar_imt_u']['name'];
+		$config['upload_path'] = FCPATH ."./graph_pictures/";
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = $new_name4;
+		$this->load->library('upload', $config); 
+		$this->upload->initialize($config);        
+		if ( ! $this->upload->do_upload('gambar_imt_u'))  {
+			if ($nut_record !== null) {
+				$gambar_imt_u = $gbr_imt_u;
+			} else {
+				$gambar_imt_u = $this->session->userdata['logged_in']['profile_picture'];
+			}
+		}
+		else
+		{ 
+			$upload_data = $this->upload->data();
+			$gambar_imt_u = $upload_data['file_name'];
+		}
+
+		$new_name5 = time().$_FILES['gambar_hc_u']['name'];
+		$config['upload_path'] = FCPATH ."./graph_pictures/";
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = $new_name5;
+		$this->load->library('upload', $config); 
+		$this->upload->initialize($config);        
+		if ( ! $this->upload->do_upload('gambar_hc_u'))  {
+			if ($nut_record !== null) {
+				$gambar_hc_u = $gbr_hc_u;
+			} else {
+				$gambar_hc_u = $this->session->userdata['logged_in']['profile_picture'];
+			}
+		}
+		else
+		{ 
+			$upload_data = $this->upload->data();
+			$gambar_hc_u = $upload_data['file_name'];
+		}
 
 		$data = array(
 			'id_record' => 0,
@@ -135,7 +241,22 @@ class Doctor extends CI_Controller {
 			'dietary_suplemen' => $this->input->post('dietary_suplemen'), 
 			'dietary_lainnya' => $this->input->post('dietary_lainnya'), 
 			'lain_lain' => $this->input->post('lain_lain'), 
-			'diagnosa' => $this->input->post('diagnosa'), 
+			'diagnosa' => $this->input->post('diagnosa'),
+			'angka_tb_bb' => $this->input->post('angka_tb_bb'),
+			'gambar_tb_bb' => $gambar_tb_bb,
+			'keterangan_tb_bb' => $this->input->post('keterangan_tb_bb'),
+			'angka_bb_u' => $this->input->post('angka_bb_u'),
+			'gambar_bb_u' => $gambar_bb_u,
+			'keterangan_bb_u' => $this->input->post('keterangan_bb_u'),
+			'angka_tb_u' => $this->input->post('angka_tb_u'),
+			'gambar_tb_u' => $gambar_tb_u,
+			'keterangan_tb_u' => $this->input->post('keterangan_tb_u'),
+			'angka_imt_u' => $this->input->post('angka_imt_u'),
+			'gambar_imt_u' => $gambar_imt_u,
+			'keterangan_imt_u' => $this->input->post('keterangan_imt_u'),
+			'angka_hc_u' => $this->input->post('angka_hc_u'),
+			'gambar_hc_u' => $gambar_hc_u,
+			'keterangan_hc_u' => $this->input->post('keterangan_hc_u'), 
 			'energi' => $energi, 
 			'keterangan_inter' => $this->input->post('keterangan_inter'),
 			'persen_karbohidrat' => $persen_karbohidrat,
@@ -148,7 +269,7 @@ class Doctor extends CI_Controller {
 			'result' => $this->input->post('result')
 		);
 		$this->Nutrition_records->addNutritionRecord($data);
-		echo("<script>alert('Data profil gizi siswa berhasil diubah!')</script>");
+		echo("<script>alert('Data gizi pasien berhasil diubah!')</script>");
 		redirect(base_url('Doctor/viewEditPatient/' . $id),'refresh');
 	}
 
@@ -171,30 +292,32 @@ class Doctor extends CI_Controller {
 		$sheet->setCellValue('A1', 'ID_Patient');
 		$sheet->setCellValue('B1', 'Nama Lengkap');
 		$sheet->setCellValue('C1', 'Umur');
-		$sheet->setCellValue('D1', 'Jenis Kelamin');
-		$sheet->setCellValue('E1', 'Alamat');
-		$sheet->setCellValue('F1', 'Nomor Telepon');
-		$sheet->setCellValue('G1', 'Email');
-		$sheet->setCellValue('H1', 'Tanggal Lahir');
-		$sheet->setCellValue('I1', 'Pendidikan');
-		$sheet->setCellValue('J1', 'Pekerjaan');
-		$sheet->setCellValue('K1', 'Agama / suku');
+		$sheet->setCellValue('D1', 'BB (kg)');
+		$sheet->setCellValue('E1', 'TB (cm)');
+		$sheet->setCellValue('F1', 'HC (cm)');
+		$sheet->setCellValue('G1', 'BB/TB');
+		$sheet->setCellValue('H1', 'BB/U');
+		$sheet->setCellValue('I1', 'TB/U');
+		$sheet->setCellValue('J1', 'HC/U');
+		$sheet->setCellValue('K1', 'Status Gizi');
+		$sheet->setCellValue('L1', 'Evaluasi');
 		$i = 2;
 
 		
-		$data = $this->Patients->getAllPatients();
+		$data = $this->Nutrition_records->getAllNutritionRecords();
 		foreach($data as $patient) {
-			$sheet->setCellValue('A'.$i, $patient['id_patient']);
-			$sheet->setCellValue('B'.$i, $patient['fullname']);
-			$sheet->setCellValue('C'.$i, $patient['age']);
-			$sheet->setCellValue('D'.$i, $patient['gender']);
-			$sheet->setCellValue('E'.$i, $patient['address']);
-			$sheet->setCellValue('F'.$i, $patient['phone_number']);
-			$sheet->setCellValue('G'.$i, $patient['email']);
-			$sheet->setCellValue('H'.$i, $patient['birthdate']);
-			$sheet->setCellValue('I'.$i, $patient['education']);
-			$sheet->setCellValue('J'.$i, $patient['job']);
-			$sheet->setCellValue('K'.$i, $patient['religion']);
+			$sheet->setCellValue('A'.$i, $patient->id_patient);
+			$sheet->setCellValue('B'.$i, $patient->fullname);
+			$sheet->setCellValue('C'.$i, $patient->age);
+			$sheet->setCellValue('D'.$i, $patient->bb);
+			$sheet->setCellValue('E'.$i, $patient->tb);
+			$sheet->setCellValue('F'.$i, $patient->lila);
+			$sheet->setCellValue('G'.$i, $patient->angka_tb_bb);
+			$sheet->setCellValue('H'.$i, $patient->angka_bb_u);
+			$sheet->setCellValue('I'.$i, $patient->angka_tb_u);
+			$sheet->setCellValue('J'.$i, $patient->angka_hc_u);
+			$sheet->setCellValue('K'.$i, $patient->status);
+			$sheet->setCellValue('L'.$i, $patient->result);
 			$i++;
 		}
 		
@@ -209,8 +332,8 @@ class Doctor extends CI_Controller {
 		$sheet->getStyle('A1:L'.$i)->applyFromArray($styleArray);
 
 		$writer = new excelWriter($spreadsheet);
-		$writer->save('Report_Data_Siswa.xlsx');
-		force_download('Report_Data_Siswa.xlsx', NULL);
+		$writer->save('Report_Data_Pasien.xlsx');
+		force_download('Report_Data_Pasien.xlsx', NULL);
 
 	}
 

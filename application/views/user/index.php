@@ -122,10 +122,11 @@
 
 
 <div class="d-flex justify-content-center">
-<div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/instagram.png');?>" alt="" width="35" height="35" alt=""></div>
-    <div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/twitter-logo-button.png');?>" alt="" width="35" height="35" alt=""></div>
-    <div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/facebook-logo-button.png');?>" alt="" width="35" height="35" alt=""></div>
-    <div class="p-2 bd-highlight"><img src="<?php echo  base_url('assets/img/whatsapp.png');?>" alt="" width="35" height="35" alt=""></div>
+    <div class="p-2 bd-highlight"><a href="https://www.instagram.com/klinik_ub/" target="_blank"><img src="<?php echo  base_url('assets/img/instagram.png');?>" alt="Instagram" width="35" height="35"></a></div>
+    <div class="p-2 bd-highlight"><a href="https://poliklinik.ub.ac.id" target="_blank"><img src="<?php echo  base_url('assets/img/internet.png');?>" alt="Poliklinik UB Website" width="35" height="35"></a></div>
+    <div class="p-2 bd-highlight"><a href="https://gmail.com" target="_blank"><img src="<?php echo  base_url('assets/img/email.png');?>" alt="Email Poliklinik UB" width="35" height="35"></a></div>
+    <div class="p-2 bd-highlight"><a href="https://www.youtube.com/channel/UC3kzWE0yWG8c5ZS_-OWQaUA" target="_blank"><img src="<?php echo  base_url('assets/img/youtube.png');?>" alt="Youtube" width="35" height="35"></a></div>
+    <div class="p-2 bd-highlight"><a href="https://api.whatsapp.com/send?phone=081333999121&text=Selamat%20Pagi&source=&data=" target="_blank"><img src="<?php echo  base_url('assets/img/whatsapp.png');?>" alt="WhatsApp" width="35" height="35"></a></div>
   </div>
 
 </div>

@@ -107,26 +107,26 @@
                 </div>
                 <div class="card-body">
                 <?php foreach($patient as $ptnt):?>
-                <?php echo form_open(base_url('Doctor/updateNutritionRecord/' . $ptnt->id_patient)); ?>
+                <?php echo form_open_multipart(base_url('Doctor/updateNutritionRecord/' . $ptnt->id_patient)); ?>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">BB</label>
-                          <input type="number" class="form-control" name="bb" step="0.01" required>
+                          <input type="number" class="form-control" id="bb" name="bb" step="0.01" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">IMT</label>
-                          <input type="number" class="form-control" name="imt" step="0.01" disabled>
+                          <input type="number" class="form-control" id="imt" name="imt" step="0.01" disabled>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">TB</label>
-                          <input type="number" class="form-control" name="tb" step="0.01" required>
+                          <label class="bmd-label-floating">TB (cm)</label>
+                          <input type="number" class="form-control" id="tb" name="tb" step="0.01" required>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -670,7 +670,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_tb_bb" required>
                     </div>
                   </div>
               </div>
@@ -680,14 +680,14 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_tb_bb">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
                          
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_tb_bb" required>
                       </div>
                     </div>
                   </div>
@@ -715,7 +715,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_bb_u" required>
                     </div>
                   </div>
               </div>
@@ -725,14 +725,14 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_bb_u">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
                          
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_bb_u" required>
                       </div>
                     </div>
                   </div>
@@ -760,7 +760,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_tb_u" required>
                     </div>
                   </div>
               </div>
@@ -770,14 +770,14 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_tb_u">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
                          
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_tb_u" required>
                       </div>
                     </div>
                   </div>
@@ -805,7 +805,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_imt_u" required>
                     </div>
                   </div>
               </div>
@@ -815,14 +815,14 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_imt_u">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
                          
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_imt_u" required>
                       </div>
                     </div>
                   </div>
@@ -850,7 +850,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_hc_u" required>
                     </div>
                   </div>
               </div>
@@ -860,14 +860,14 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_hc_u">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
                          
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_hc_u" required>
                       </div>
                     </div>
                   </div>
@@ -1021,48 +1021,23 @@
     </div>
   </div>
 </div>
-
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/bootstrap-material-design.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js');?>"></script>
-  <!-- Plugin for the momentJs  -->
-  
-  <!--  Plugin for Sweet Alert -->
-  
-  <!-- Forms Validations Plugin -->
   <script src="<?php echo base_url('assets/js/plugins/jquery.validate.min.js');?>"></script>
-  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
   <script src="<?php echo base_url('assets/js/plugins/jquery.bootstrap-wizard.js');?>"></script>
-  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  
-  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  
-  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
   <script src="<?php echo base_url('assets/js/plugins/jquery.dataTables.min.js');?>"></script>
-  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="<?php echo base_url('assets/js/plugins/bootstrap-tagsinput.js');?>"></script>
-  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  
-  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  
-  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-  
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="<?php echo base_url('assets/js/plugins/nouislider.min.js');?>"></script>
-  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-  <!-- Library for adding dinamically elements -->
-  
-  <!-- Chartist JS -->
-  <!--  Notifications Plugin    -->
   <script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js');?>"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="<?php echo base_url('assets/js/material-dashboard.js?v=2.1.1');?>" type="text/javascript"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {
+
         $sidebar = $('.sidebar');
 
         $sidebar_img_container = $sidebar.find('.sidebar-background');

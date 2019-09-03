@@ -207,26 +207,4 @@ class User extends CI_Controller {
 			$data['patients'] = $this->Patients->getPatientByName($fullname);
 			$this->load->view('user/patients_result',$data);
 		}
-
-		public function viewConsultation()
-		{
-			$this->load->view('user/consultation');
-		}
-
-		public function sendConsultationMessage($username)
-		{
-			//TODO: send mesage via WA (change the number)
-			$message = "";
-			$complaint = $this->input->post('complaint');
-			$childname = $this->input->post('child');
-			$user = $this->Users->getUser($username);
-			foreach ($user as $usr) {
-				$message .= "Nama%20%3A" . rawurlencode($usr->fullname) . "%0AAlamat%20%3A" . rawurlencode($usr->address);
-			}
-			$message .= "%0ANama%20Anak%20%3A" . rawurlencode($childname);
-			$message .= "%0AKeluhan%20%3A" . rawurlencode($complaint);
-			$link = " https://api.whatsapp.com/send?phone=6285646815706&text=" . $message;
-			header("location:" . $link);
-		}
-
 }

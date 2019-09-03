@@ -239,11 +239,11 @@ class Admin extends CI_Controller {
 					],
 				];
 		$i = $i - 1;
-		$sheet->getStyle('A1:L'.$i)->applyFromArray($styleArray);
+		$sheet->getStyle('A1:K'.$i)->applyFromArray($styleArray);
 
 		$writer = new excelWriter($spreadsheet);
-		$writer->save('Report_Data_Siswa.xlsx');
-		force_download('Report_Data_Siswa.xlsx', NULL);
+		$writer->save('Report_Data_Pasien.xlsx');
+		force_download('Report_Data_Pasien.xlsx', NULL);
 
 	}
 

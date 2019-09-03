@@ -107,7 +107,7 @@
                 </div>
                 <div class="card-body">
                 <?php foreach($record as $rec):?>
-                <?php echo form_open(base_url('Doctor/updateNutritionRecord/' . $rec->id_patient)); ?>
+                <?php echo form_open_multipart(base_url('Doctor/updateNutritionRecord/' . $rec->id_patient)); ?>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -125,7 +125,7 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">TB</label>
+                          <label class="bmd-label-floating">TB (cm)</label>
                           <input type="number" class="form-control" name="tb" step="0.01" value=<?php echo $rec->tb;?> required>
                         </div>
                       </div>
@@ -670,7 +670,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_tb_bb" value=<?php echo $rec->angka_tb_bb;?> required>
                     </div>
                   </div>
               </div>
@@ -680,14 +680,13 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_tb_bb">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
-                         
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_tb_bb" value="<?php echo $rec->keterangan_tb_bb;?>" required>
                       </div>
                     </div>
                   </div>
@@ -715,7 +714,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_bb_u" value=<?php echo $rec->angka_bb_u;?> required>
                     </div>
                   </div>
               </div>
@@ -725,14 +724,14 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_bb_u">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
                          
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_bb_u" value="<?php echo $rec->keterangan_bb_u;?>" required>
                       </div>
                     </div>
                   </div>
@@ -760,7 +759,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_tb_u" value=<?php echo $rec->angka_tb_u;?> required>
                     </div>
                   </div>
               </div>
@@ -770,14 +769,14 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_tb_u">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
                          
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_tb_u" value="<?php echo $rec->keterangan_tb_u;?>" required>
                       </div>
                     </div>
                   </div>
@@ -805,7 +804,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_imt_u" value=<?php echo $rec->angka_imt_u;?> required>
                     </div>
                   </div>
               </div>
@@ -815,14 +814,14 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_imt_u">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
                          
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_imt_u" value="<?php echo $rec->keterangan_imt_u;?>" required>
                       </div>
                     </div>
                   </div>
@@ -850,7 +849,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="angka_hc_u" value=<?php echo $rec->angka_hc_u;?> required>
                     </div>
                   </div>
               </div>
@@ -860,14 +859,14 @@
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
                                <label class="bmd-label-floating"></label>
-                          <input type="file">
+                          <input type="file" name="gambar_hc_u">
                       </div>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
                          
                         <label class="bmd-label-floating">Keterangan </label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="keterangan_hc_u" value="<?php echo $rec->keterangan_hc_u;?>" required>
                       </div>
                     </div>
                   </div>
