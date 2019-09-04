@@ -12,12 +12,7 @@
 	<!-- Main Style Css -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css')?>"/>
 </head>
-<body class="form-v10" style="background-image:<?php echo base_url('assets/img/register_background.jpg')?>;">
-	<!-- <style>
-		body{
-			background-image: url("https://st4.depositphotos.com/2060305/22518/v/600/depositphotos_225182764-stock-video-dynamic-animation-smooth-gradient-background.jpg")
-		}
-		</style> -->
+<body class="form-v10" style="background-image:<?php echo 'url(' . base_url('assets/img/register_background.jpg') . ')'?>;">
 	<div class="page-content">
 		<div class="form-v10-content">
 			<form class="form-detail" action="<?php echo base_url('User/new_user_registration')?>" method="post" id="myform">

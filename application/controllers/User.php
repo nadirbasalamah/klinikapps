@@ -100,6 +100,7 @@ class User extends CI_Controller {
 
 		$session_data = array(
 		'username' => $result[0]->username,
+		'fullname' => $result[0]->fullname,
 		'id' => $result[0]->id,
 		'password' => $this->decrypt($result[0]->password),
 		'profile_picture' => $result[0]->profile_picture,
@@ -195,16 +196,9 @@ class User extends CI_Controller {
 			}
 		}
 
-		public function viewPatient($id)
+		public function viewNutritionRecord($fullname)
 		{
-			$data['patient'] = $this->Nutrition_records->getNutritionRecordById($id);
+			$data['patient'] = $this->Nutrition_records->getNutritionRecordByName($fullname);
 			$this->load->view('user/patient_page',$data);
-		}
-
-		public function getPatient()
-		{
-			$fullname = $this->input->post('patient_name');
-			$data['patients'] = $this->Patients->getPatientByName($fullname);
-			$this->load->view('user/patients_result',$data);
 		}
 }

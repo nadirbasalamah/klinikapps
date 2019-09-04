@@ -3,6 +3,7 @@
 <?php
     if (isset($this->session->userdata['logged_in'])) {
     $username = ($this->session->userdata['logged_in']['username']);
+    $fullname = ($this->session->userdata['logged_in']['fullname']);
     $password = ($this->session->userdata['logged_in']['password']);
     $phone_number = ($this->session->userdata['logged_in']['phone_number']);
     $email = ($this->session->userdata['logged_in']['email']);
@@ -56,10 +57,10 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo base_url('User/viewPatients'); ?>">
-              <i class="material-icons">content_paste</i>
-              <p>Daftar Pasien</p>
-            </a>
+          <a class="nav-link" href="<?php echo base_url('User/viewNutritionRecord/' . $fullname); ?>">
+                <i class="material-icons">content_paste</i>
+                <p>Lihat Data Gizi</p>
+              </a>
           </li>
         </ul>
       </div>

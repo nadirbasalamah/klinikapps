@@ -136,4 +136,18 @@ class Nutrition_records extends CI_Model {
         }
     }
 
+    public function getNutritionRecordByName($fullname)
+    {
+        $this->db->select('*');
+        $this->db->from('patients');
+        $this->db->join('nutrition_records','patients.id_patient = nutrition_records.id_patient');
+        $this->db->where('patients.fullname',$fullname);
+        $query = $this->db->get();
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+        } else {
+            return null;
+        }
+    }
+
 }

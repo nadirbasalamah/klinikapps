@@ -3,6 +3,7 @@
 <?php
     if (isset($this->session->userdata['logged_in'])) {
     $username = ($this->session->userdata['logged_in']['username']);
+    $fullname = ($this->session->userdata['logged_in']['fullname']);
     $profile_picture = ($this->session->userdata['logged_in']['profile_picture']);
     } else {
     header("location: " . base_url('User/login'));
@@ -45,10 +46,10 @@
             </a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="<?php echo base_url('User/viewPatients'); ?>">
-              <i class="material-icons">content_paste</i>
-              <p>Daftar Pasien</p>
-            </a>
+          <a class="nav-link" href="#">
+                <i class="material-icons">content_paste</i>
+                <p>Lihat Data Gizi</p>
+              </a>
           </li>
         </ul>
       </div>
@@ -89,7 +90,9 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <?php foreach($patient as $ptnt):?>
+      <?php 
+      if(!empty($patient)) {
+      foreach($patient as $ptnt):?>
       <div class="content">
         <div class="container-fluid">
           <div class="row">
@@ -291,7 +294,8 @@
                       <textarea class="form-control" rows="5" placeholder="" readonly><?php echo $ptnt->result;?></textarea>
                     </div>
                   </div>  
-                  <?php endforeach;?>                  
+                  <?php endforeach; } else 
+                  { echo "Data gizi tidak ditemukan";}?>                  
               </form>
             </div>
           </div>

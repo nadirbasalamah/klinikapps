@@ -93,7 +93,6 @@ class Doctor extends CI_Controller {
 		$persen_lemak = $this->input->post('persen_lemak');
 		$gram_lemak = ($persen_lemak / 100) * $energi / 9;
 
-		//TODO: upload images
 		$new_name = time().$_FILES['gambar_tb_bb']['name'];
 		$config['upload_path'] = FCPATH ."./graph_pictures/";
 		$config['allowed_types'] = 'gif|jpg|png';

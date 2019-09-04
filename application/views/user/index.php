@@ -3,6 +3,7 @@
 <?php
     if (isset($this->session->userdata['logged_in'])) {
     $username = ($this->session->userdata['logged_in']['username']);
+    $fullname = ($this->session->userdata['logged_in']['fullname']);
     $profile_picture = ($this->session->userdata['logged_in']['profile_picture']);
     } else {
     header("location: " . base_url('User/login'));
@@ -45,9 +46,9 @@
               </a>
             </li>
             <li class="nav-item  ">
-              <a class="nav-link" href="<?php echo base_url('User/viewPatients'); ?>">
+              <a class="nav-link" href="<?php echo base_url('User/viewNutritionRecord/' . $fullname); ?>">
                 <i class="material-icons">content_paste</i>
-                <p>Daftar Pasien</p>
+                <p>Lihat Data Gizi</p>
               </a>
             </li>
           </ul>
