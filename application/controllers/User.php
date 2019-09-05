@@ -191,6 +191,8 @@ class User extends CI_Controller {
 			$this->session->userdata['logged_in']['profile_picture'] = $file_loc;
 			if ($role == 'admin') {
 				redirect(base_url('Admin/index'),'refresh');
+			} else if($role == 'doctor') {
+				redirect(base_url('Doctor/index'),'refresh');
 			} else {
 				redirect(base_url('User/viewDashboard'),'refresh');
 			}

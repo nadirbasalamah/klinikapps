@@ -71,12 +71,14 @@ class Doctor extends CI_Controller {
 	public function updateNutritionRecord($id)
 	{
 		$nut_record = $this->Nutrition_records->getNutritionRecordById($id);
-		foreach ($nut_record as $rec) {
-			$gbr_tb_bb = $rec->gambar_tb_bb;
-			$gbr_bb_u = $rec->gambar_bb_u;
-			$gbr_tb_u = $rec->gambar_tb_u;
-			$gbr_imt_u = $rec->gambar_imt_u;
-			$gbr_hc_u = $rec->gambar_hc_u;
+		if (empty($nut_record) !== true) {
+			foreach ($nut_record as $rec) {
+				$gbr_tb_bb = $rec->gambar_tb_bb;
+				$gbr_bb_u = $rec->gambar_bb_u;
+				$gbr_tb_u = $rec->gambar_tb_u;
+				$gbr_imt_u = $rec->gambar_imt_u;
+				$gbr_hc_u = $rec->gambar_hc_u;
+			}
 		}
 		$bb = $this->input->post('bb');
 		$tb = $this->input->post('tb');

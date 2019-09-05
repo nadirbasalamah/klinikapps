@@ -13,13 +13,14 @@
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo_klinik.png');?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Edit Patient's Profile
+    Edit Patient's Nutrition Record
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="<?php echo base_url('assets/font-awesome/css/font-awesome.min.css')?>">
   <!-- CSS Files -->
+  <link href="<?php echo base_url('assets/css/image-preview.css');?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
 
@@ -45,7 +46,7 @@
           <li class="nav-item active ">
             <a class="nav-link" href="#">
               <i class="material-icons">edit</i>
-              <p>Edit Profil Pasien</p>
+              <p>Edit Data Gizi Pasien</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -664,7 +665,6 @@
             <h4 class="card-title">Edit TB/BB</h4>
             <p class="card-category">Status Gizi</p>
           </div>
-          <!--TODO: update another data-->
           <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
@@ -679,8 +679,9 @@
                   <div class="col-md-6">
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
-                               <label class="bmd-label-floating"></label>
-                          <input type="file" name="gambar_tb_bb">
+                      <img src="<?php echo base_url('graph_pictures/' . $rec->gambar_tb_bb);?>" id="image-preview" alt="Default Image" width="360" height="240"/>
+                      <br/>
+                        <input type="file" id="image-source" name="gambar_tb_bb" onchange="previewImage('image-preview','image-source');"/>
                       </div>
                   </div>
                   <div class="col-md-6">
@@ -708,7 +709,6 @@
             <h4 class="card-title">Edit BB/U</h4>
             <p class="card-category">Status Gizi</p>
           </div>
-          <!--TODO: update another data-->
           <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
@@ -723,8 +723,9 @@
                   <div class="col-md-6">
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
-                               <label class="bmd-label-floating"></label>
-                          <input type="file" name="gambar_bb_u">
+                      <img src="<?php echo base_url('graph_pictures/' . $rec->gambar_bb_u);?>" id="image-preview2" alt="Default Image" width="360" height="240"/>
+                      <br/>
+                        <input type="file" id="image-source2" name="gambar_bb_u" onchange="previewImage('image-preview2','image-source2');"/>
                       </div>
                   </div>
                   <div class="col-md-6">
@@ -753,7 +754,6 @@
             <h4 class="card-title">Edit TB/U</h4>
             <p class="card-category">Status Gizi</p>
           </div>
-          <!--TODO: update another data-->
           <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
@@ -768,8 +768,9 @@
                   <div class="col-md-6">
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
-                               <label class="bmd-label-floating"></label>
-                          <input type="file" name="gambar_tb_u">
+                      <img src="<?php echo base_url('graph_pictures/' . $rec->gambar_tb_u);?>" id="image-preview3" alt="Default Image" width="360" height="240"/>
+                      <br/>
+                        <input type="file" id="image-source3" name="gambar_tb_u" onchange="previewImage('image-preview3','image-source3');"/>
                       </div>
                   </div>
                   <div class="col-md-6">
@@ -798,7 +799,6 @@
             <h4 class="card-title">Edit IMT/U</h4>
             <p class="card-category">Status Gizi</p>
           </div>
-          <!--TODO: update another data-->
           <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
@@ -813,8 +813,9 @@
                   <div class="col-md-6">
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
-                               <label class="bmd-label-floating"></label>
-                          <input type="file" name="gambar_imt_u">
+                      <img src="<?php echo base_url('graph_pictures/' . $rec->gambar_imt_u);?>" id="image-preview4" alt="Default Image" width="360" height="240"/>
+                      <br/>
+                        <input type="file" id="image-source4" name="gambar_imt_u" onchange="previewImage('image-preview4','image-source4');"/>
                       </div>
                   </div>
                   <div class="col-md-6">
@@ -843,7 +844,6 @@
             <h4 class="card-title">Edit HC/U</h4>
             <p class="card-category">Status Gizi</p>
           </div>
-          <!--TODO: update another data-->
           <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
@@ -858,8 +858,9 @@
                   <div class="col-md-6">
                       <br><label>Upload Image</label><br>
                       <div style="padding:10px;margin-left:-10px;  " container>
-                               <label class="bmd-label-floating"></label>
-                          <input type="file" name="gambar_hc_u">
+                      <img src="<?php echo base_url('graph_pictures/' . $rec->gambar_hc_u);?>"  id="image-preview5" alt="Default Image" width="360" height="240"/>
+                      <br/>
+                        <input type="file" id="image-source5" name="gambar_hc_u" onchange="previewImage('image-preview5','image-source5');"/>
                       </div>
                   </div>
                   <div class="col-md-6">
@@ -1056,6 +1057,7 @@
         </div>
       </div>
   <!--   Core JS Files   -->
+  <script src="<?php echo base_url('assets/js/image-preview.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/bootstrap-material-design.min.js');?>"></script>

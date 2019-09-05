@@ -1,0 +1,32 @@
+#image-preview {
+    align-content: center;
+    display:none;
+}
+#image-preview2 {
+    align-content: center;
+    display:none;
+}
+#image-preview3 {
+    align-content: center;
+    display:none;
+}
+#image-preview4 {
+    align-content: center;
+    display:none;
+}
+#image-preview5 {
+    align-content: center;
+    display:none;
+}
+#user-profile-picture-preview {
+    align-content: center;
+    display:none;
+}
+#doctor-profile-picture-preview {
+    align-content: center;
+    display:none;
+}
+#admin-profile-picture-preview {
+    align-content: center;
+    display:none;
+}

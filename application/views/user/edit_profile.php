@@ -25,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="<?php echo base_url('assets/font-awesome/css/font-awesome.min.css')?>">
   <!-- CSS Files -->
+  <link href="<?php echo base_url('assets/css/image-preview.css');?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/material-dashboard.css?v=2.1.1');?>" rel="stylesheet" />
 </head>
 
@@ -162,9 +163,11 @@
                         </div>
                       </div>
                   
-                        <div style="padding:10px; " container>
+                        <div style="padding:10px;" container>
                             <label class="bmd-label-floating"><br></label>
-                       <input type="file" name="profile_picture" id="gambar" value="<?php echo $profile_picture;?>">
+                       <img src="<?php echo base_url('assets/profile_pictures/' . $profile_picture);?>" id="user-profile-picture-preview" alt="Profile Picture" width="360" height="240"/>
+                      <br/>
+                        <input type="file" name="profile_picture" id="user-profile-picture-source" onchange="previewImage('user-profile-picture-preview','user-profile-picture-source');"/>
                    </div>
                     </div>
                     <div class="row">
@@ -194,6 +197,7 @@
     
   </div>
   <!--   Core JS Files   -->
+  <script src="<?php echo base_url('assets/js/image-preview.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
   <script src="<?php echo base_url('assets/js/core/bootstrap-material-design.min.js');?>"></script>

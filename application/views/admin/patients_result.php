@@ -131,7 +131,9 @@
                           <td><?php echo $patient['fullname'];?></td>
                           <td><?php echo $patient['address'];?></td>
                           <td>
-                          <a href="<?php echo base_url('Admin/viewEditPatient/' . $patient['id_patient']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
+                          <a href="<?php echo base_url('Admin/viewPatient/' . $patient['id_patient']);?>" button class="btn btn-primary"><i class="material-icons">visibility</i>lihat</button></a>
+                          <span>
+                          <a href="<?php echo base_url('Admin/viewEditPatient/' . $patient['id_patient']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></span></a>
                           <span>
                           <a href="<?php echo base_url('Admin/deletePatient/' . $patient['id_patient']);?>" button class="btn btn-danger"><i class="material-icons">delete</i>hapus</button></span></a>
                           </td>

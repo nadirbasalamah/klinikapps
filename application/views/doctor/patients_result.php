@@ -127,7 +127,9 @@
                           <td><?php echo $patient['fullname'];?></td>
                           <td><?php echo $patient['address'];?></td>
                           <td>
-                          <a href="<?php echo base_url('Doctor/viewEditPatient/' . $patient['id_patient']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></a>
+                          <a href="<?php echo base_url('Doctor/viewPatient/' . $patient['id_patient']);?>" button class="btn btn-primary"><i class="material-icons">visibility</i>lihat</button></a>
+                          <span>
+                          <a href="<?php echo base_url('Doctor/viewEditPatient/' . $patient['id_patient']);?>" button class="btn btn-info"><i class="material-icons">edit</i>edit</button></span></a>
                           </td>
                       </tr>
                       <?php endforeach; } else {
