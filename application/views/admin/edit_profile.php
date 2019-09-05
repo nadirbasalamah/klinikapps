@@ -37,7 +37,7 @@
     -->
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="White flower" alt="Flower">
+          <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="Poliklinik UB" alt="Poliklinik UB">
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -70,7 +70,6 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Edit Profil</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -110,7 +109,7 @@
               <div class="card">
                 <div class="card card-profile">
                 <div class="card-avatar">
-                  <a href="#pablo">
+                  <a href="#">
                     <img class="img" src="<?php echo base_url('profile_pictures/') . $profile_picture;?>" />
                   </a>
                 </div>
