@@ -6,7 +6,7 @@
     $fullname = ($this->session->userdata['logged_in']['fullname']);
     $profile_picture = ($this->session->userdata['logged_in']['profile_picture']);
     } else {
-    header("location: " . base_url('User/login'));
+    header("location: " . base_url('User/index'));
     }
 ?>
 <head>
@@ -302,6 +302,34 @@
     </div>
   </div>
 </div>
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card card-profile">
+            </div>
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Kirim Pesan</h4>
+                  <p class="card-category">Pesan dikirim melalui aplikasi Whatsapp</p>
+                </div>
+                <div class="card-body">
+                <?php echo form_open(base_url('User/sendMessage/')); ?>
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Isi pesan</label>
+                          <textarea class="form-control" rows="5" name="message"></textarea>
+                        </div>
+                      </div>
+                      </div>
+                        <button type="submit" class="btn btn-primary pull-right">Kirim</button>      
+                       </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
   </body>
   <!--   Core JS Files   -->
   <script src="<?php echo base_url('assets/js/core/jquery.min.js');?>"></script>

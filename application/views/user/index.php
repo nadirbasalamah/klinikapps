@@ -6,7 +6,7 @@
     $fullname = ($this->session->userdata['logged_in']['fullname']);
     $profile_picture = ($this->session->userdata['logged_in']['profile_picture']);
     } else {
-    header("location: " . base_url('User/login'));
+    header("location: " . base_url('User/index'));
     }
 ?>
 <head>

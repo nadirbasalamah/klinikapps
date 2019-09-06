@@ -203,4 +203,12 @@ class User extends CI_Controller {
 			$data['patient'] = $this->Nutrition_records->getNutritionRecordByName($fullname);
 			$this->load->view('user/patient_page',$data);
 		}
+
+		public function sendMessage()
+		{
+			$phone_number = "628123454321"; //fake number
+			$message = $this->input->post('message');
+			$link = " https://api.whatsapp.com/send?phone=". $phone_number . "&text=" . rawurlencode($message);
+			header("location:" . $link);
+		}
 }

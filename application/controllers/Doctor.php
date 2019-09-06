@@ -282,7 +282,7 @@ class Doctor extends CI_Controller {
 		foreach ($patient as $ptnt) {
 			$phone_number .= $ptnt->phone_number;
 		}
-		$link = " https://api.whatsapp.com/send?phone=". $phone_number . "&text=" . $message;
+		$link = " https://api.whatsapp.com/send?phone=". $phone_number . "&text=" . rawurlencode($message);
 		header("location:" . $link);
 	}
 
