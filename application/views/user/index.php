@@ -101,7 +101,57 @@
         <h1 style="margin-left:30px;">Selamat Datang  <br>
           di Klinik Apps</h1>
           <p style="margin-left:30px;">Peduli Berbagi dan Mengedukasi</p>
-          <button style="margin-left:31px;" type="button" class="btn btn-info">Get Started</button>
+          <button style="margin-left:31px;" type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Get Started</button>
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 style="text-align:center; " class="modal-title" id="exampleModalLabel">Guide Klinik App</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div style="background-color: darkcyan;color: white" class="modal-body">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+                <h6 style="text-align: right" >Login</h6>
+             
+              <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_login.png');?>" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <h6 style="text-align: right" >Patients List</h6>
+              <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_daftar_pasien_admin.png');?>" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <h6 style="text-align: right" >Add New Patient</h6>
+              <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_tambah_pasien.png');?>" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                <h6 style="text-align: right" >Edit Patient's Data</h6>
+                <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_edit_data_pasien.png');?>" alt="Forth slide">
+              </div>
+             
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   
+      </div>
+  </div>
+    
+    
+  </div>
+</div>
 
       </div>
       <div class="col">
