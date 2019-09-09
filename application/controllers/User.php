@@ -8,7 +8,6 @@ class User extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->helper('url'); 		
 		
-		$this->load->library('form_validation');
 		$this->load->library('session');
 
 		$this->load->model('Users');
@@ -23,7 +22,8 @@ class User extends CI_Controller {
 	
 	public function register()
 	{
-		$this->load->view('main/register');
+		$data['message_display'] = "";
+		$this->load->view('main/register',$data);
 	}
 
 	function decrypt($string)
@@ -120,10 +120,8 @@ class User extends CI_Controller {
 		}
 		}
 		} else {
-		$data = array(
-		'error_message' => 'Username atau password Anda Salah'
-		);
-			$this->load->view('main/index', $data);
+			echo("<script>alert('Username atau password Anda Salah!')</script>");
+			redirect(base_url('User/index'), 'refresh');
 		}
 		
 		}

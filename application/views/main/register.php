@@ -15,9 +15,11 @@
 <body class="form-v10" style="background-image:<?php echo 'url(' . base_url('assets/img/register_background.jpg') . ')'?>;">
 	<div class="page-content">
 		<div class="form-v10-content">
+		<?php echo validation_errors(); ?>
 			<form class="form-detail" action="<?php echo base_url('User/new_user_registration')?>" method="post" id="myform">
 				<div class="form-left">
 					<h2>Sign-Up</h2>
+					<p><?php echo $message_display;?></p>
 					<div class="form-row">
 						<input type="text" name="fullname" class="fullname" id="fullname" placeholder="Nama Lengkap" required>
 					</div>
@@ -31,7 +33,7 @@
 						</div>
 					
 				 <div class="form-row">
-						<input type="text" name="birthdate" class="date" id="birthdate" placeholder="Tanggal lahir (format:dd/mm/yyyy)" required>
+						<input type="date" name="birthdate" class="date" id="birthdate" required>
 					</div>
 					
 					<div class="form-row">

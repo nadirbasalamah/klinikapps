@@ -14,7 +14,6 @@ class Doctor extends CI_Controller {
 		$this->load->helper('url'); 
 		$this->load->helper('download');		
 		
-		$this->load->library('form_validation');
 		$this->load->library('session');
 
 		$this->load->model('Users');
