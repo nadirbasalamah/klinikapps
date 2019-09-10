@@ -161,6 +161,304 @@
             </div>
            </div>
            <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="card">
+               
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Data</h4>
+                  <p class="card-category">Antropometri</p>
+                </div>
+                
+                <div class="card-body">
+                  <form action="#">
+                    
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>BB</h6>
+                          <p><?php echo $ptnt->bb;?></p>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>IMT</h6>
+                          <p><?php echo $ptnt->imt;?></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>TB</h6>
+                          <p><?php echo $ptnt->tb;?></p>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <h6>BBI</h6>
+                          <p><?php echo $ptnt->bbi;?></p>
+                        </div>
+                      </div>
+                    </div>
+                      <br>
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                <h6>Status Gizi (Kategori)</h6>
+                                <div class="form-check form-check-radio">
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="underweight" <?= $ptnt->status=="underweight" ? "checked" : ""?> disabled>
+                                      Underweight
+                                      <span class="circle">
+                                          <span class="check"></span>
+                                      </span>
+                                  </label>
+                              </div>
+                              <div class="form-check form-check-radio">
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="normal" <?= $ptnt->status=="normal" ? "checked" : ""?> disabled>
+                                      Normal
+                                      <span class="circle">
+                                          <span class="check"></span>
+                                      </span>
+                                  </label>
+                              </div>
+                              <div class="form-check form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="overweight" <?= $ptnt->status=="overweight" ? "checked" : ""?> disabled>
+                                    Overweight
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="obese" <?= $ptnt->status=="obese" ? "checked" : ""?> disabled>
+                                    Obese
+                                    <span class="circle">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                          </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data TB/BB</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_tb_bb;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><h6>Gambar</h6><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                        <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_tb_bb);?>" alt="Gambar TB/BB" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_tb_bb;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data BB/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_bb_u;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Gambar</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                      <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_bb_u);?>" alt="Gambar BB/U" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">   
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_bb_u;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data TB/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_tb_u;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Gambar</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                      <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_tb_u);?>" alt="Gambar TB/U" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_tb_u;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data IMT/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_imt_u;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Gambar</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                      <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_imt_u);?>" alt="Gambar IMT/U" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_imt_u;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+</div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card">
+         
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Data HC/U</h4>
+            <p class="card-category">Status Gizi</p>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <h6 >Angka</h6>
+                      <p><?php echo $ptnt->angka_hc_u;?></p>
+                    </div>
+                  </div>
+              </div>
+              
+                <div class="row">
+                  <div class="col-md-6">
+                      <br><label>Gambar</label><br>
+                      <div style="padding:10px;margin-left:-10px;  " container>
+                      <img src="<?php echo base_url('graph_pictures/' . $ptnt->gambar_hc_u);?>" alt="Gambar HC/U" width="360" height="240"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <h6 >Keterangan </h6>
+                        <p><?php echo $ptnt->keterangan_hc_u;?></p>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+           <div class="content">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-10">
@@ -178,86 +476,61 @@
                                 <th>
                                 <div class="form-group">
                                 <h6>Kebutuhan Energi</h6>
-                                <p><?php echo $ptnt->energi;?></p>
+                                <p><?php echo $ptnt->energi;?>&nbsp;&nbsp;&nbsp;&nbsp;Kalori</p>
                                 </div>
                               </th>
-                                </div>
-                                <div class="col-md-6">
-                                  <br>
-                                  <td><h6>kalori</h6></td>
                                 </div>
                               </div>
                               <div class="row">
                                   <div class="col-md-4">
                                 <td><h6> Karbohidrat</h6>
                                 <div class="form-group">
-                                <p><?php echo $ptnt->persen_karbohidrat;?></p>
+                                <p><?php echo $ptnt->persen_karbohidrat;?>&nbsp;&nbsp;&nbsp;&nbsp;%</p>
                                 </div>
                                 </td>
                               </div>
-                              <span 
-                                  style="margin-top: 31px;">
-                                <td><h6 >%</h6></td>
-                              </span>
                                 <div class="col-md-4">
                                 <td><h6> 
-                              
                                  <br>
                                  <div class="form-group">
-                                 <p><?php echo $ptnt->gram_karbohidrat;?></p>
+                                 <p><?php echo $ptnt->gram_karbohidrat;?>&nbsp;&nbsp;&nbsp;&nbsp;Gram</p>
                                   </div>
                           </div>
-                          <span style="margin-top: 31px;">
-                              <td><h6 >Gram</h6></td></span>
                               </div>
                               <div class="row">
                                 <div class="col-md-4">
                               <td><h6> Protein</h6>
                               <div class="form-group">
-                              <p><?php echo $ptnt->persen_protein;?></p>
+                              <p><?php echo $ptnt->persen_protein;?>&nbsp;&nbsp;&nbsp;&nbsp;%</p>
                               </div>
                               </td>
                             </div>
-                            <span 
-                                style="margin-top: 31px;">
-                              <td><h6 >%</h6></td>
-                            </span>
                               <div class="col-md-4">
                               <td><h6> 
                             
                                <br>
                                <div class="form-group">
-                               <p><?php echo $ptnt->gram_protein;?></p>
+                               <p><?php echo $ptnt->gram_protein;?>&nbsp;&nbsp;&nbsp;&nbsp;Gram</p>
                                 </div>
                         </div>
-                        <span style="margin-top: 31px;">
-                            <td><h6 >Gram</h6></td></span>
                             </div>
-                            
                             <div class="row">
                               <div class="col-md-4">
                             <td><h6> Lemak</h6>
                             <div class="form-group">
-                            <p><?php echo $ptnt->persen_lemak;?></p>
+                            <p><?php echo $ptnt->persen_lemak;?>&nbsp;&nbsp;&nbsp;&nbsp;%</p>
                             </div>
                               </td>
                           </div>
-                          <span 
-                              style="margin-top: 31px;">
-                            <td><h6 >%</h6></td>
-                          </span>
                             <div class="col-md-4">
                             <td><h6> 
                           
                              <br>
                              <div class="form-group">
-                             <p><?php echo $ptnt->gram_lemak;?></p>
+                             <p><?php echo $ptnt->gram_lemak;?>&nbsp;&nbsp;&nbsp;&nbsp;Gram</p>
                               </div>
                       </div>
-                      <span style="margin-top: 31px;">
-                          <td><h6 >Gram</h6></td></span>
                           </div>
-                          
                          </form>
                       </div>
                        </div>

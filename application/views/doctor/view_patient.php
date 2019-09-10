@@ -1016,86 +1016,62 @@
                                 <th>
                                 <div class="form-group">
                                 <h6>Kebutuhan Energi</h6>
-                                <p><?php echo $ptnt->energi;?></p>
+                                <p><?php echo $ptnt->energi;?>&nbsp;&nbsp;&nbsp;&nbsp;Kalori</p>
                                 </div>
                               </th>
-                                </div>
-                                <div class="col-md-6">
-                                  <br>
-                                  <td><h6>kalori</h6></td>
                                 </div>
                               </div>
                               <div class="row">
                                   <div class="col-md-4">
                                 <td><h6> Karbohidrat</h6>
                                 <div class="form-group">
-                                <p><?php echo $ptnt->persen_karbohidrat;?></p>
+                                <p><?php echo $ptnt->persen_karbohidrat;?>&nbsp;&nbsp;&nbsp;&nbsp;%</p>
                                 </div>
                                 </td>
                               </div>
-                              <span 
-                                  style="margin-top: 31px;">
-                                <td><h6 >%</h6></td>
-                              </span>
                                 <div class="col-md-4">
                                 <td><h6> 
-                              
                                  <br>
                                  <div class="form-group">
-                                 <p><?php echo $ptnt->gram_karbohidrat;?></p>
+                                 <p><?php echo $ptnt->gram_karbohidrat;?>&nbsp;&nbsp;&nbsp;&nbsp;Gram</p>
                                   </div>
                           </div>
-                          <span style="margin-top: 31px;">
-                              <td><h6 >Gram</h6></td></span>
                               </div>
                               <div class="row">
                                 <div class="col-md-4">
                               <td><h6> Protein</h6>
                               <div class="form-group">
-                              <p><?php echo $ptnt->persen_protein;?></p>
+                              <p><?php echo $ptnt->persen_protein;?>&nbsp;&nbsp;&nbsp;&nbsp;%</p>
                               </div>
                               </td>
                             </div>
-                            <span 
-                                style="margin-top: 31px;">
-                              <td><h6 >%</h6></td>
-                            </span>
                               <div class="col-md-4">
                               <td><h6> 
                             
                                <br>
                                <div class="form-group">
-                               <p><?php echo $ptnt->gram_protein;?></p>
+                               <p><?php echo $ptnt->gram_protein;?>&nbsp;&nbsp;&nbsp;&nbsp;Gram</p>
                                 </div>
                         </div>
-                        <span style="margin-top: 31px;">
-                            <td><h6 >Gram</h6></td></span>
                             </div>
                             
                             <div class="row">
                               <div class="col-md-4">
                             <td><h6> Lemak</h6>
                             <div class="form-group">
-                            <p><?php echo $ptnt->persen_lemak;?></p>
+                            <p><?php echo $ptnt->persen_lemak;?>&nbsp;&nbsp;&nbsp;&nbsp;%</p>
                             </div>
                               </td>
                           </div>
-                          <span 
-                              style="margin-top: 31px;">
-                            <td><h6 >%</h6></td>
-                          </span>
                             <div class="col-md-4">
                             <td><h6> 
                           
                              <br>
                              <div class="form-group">
-                             <p><?php echo $ptnt->gram_lemak;?></p>
+                             <p><?php echo $ptnt->gram_lemak;?>&nbsp;&nbsp;&nbsp;&nbsp;Gram</p>
                               </div>
                       </div>
-                      <span style="margin-top: 31px;">
-                          <td><h6 >Gram</h6></td></span>
                           </div>
-                          
                          </form>
                       </div>
                        </div>

@@ -204,7 +204,7 @@ class User extends CI_Controller {
 
 		public function sendMessage()
 		{
-			$phone_number = "628123454321"; //fake number
+			$phone_number = "6281348026017"; //fake number
 			$message = $this->input->post('message');
 			$link = " https://api.whatsapp.com/send?phone=". $phone_number . "&text=" . rawurlencode($message);
 			header("location:" . $link);
