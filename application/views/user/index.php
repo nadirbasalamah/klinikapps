@@ -116,22 +116,20 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
                 <h6 style="text-align: right" >Login</h6>
-             
-              <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_login.png');?>" alt="First slide">
+              <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_login.png');?>" alt="First slide">
             </div>
             <div class="carousel-item">
-                <h6 style="text-align: right" >Patients List</h6>
-              <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_daftar_pasien_admin.png');?>" alt="Second slide">
+                <h6 style="text-align: right" >Sidebar Menu</h6>
+              <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_sidebar_user.png');?>" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <h6 style="text-align: right" >Add New Patient</h6>
-              <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_tambah_pasien.png');?>" alt="Third slide">
+                <h6 style="text-align: right" >View Nutrition Record</h6>
+              <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_nut_record_user.png');?>" alt="Third slide">
             </div>
             <div class="carousel-item">
-                <h6 style="text-align: right" >Edit Patient's Data</h6>
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_edit_data_pasien.png');?>" alt="Forth slide">
+                <h6 style="text-align: right" >User's Profile</h6>
+                <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_profil_user.png');?>" alt="Forth slide">
               </div>
-             
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
