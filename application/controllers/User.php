@@ -142,12 +142,6 @@ class User extends CI_Controller {
 			$this->load->view('user/index');
 		}
 
-		public function viewPatients()
-		{
-			$data['patients'] = $this->Patients->getAllPatients();
-			$this->load->view('user/patients_list', $data);
-		}
-
 		public function editProfile()
 		{
 			$this->load->view('user/edit_profile');
@@ -204,7 +198,7 @@ class User extends CI_Controller {
 
 		public function sendMessage()
 		{
-			$phone_number = "6281348026017"; //fake number
+			$phone_number = "6281348026017";
 			$message = $this->input->post('message');
 			$link = " https://api.whatsapp.com/send?phone=". $phone_number . "&text=" . rawurlencode($message);
 			header("location:" . $link);
