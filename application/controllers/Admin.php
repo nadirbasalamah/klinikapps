@@ -154,7 +154,7 @@ class Admin extends CI_Controller {
         {
             $config['upload_path']      = './imported_excel/'; 
             $config['allowed_types']    = 'xlsx|xls'; 
-            $config['file_name']        = 'data_siswa'.time(); 
+            $config['file_name']        = 'data_pasien'.time(); 
        
             $this->load->library('upload', $config);
        

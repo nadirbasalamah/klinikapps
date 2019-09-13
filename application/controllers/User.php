@@ -190,8 +190,9 @@ class User extends CI_Controller {
 			}
 		}
 
-		public function viewNutritionRecord($fullname)
+		public function viewNutritionRecord()
 		{
+			$fullname = $this->session->userdata['logged_in']['fullname'];
 			$data['patient'] = $this->Nutrition_records->getNutritionRecordByName($fullname);
 			$this->load->view('user/patient_page',$data);
 		}

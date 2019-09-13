@@ -670,7 +670,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control" name="angka_tb_bb" value=<?php echo $rec->angka_tb_bb;?> required>
+                      <input type="number" class="form-control" name="angka_tb_bb" value=<?php echo $rec->angka_tb_bb;?> required>
                     </div>
                   </div>
               </div>
@@ -714,7 +714,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control" name="angka_bb_u" value=<?php echo $rec->angka_bb_u;?> required>
+                      <input type="number" class="form-control" name="angka_bb_u" value=<?php echo $rec->angka_bb_u;?> required>
                     </div>
                   </div>
               </div>
@@ -759,7 +759,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control" name="angka_tb_u" value=<?php echo $rec->angka_tb_u;?> required>
+                      <input type="number" class="form-control" name="angka_tb_u" value=<?php echo $rec->angka_tb_u;?> required>
                     </div>
                   </div>
               </div>
@@ -804,7 +804,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control" name="angka_imt_u" value=<?php echo $rec->angka_imt_u;?> required>
+                      <input type="number" class="form-control" name="angka_imt_u" value=<?php echo $rec->angka_imt_u;?> required>
                     </div>
                   </div>
               </div>
@@ -849,7 +849,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Angka</label>
-                      <input type="text" class="form-control" name="angka_hc_u" value=<?php echo $rec->angka_hc_u;?> required>
+                      <input type="number" class="form-control" name="angka_hc_u" value=<?php echo $rec->angka_hc_u;?> required>
                     </div>
                   </div>
               </div>

@@ -48,7 +48,7 @@
           <li class="nav-item active ">
             <a class="nav-link" href="<?php echo base_url('Doctor/viewPatients'); ?>">
               <i class="material-icons">content_paste</i>
-              <p>Daftar Siswa</p>
+              <p>Daftar Pasien</p>
             </a>
           </li>       
         </ul>
@@ -105,7 +105,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Daftar Siswa</h4>
+                  <h4 class="card-title ">Daftar Pasien</h4>
                   <p class="card-category"></p>
                 </div>
                 <div class="card-body">
