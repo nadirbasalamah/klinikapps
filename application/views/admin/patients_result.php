@@ -25,7 +25,7 @@
 
 <body style="background-image:<?php echo 'url(' . base_url('assets/img/w.png') . ')'?>;">
   <div class="wrapper ">
-    <div class="sidebar" data-color="azure" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg');?>">
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="#">
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
           <img src="<?php echo base_url('assets/img/logo_klinik.png');?>" width="82" height="86" title="Poliklinik UB" alt="Poliklinik UB">
