@@ -116,19 +116,22 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
                 <h6 style="text-align: right" >Login</h6>
-             
+                <p>Masukkan nama dan kata sandi yang telah didaftarkan</p>      
               <img class="d-block w-100" src="<?php echo base_url('assets/img/doctor/halaman_login.png');?>" alt="First slide">
             </div>
             <div class="carousel-item">
                 <h6 style="text-align: right" >Sidebar Menu</h6>
+                <p>Akses berbagai menu melalui sidebar</p>
               <img class="d-block w-100" src="<?php echo base_url('assets/img/doctor/halaman_sidebar_dokter.png');?>" alt="Second slide">
             </div>
             <div class="carousel-item">
                 <h6 style="text-align: right" >Nutrition Record</h6>
+                <p>Ubah data gizi pasien melalui menu Daftar Pasien</p>
               <img class="d-block w-100" src="<?php echo base_url('assets/img/doctor/halaman_nut_record.png');?>" alt="Third slide">
             </div>
             <div class="carousel-item">
                 <h6 style="text-align: right" >Doctor's Profile</h6>
+                <p>Ubah profil Anda melalui halaman Edit Profil</p>
                 <img class="d-block w-100" src="<?php echo base_url('assets/img/doctor/halaman_profil_dokter.png');?>" alt="Forth slide">
               </div>
              

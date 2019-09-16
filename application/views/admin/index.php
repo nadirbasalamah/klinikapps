@@ -116,19 +116,22 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
                 <h6 style="text-align: right" >Login</h6>
-             
+                <p>Masukkan nama dan kata sandi yang telah didaftarkan</p>   
               <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_login.png');?>" alt="First slide">
             </div>
             <div class="carousel-item">
                 <h6 style="text-align: right" >Patients List</h6>
+                <p>Lihat data pasien melalui menu Daftar Pasien</p>
               <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_daftar_pasien_admin.png');?>" alt="Second slide">
             </div>
             <div class="carousel-item">
                 <h6 style="text-align: right" >Add New Patient</h6>
+                <p>Tambah data pasien baru melalui tombol Tambah</p>
               <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_tambah_pasien.png');?>" alt="Third slide">
             </div>
             <div class="carousel-item">
                 <h6 style="text-align: right" >Edit Patient's Data</h6>
+                <p>Ubah data pasien melalui tombol Edit</p>
                 <img class="d-block w-100" src="<?php echo base_url('assets/img/admin/halaman_edit_data_pasien.png');?>" alt="Forth slide">
               </div>
              

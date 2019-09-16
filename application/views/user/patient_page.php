@@ -567,7 +567,12 @@
                     </div>
                   </div>  
                   <?php endforeach; } else 
-                  { echo "Data gizi tidak ditemukan";}?>                  
+                  { echo "<h3>Data gizi tidak ditemukan</h3>";}?>                  
+                  <style>
+                    h3 {
+                      padding: 20px;
+                    }
+                  </style>
               </form>
             </div>
           </div>
