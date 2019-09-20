@@ -36,6 +36,10 @@ class Nutrition_records extends CI_Model {
         $this->db->set('imt',$data['imt']);
         $this->db->set('bbi',$data['bbi']);
         $this->db->set('status',$data['status']);
+        $this->db->set('fat',$data['fat']);
+        $this->db->set('visceral_fat',$data['visceral_fat']);
+        $this->db->set('muscle',$data['muscle']);
+        $this->db->set('body_age',$data['body_age']);
         $this->db->set('gda',$data['gda']);
         $this->db->set('gdp',$data['gdp']);
         $this->db->set('gd2jpp',$data['gd2jpp']);
