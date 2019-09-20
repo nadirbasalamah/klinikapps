@@ -4,28 +4,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
-		
+		/**
+		 * Mengimpor berbagai dependensi :
+		 * 1. form untuk mengirim form request dari pengguna
+		 * 2. url untuk pemetaan alamat url
+		 * 3. library session untuk menyimpan session pengguna
+		 */
 		$this->load->helper('form');
 		$this->load->helper('url'); 		
 		
 		$this->load->library('session');
-
+		/**
+		 * Mengimpor berbagai model : Users,Patients dan Nutrition_records
+		 */
 		$this->load->model('Users');
 		$this->load->model('Patients');
 		$this->load->model('Nutrition_records');
 	}
-
+	/**
+	 * @function index()
+	 * @return menampilkan halaman awal / halaman login
+	 */
 	public function index()
 	{
 		$this->load->view('main/index');
 	}
-	
+	/**
+	 * @function register()
+	 * @return menampilkan halaman registrasi
+	 */
 	public function register()
 	{
 		$data['message_display'] = "";
 		$this->load->view('main/register',$data);
 	}
-
+	/**
+	 * @function decrypt(string)
+	 * @param string kata sandi pengguna
+	 * @return melakukan decrypt kata sandi pengguna
+	 */
 	function decrypt($string)
 	{
 		$output = false;
@@ -37,7 +54,11 @@ class User extends CI_Controller {
 		$output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
 		return $output;
 	}
-
+	/**
+	 * @function createPassword(passwd)
+	 * @param string kata sandi pengguna
+	 * @return melakukan enkripsi kata sandi pengguna
+	 */
 	public function createPassword($passwd) 
 	{
 		$output = false;
@@ -50,6 +71,10 @@ class User extends CI_Controller {
 		$output = base64_encode($output);
 		return $output;
 	}
+	/**
+	 * @function new_user_registration()
+	 * @return melakukan registrasi pengguna baru
+	 */
 	public function new_user_registration() {
 			$data = array(
 			'id' => 0,
@@ -80,7 +105,10 @@ class User extends CI_Controller {
 			$this->load->view('main/register', $data);
 		}
 	}
-
+	/**
+	 * @function index()
+	 * @return melakukan login pengguna
+	 */
 	public function user_login_process() {
 	
 		if(isset($this->session->userdata['logged_in'])){
@@ -126,7 +154,10 @@ class User extends CI_Controller {
 		
 		}
 		
-		// Logout from admin page
+		/**
+		 * @function logout()
+		 * @return melakukan logout
+		 */
 		public function logout() {
 		
 		// Removing session data
@@ -136,17 +167,26 @@ class User extends CI_Controller {
 		$this->session->unset_userdata('logged_in', $sess_array);
 		$this->load->view('main/index');
 		}
-
+		/**
+		 * @function viewDashboard()
+		 * @return menampilkan halaman dashboard untuk pengunjung
+		 */
 		public function viewDashboard()
 		{
 			$this->load->view('user/index');
 		}
-
+		/**
+		 * @function editProfile()
+		 * @return menampilkan halaman edit profil pengguna
+		 */
 		public function editProfile()
 		{
 			$this->load->view('user/edit_profile');
 		}
-
+		/**
+		 * @function edit()
+		 * @return menyimpan perubahan data profil pengguna
+		 */
 		public function edit()
 		{
 			$new_name = time().$_FILES["profile_picture"]['name'];
@@ -189,14 +229,20 @@ class User extends CI_Controller {
 				redirect(base_url('User/viewDashboard'),'refresh');
 			}
 		}
-
+		/**
+		 * @function viewNutritionRecord()
+		 * @return menampilkan data gizi pasien kepada pengguna (pengunjung)
+		 */
 		public function viewNutritionRecord()
 		{
 			$fullname = $this->session->userdata['logged_in']['fullname'];
 			$data['patient'] = $this->Nutrition_records->getNutritionRecordByName($fullname);
 			$this->load->view('user/patient_page',$data);
 		}
-
+		/**
+		 * @function sendMessage()
+		 * @return mengirim pesan kepada ahli gizi
+		 */
 		public function sendMessage()
 		{
 			$phone_number = "6281348026017";

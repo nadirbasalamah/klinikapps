@@ -5,7 +5,11 @@ class Users extends CI_Model {
         $this->load->database();
         $this->load->model('Users');
     }
-    
+    /**
+	 * @function registration(data)
+     * @param array data pengguna baru
+	 * @return menambahkan data pengguna baru
+	 */
     public function registration($data)
     {
         $this->db->where('username',$data['username']);
@@ -20,7 +24,11 @@ class Users extends CI_Model {
         return false;
         }    
     }
-
+    /**
+	 * @function login(data)
+     * @param array data nama pengguna dan kata sandi
+	 * @return mencocokkan nama pengguna dan kata sandi dalam basis data
+	 */
     public function login($data)
     {
         $this->db->where('username',$data['username']);
@@ -33,7 +41,11 @@ class Users extends CI_Model {
         return false;
         }        
     }
-
+    /**
+	 * @function getUser(username)
+     * @param username pengguna
+	 * @return mendapatkan data pengguna berdasarkan username
+	 */
     public function getUser($username)
     {
         $this->db->where('username',$username);
@@ -45,7 +57,11 @@ class Users extends CI_Model {
         return false;
         }
     }
-
+    /**
+	 * @function updateProfile(data)
+     * @param array data profil pengguna yang diperbarui
+	 * @return mengubah data profil pengguna
+	 */
     public function updateProfile($data)
     {
         $this->db->set('username',$data['username']);

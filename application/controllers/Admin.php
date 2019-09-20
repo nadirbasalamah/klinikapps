@@ -9,40 +9,66 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx as excelWriter;
 class Admin extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
-		
+		/**
+		 * Mengimpor berbagai dependensi :
+		 * 1. form untuk mengirim form request dari pengguna
+		 * 2. url untuk pemetaan alamat url
+		 * 3. download untuk mengunduh file excel hasil ekspor data daftar pasien
+		 * 4. library session untuk menyimpan session pengguna
+		 * 5. library form_validation untuk validasi form
+		 */
 		$this->load->helper('form');
 		$this->load->helper('url'); 
 		$this->load->helper('download');		
 		
 		$this->load->library('form_validation');
 		$this->load->library('session');
-
+		/**
+		 * Mengimpor berbagai model : Users dan Patients
+		 */
 		$this->load->model('Users');
 		$this->load->model('Patients');
 	}
-
+	/**
+	 * @function index()
+	 * @return menampilkan halaman dashboard untuk admin
+	 */
 	public function index()
 	{
 		$this->load->view('admin/index');
 	}	
-
+	/**
+	 * @function viewPatients()
+	 * @return menampilkan halaman daftar pasien
+	 */
 	public function viewPatients()
 	{
 		$data['patients'] = $this->Patients->getAllPatients();
 		$this->load->view('admin/patients_list',$data);
 	}
-
+	/**
+	 * @function viewPatient(id)
+	 * @param id pasien
+	 * @return menampilkan halaman data pasien tertentu
+	 */
 	public function viewPatient($id)
 	{
 		$data['patient'] = $this->Patients->getPatientById($id);
 		$this->load->view('admin/view_patient',$data);
 	}
-
+	/**
+	 * @function editProfile()
+	 * @return menampilkan halaman edit profil untuk admin
+	 */
 	public function editProfile()
 	{
 		$this->load->view('admin/edit_profile');
 	}
-
+	/**
+	 * @function deletePatient(id)
+	 * @param id pasien
+	 * @return menghapus data pasien tertentu
+	 */
 	public function deletePatient($id)
 	{
 		$result = $this->Patients->deletePatient($id);
@@ -54,13 +80,21 @@ class Admin extends CI_Controller {
 			redirect(base_url('Admin/viewPatients'),'refresh');
 		}
 	}
-
+	/**
+	 * @function viewEditPatient(id)
+	 * @param id pasien
+	 * @return menampilkan halaman edit data diri pasien tertentu
+	 */
 	public function viewEditPatient($id)
 	{
 		$data['patient'] = $this->Patients->getPatientById($id);
 		$this->load->view('admin/edit_patient',$data);
 	}
-
+	/**
+	 * @function editPatient(id)
+	 * @param id pasien
+	 * @return menyimpan perubahan data diri pasien
+	 */
 	public function editPatient($id)
 	{
 		$data = array(
@@ -77,12 +111,18 @@ class Admin extends CI_Controller {
 		echo("<script>alert('Data profil pasien berhasil diubah!')</script>");
 		redirect(base_url('Admin/viewPatients'),'refresh');
 	}
-	
+	/**
+	 * @function viewAddPatient()
+	 * @return menampilkan halaman tambah data pasien baru
+	 */
 	public function viewAddPatient()
 	{
 		$this->load->view('admin/add_patient');
 	}
-
+	/**
+	 * @function addPatient()
+	 * @return menambahkan data pasien baru
+	 */
 	public function addPatient()
 	{
 		$this->form_validation->set_rules('birthdate', 'Tanggal Lahir', 'callback_checkDateFormat');
@@ -134,7 +174,11 @@ class Admin extends CI_Controller {
 		}
 		}
 	}
-
+	/**
+	 * @function checkDateFormat(date)
+	 * @param date tanggal lahir pasien
+	 * @return memeriksa kecocokkan format tanggal lahir
+	 */
 	function checkDateFormat($date) {
 		$test_arr  = explode('/', $date);
 		if (count($test_arr) == 3) {
@@ -147,7 +191,10 @@ class Admin extends CI_Controller {
 			return FALSE;
 		}
 	}
-
+	/**
+	 * @function importFromExcel()
+	 * @return mengimpor data pasien dari file excel
+	 */
 	public function importFromExcel()
 	{
 		if ($this->input->post('submit', TRUE) == 'upload')
@@ -196,7 +243,10 @@ class Admin extends CI_Controller {
         }
         redirect(base_url('Admin/viewPatients'),'refresh');
 	}
-
+	/**
+	 * @function exportToExcel()
+	 * @return mengekspor data pasien dalam file excel
+	 */
 	public function exportToExcel()
 	{
 		$spreadsheet = new Spreadsheet();
@@ -246,7 +296,10 @@ class Admin extends CI_Controller {
 		force_download('Report_Data_Pasien.xlsx', NULL);
 
 	}
-
+	/**
+	 * @function getPatient()
+	 * @return menampilkan data pasien berdasarkan nama pasien yang dicari
+	 */
 	public function getPatient()
 	{
 		$fullname = $this->input->post('patient_name');

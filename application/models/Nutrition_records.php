@@ -5,7 +5,11 @@ class Nutrition_records extends CI_Model {
         $this->load->database();
         $this->load->model('Nutrition_records');
     }
-
+    /**
+	 * @function addNutritionRecord(data)
+     * @param array data gizi pasien
+	 * @return menambahkan data gizi baru
+	 */
     public function addNutritionRecord($data)
     {
         $this->db->where('id_patient',$data['id_patient']);
@@ -27,7 +31,11 @@ class Nutrition_records extends CI_Model {
             }
         }
     }
-
+    /**
+	 * @function updateNutritionRecord(data)
+     * @param array data gizi pasien
+	 * @return memperbarui data gizi pasien
+	 */
     public function updateNutritionRecord($data)
     {
         $this->db->set('bb',$data['bb']);
@@ -112,7 +120,10 @@ class Nutrition_records extends CI_Model {
             return false;
         }
     }
-
+    /**
+	 * @function getAllNutritionRecords()
+	 * @return mendapatkan seluruh data gizi pasien
+	 */
     public function getAllNutritionRecords()
     {
         $this->db->select('*');
@@ -125,7 +136,11 @@ class Nutrition_records extends CI_Model {
             return null;
         }
     }
-
+    /**
+	 * @function getNutritionRecordById(id)
+     * @param id pasien
+	 * @return mendapatkan data gizi berdasarkan id pasien
+	 */
     public function getNutritionRecordById($id)
     {
         $this->db->select('*');
@@ -139,7 +154,11 @@ class Nutrition_records extends CI_Model {
             return null;
         }
     }
-
+    /**
+	 * @function getNutritionRecordByName(fullname)
+     * @param string fullname nama lengkap pasien
+	 * @return mendapatkan data gizi berdasarkan nama lengkap pasien
+	 */
     public function getNutritionRecordByName($fullname)
     {
         $this->db->select('*');

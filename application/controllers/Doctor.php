@@ -9,40 +9,65 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx as excelWriter;
 class Doctor extends CI_Controller {
     public function __construct() {
 		parent::__construct();
-		
+		/**
+		 * Mengimpor berbagai dependensi :
+		 * 1. form untuk mengirim form request dari pengguna
+		 * 2. url untuk pemetaan alamat url
+		 * 3. download untuk mengunduh file excel hasil ekspor data daftar pasien
+		 * 4. library session untuk menyimpan session pengguna
+		 */
 		$this->load->helper('form');
 		$this->load->helper('url'); 
 		$this->load->helper('download');		
 		
 		$this->load->library('session');
-
+		/**
+		 * Mengimpor berbagai model : Users, Patients dan Nutrition_records
+		 */
 		$this->load->model('Users');
 		$this->load->model('Patients');
         $this->load->model('Nutrition_records');
-    }
-
+	}
+	/**
+	 * @function index()
+	 * @return menampilkan halaman dashboard untuk ahli gizi
+	 */
     public function index()
     {
         $this->load->view('doctor/index');
 	}
-	
+	/**
+	 * @function viewPatients()
+	 * @return menampilkan halaman daftar pasien
+	 */
 	public function viewPatients()
 	{
 		$data['patients'] = $this->Patients->getAllPatients();
 		$this->load->view('doctor/patients_list',$data);
 	}
-
+	/**
+	 * @function viewPatient(id)
+	 * @param id pasien
+	 * @return menampilkan halaman pasien tertentu
+	 */
 	public function viewPatient($id)
 	{
 		$data['patient'] = $this->Nutrition_records->getNutritionRecordById($id);
 		$this->load->view('doctor/view_patient',$data);
 	}
-
+	/**
+	 * @function editProfile()
+	 * @return menampilkan halaman edit profil
+	 */
 	public function editProfile()
 	{
 		$this->load->view('doctor/edit_profile');
 	}
-
+	/**
+	 * @function viewEditPatient
+	 * @param id pasien
+	 * @return menampilkan halaman edit data gizi untuk pasien tertentu
+	 */
 	public function viewEditPatient($id)
 	{
 		$data['record'] = $this->Nutrition_records->getNutritionRecordById($id);
@@ -53,7 +78,11 @@ class Doctor extends CI_Controller {
 			$this->load->view('doctor/add_nutrition_rec',$data);
 		}
 	}
-
+	/**
+	 * @function checkImt(imt)
+	 * @param double imt pasien
+	 * @return menentukan status gizi berdasarkan nilai IMT
+	 */
 	public function checkImt($imt)
 	{
 		if ($imt < 18.5) {
@@ -66,7 +95,11 @@ class Doctor extends CI_Controller {
 			return "obese";
 		}
 	}
-
+	/**
+	 * @function updateNutritionRecord(id)
+	 * @param id pasien
+	 * @return melakukan perubahan data gizi pada pasien tertentu
+	 */
 	public function updateNutritionRecord($id)
 	{
 		$nut_record = $this->Nutrition_records->getNutritionRecordById($id);
@@ -272,7 +305,11 @@ class Doctor extends CI_Controller {
 		echo("<script>alert('Data gizi pasien berhasil diubah!')</script>");
 		redirect(base_url('Doctor/viewEditPatient/' . $id),'refresh');
 	}
-
+	/**
+	 * @function sendMessage(id)
+	 * @param id pasien
+	 * @return mengirim pesan kepada pasien
+	 */
 	public function sendMessage($id)
 	{
 		$phone_number = "";
@@ -284,7 +321,10 @@ class Doctor extends CI_Controller {
 		$link = " https://api.whatsapp.com/send?phone=". $phone_number . "&text=" . rawurlencode($message);
 		header("location:" . $link);
 	}
-
+	/**
+	 * @function exportToExcel()
+	 * @return mengekspor data pasien dengan ektensi file excel (.xls)
+	 */
 	public function exportToExcel()
 	{
 		$spreadsheet = new Spreadsheet();
@@ -336,7 +376,10 @@ class Doctor extends CI_Controller {
 		force_download('Report_Data_Pasien.xlsx', NULL);
 
 	}
-
+	/**
+	 * @function getPatient()
+	 * @return menampilkan daftar pasien berdasarkan nama pasien yang dicari
+	 */
 	public function getPatient()
 	{
 		$fullname = $this->input->post('patient_name');

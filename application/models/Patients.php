@@ -5,7 +5,11 @@ class Patients extends CI_Model {
         $this->load->database();
         $this->load->model('Patients');
     }
-    
+    /**
+	 * @function getPatientById(id)
+     * @param id pasien
+	 * @return mendapatkan data pasien berdasarkan id
+	 */
     public function getPatientById($id)
     {
         $this->db->where('id_patient',$id);
@@ -16,7 +20,10 @@ class Patients extends CI_Model {
         return null;
         }
     }
-
+    /**
+	 * @function getAllPatients()
+	 * @return mendapatkan seluruh data pasien
+	 */
     public function getAllPatients()
     {
         $query = $this->db->get('patients');
@@ -26,7 +33,11 @@ class Patients extends CI_Model {
         return null;
         }
     }
-
+    /**
+	 * @function deletePatient(id)
+     * @param id pasien
+	 * @return menghapus data pasien berdasarkan id
+	 */
     public function deletePatient($id)
     {
         $this->db->where('id_patient',$id);
@@ -37,7 +48,11 @@ class Patients extends CI_Model {
         return false;
         }
     }
-
+    /**
+	 * @function updatePatient(data)
+     * @param array data pasien yang telah diperbarui
+	 * @return mengubah data pasien
+	 */
     public function updatePatient($data)
     {
         $this->db->set('fullname',$data['fullname']);
@@ -50,7 +65,11 @@ class Patients extends CI_Model {
         $this->db->where('id_patient',$data['id']);
         $this->db->update('patients');
     }
-
+    /**
+	 * @function addPatient(data)
+     * @param array data pasien baru
+	 * @return menambahkan data pasien baru
+	 */
     public function addPatient($data)
     {
         $this->db->where('fullname',$data['fullname']);
@@ -64,7 +83,11 @@ class Patients extends CI_Model {
             return false;
         }
     }
-
+    /**
+	 * @function addBatchPatients(data)
+     * @param array data pasien
+	 * @return menambahkan seluruh data pasien dari file excel
+	 */
     public function addBatchPatients($data = array())
     {
         $jumlah_data = count($data);
@@ -74,7 +97,11 @@ class Patients extends CI_Model {
         }
 
     }
-
+    /**
+	 * @function getPatientByName(fullname)
+     * @param nama lengkap pasien
+	 * @return mendapatkan data pasien berdasarkan nama
+	 */
     public function getPatientByName($fullname)
     {
         $this->db->where('fullname',$fullname);
