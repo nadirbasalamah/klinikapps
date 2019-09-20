@@ -117,22 +117,22 @@
             <div class="carousel-item active">
                 <h6 style="text-align: right" >Login</h6>
                 <p>Masukkan nama dan kata sandi yang telah didaftarkan</p>
-              <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_login.png');?>" alt="First slide">
+              <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_login.png');?>" alt="First slide" width="9">
             </div>
             <div class="carousel-item">
                 <h6 style="text-align: right" >Sidebar Menu</h6>
                 <p>Akses berbagai menu melalui sidebar</p>
-              <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_sidebar_user.png');?>" alt="Second slide">
+              <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_sidebar_user.png');?>" alt="Second slide" width="9">
             </div>
             <div class="carousel-item">
                 <h6 style="text-align: right" >View Nutrition Record</h6>
                 <p>Lihat data gizi Anda melalui halaman Lihat Data Gizi</p>
-              <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_nut_record_user.png');?>" alt="Third slide">
+              <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_nut_record_user.png');?>" alt="Third slide" width="9">
             </div>
             <div class="carousel-item">
                 <h6 style="text-align: right" >User's Profile</h6>
                 <p>Ubah profil Anda melalui halaman Edit Profil</p>
-                <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_profil_user.png');?>" alt="Forth slide">
+                <img class="d-block w-100" src="<?php echo base_url('assets/img/user/halaman_profil_user.png');?>" alt="Forth slide" width="9">
               </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
