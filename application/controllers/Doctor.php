@@ -373,8 +373,11 @@ class Doctor extends CI_Controller {
 
 		$writer = new excelWriter($spreadsheet);
 		$writer->save('Report_Data_Pasien.xlsx');
-		force_download('Report_Data_Pasien.xlsx', NULL);
-
+		if (isset($this->session->userdata['logged_in'])) {
+			force_download('Report_Data_Pasien.xlsx', NULL);
+		} else {
+			header("location: " . base_url('User/index'));
+		}
 	}
 	/**
 	 * @function getPatient()
