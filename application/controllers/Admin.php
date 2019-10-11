@@ -71,13 +71,17 @@ class Admin extends CI_Controller {
 	 */
 	public function deletePatient($id)
 	{
-		$result = $this->Patients->deletePatient($id);
-		if ($result) {
-			echo("<script>alert('Data pasien berhasil dihapus!')</script>");
-			redirect(base_url('Admin/viewPatients'),'refresh');
+		if (isset($this->session->userdata['logged_in'])) {
+			$result = $this->Patients->deletePatient($id);
+			if ($result) {
+				echo("<script>alert('Data pasien berhasil dihapus!')</script>");
+				redirect(base_url('Admin/viewPatients'),'refresh');
+			} else {
+				echo("<script>alert('Proses penghapusan data pasien gagal!')</script>");
+				redirect(base_url('Admin/viewPatients'),'refresh');
+			}
 		} else {
-			echo("<script>alert('Proses penghapusan data pasien gagal!')</script>");
-			redirect(base_url('Admin/viewPatients'),'refresh');
+			header("location: " . base_url('User/index'));
 		}
 	}
 	/**
@@ -293,8 +297,11 @@ class Admin extends CI_Controller {
 
 		$writer = new excelWriter($spreadsheet);
 		$writer->save('Report_Data_Pasien.xlsx');
-		force_download('Report_Data_Pasien.xlsx', NULL);
-
+		if (isset($this->session->userdata['logged_in'])) {
+			force_download('Report_Data_Pasien.xlsx', NULL);
+		} else {
+			header("location: " . base_url('User/index'));
+		}
 	}
 	/**
 	 * @function getPatient()
