@@ -15,10 +15,10 @@ class Patients_api extends CI_Model {
         $this->db->where('id_patient',$id);
         $result = $this->db->get('patients',1)->result();
         if (empty($result) || is_null($result)) {
-            $res['status'] = 'failed';
+            $res['status'] = false;
             $res['message'] = 'Data not found!';
         } else {
-            $res['status'] = 'success';
+            $res['status'] = true;
             $res['message'] = 'Data found!';
             $res['data'] = $result;
         }
@@ -32,10 +32,10 @@ class Patients_api extends CI_Model {
     {
         $result = $this->db->get('patients')->result();
         if (empty($result) || is_null($result)) {
-            $res['status'] = 'failed';
+            $res['status'] = false;
             $res['message'] = 'Data not found!';
         } else {
-            $res['status'] = 'success';
+            $res['status'] = true;
             $res['message'] = 'Data found!';
             $res['data'] = $result;
         }

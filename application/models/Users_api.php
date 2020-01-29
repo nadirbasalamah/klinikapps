@@ -75,7 +75,6 @@ class Users_api extends CI_Model {
         $this->db->set('phone_number',$data['phone_number']);
         $this->db->set('email',$data['email']);
         $this->db->set('address',$data['address']);
-        $this->db->set('profile_picture',$data['profile_picture']);
         $this->db->where('id',$data['id']);
         $this->db->update('users');
 
