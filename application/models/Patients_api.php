@@ -13,12 +13,16 @@ class Patients_api extends CI_Model {
     public function getPatientById($id)
     {
         $this->db->where('id_patient',$id);
-        $query = $this->db->get('patients',1);
-        if ($query->num_rows() == 1) {
-        return $query->result();
+        $result = $this->db->get('patients',1)->result();
+        if (empty($result) || is_null($result)) {
+            $res['status'] = 'failed';
+            $res['message'] = 'Data not found!';
         } else {
-        return null;
+            $res['status'] = 'success';
+            $res['message'] = 'Data found!';
+            $res['data'] = $result;
         }
+        return $res;
     }
     /**
 	 * @function getAllPatients()
@@ -26,12 +30,16 @@ class Patients_api extends CI_Model {
 	 */
     public function getAllPatients()
     {
-        $query = $this->db->get('patients');
-        if ($query->num_rows() >= 1) {
-        return $query->result_array();
+        $result = $this->db->get('patients')->result();
+        if (empty($result) || is_null($result)) {
+            $res['status'] = 'failed';
+            $res['message'] = 'Data not found!';
         } else {
-        return null;
+            $res['status'] = 'success';
+            $res['message'] = 'Data found!';
+            $res['data'] = $result;
         }
+        return $res;
     }
     /**
 	 * @function deletePatient(id)
@@ -43,10 +51,13 @@ class Patients_api extends CI_Model {
         $this->db->where('id_patient',$id);
         $query = $this->db->delete('patients');
         if ($query) {
-        return true;
+            $res['status'] = true;
+			$res['message'] = 'patient deleted successfully!';
         } else {
-        return false;
+            $res['status'] = false;
+			$res['message'] = 'delete failed, patient not found!';
         }
+        return $res;
     }
     /**
 	 * @function updatePatient(data)
@@ -64,6 +75,15 @@ class Patients_api extends CI_Model {
         $this->db->set('religion',$data['religion']);
         $this->db->where('id_patient',$data['id']);
         $this->db->update('patients');
+
+        if ($this->db->affected_rows() > 0) {
+            $res['status'] = true;
+            $res['message'] = 'patient updated successfully!';
+        } else {
+            $res['status'] = false;
+            $res['message'] = 'patient update failed!';
+        }
+        return $res;
     }
     /**
 	 * @function addPatient(data)
@@ -77,25 +97,14 @@ class Patients_api extends CI_Model {
         if ($query->num_rows() == 0) {
         $this->db->insert('patients', $data);
         if ($this->db->affected_rows() > 0) {
-            return true;
+            $res['status'] = true;
+            $res['message'] = 'patient added successfully!';
         }
         } else {
-            return false;
+            $res['status'] = false;
+            $res['message'] = 'patient failed to add, patient data exist!';
         }
-    }
-    /**
-	 * @function addBatchPatients(data)
-     * @param array data pasien
-	 * @return menambahkan seluruh data pasien dari file excel
-	 */
-    public function addBatchPatients($data = array())
-    {
-        $jumlah_data = count($data);
-
-        if ($jumlah_data > 0) {
-            $this->db->insert_batch('patients', $data);
-        }
-
+        return $res;
     }
     /**
 	 * @function getPatientByName(fullname)
@@ -104,12 +113,16 @@ class Patients_api extends CI_Model {
 	 */
     public function getPatientByName($fullname)
     {
-        $this->db->where('fullname',$fullname);
-        $query = $this->db->get('patients',1);
-        if ($query->num_rows() == 1) {
-        return $query->result_array();
+        $this->db->like('fullname',$fullname);
+        $query = $this->db->get('patients')->result();
+        if (empty($query) || is_null($query)) {
+            $res['status'] = false;
+            $res['message'] = 'Data not found!';    
         } else {
-        return null;
+            $res['status'] = true;
+            $res['message'] = 'Data found!';
+            $res['data'] = $query; 
         }
+        return $res;
     }
 }

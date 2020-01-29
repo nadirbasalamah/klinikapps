@@ -15,14 +15,17 @@ class Users_api extends CI_Model {
         $this->db->where('username',$data['username']);
         $query = $this->db->get('users',1);
         if ($query->num_rows() == 0) {
-        // Query to insert data in database
+        
         $this->db->insert('users', $data);
         if ($this->db->affected_rows() > 0) {
-        return true;
+            $res['status'] = true;
+		    $res['message'] = 'User registered successfully!';
         }
         } else {
-        return false;
-        }    
+            $res['status'] = false;
+		    $res['message'] = 'User already registered!';
+        }
+        return $res;    
     }
     /**
 	 * @function login(data)
@@ -36,26 +39,29 @@ class Users_api extends CI_Model {
         $query = $this->db->get('users',1);
         
         if ($query->num_rows() == 1) {
-        return true;
+            $res['status'] = true;
+			$res['message'] = 'Login success!';
         } else {
-        return false;
+            $res['status'] = false;
+            $res['message'] = 'Login failed, username or password incorrect!';
         }        
+        return $res;
     }
-    /**
-	 * @function getUser(username)
-     * @param username pengguna
-	 * @return mendapatkan data pengguna berdasarkan username
-	 */
-    public function getUser($username)
+
+    public function getUserById($id)
     {
-        $this->db->where('username',$username);
-        $query = $this->db->get('users',1);
+        $this->db->where('id',$id);
+        $result = $this->db->get('users',1)->result();
         
-        if ($query->num_rows() == 1) {
-        return $query->result();
+        if (empty($result) || is_null($result)) {
+            $res['status'] = false;
+            $res['message'] = 'Data not found';    
         } else {
-        return false;
+            $res['status'] = true;
+            $res['message'] = 'Data found';
+            $res['data'] = $result;
         }
+        return $res;
     }
     /**
 	 * @function updateProfile(data)
@@ -72,5 +78,14 @@ class Users_api extends CI_Model {
         $this->db->set('profile_picture',$data['profile_picture']);
         $this->db->where('id',$data['id']);
         $this->db->update('users');
+
+        if ($this->db->affected_rows() > 0) {
+            $res['status'] = true;
+			$res['message'] = 'Profile updated successfully!';
+        } else {
+            $res['status'] = false;
+			$res['message'] = 'Profile update failed!';
+        }    
+        return $res;
     }
 }

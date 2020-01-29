@@ -17,19 +17,24 @@ class Nutrition_records_api extends CI_Model {
         if ($query->num_rows() == 0) {
             $this->db->insert('nutrition_records',$data);
         if ($this->db->affected_rows() > 0) {
-            return true;
+            $res['status'] = true;
+            $res['message'] = 'nutrition record added successfully!';
         } else {
-            return false;
+            $res['status'] = false;
+            $res['message'] = 'nutrition record failed to add!';
         }
         } else {
             //update nutrition record
             $query = $this->updateNutritionRecord($data);
             if ($query) {
-                return true;
+                $res['status'] = true;
+                $res['message'] = 'nutrition record updated successfully!';
             } else {
-                return false;
+                $res['status'] = false;
+                $res['message'] = 'nutrition record failed to update!';
             }
         }
+        return $res;
     }
     /**
 	 * @function updateNutritionRecord(data)
@@ -87,19 +92,14 @@ class Nutrition_records_api extends CI_Model {
         $this->db->set('lain_lain',$data['lain_lain']);
         $this->db->set('diagnosa',$data['diagnosa']);
         $this->db->set('angka_tb_bb',$data['angka_tb_bb']);
-        $this->db->set('gambar_tb_bb',$data['gambar_tb_bb']);
         $this->db->set('keterangan_tb_bb',$data['keterangan_tb_bb']);
         $this->db->set('angka_bb_u',$data['angka_bb_u']);
-        $this->db->set('gambar_bb_u',$data['gambar_bb_u']);
         $this->db->set('keterangan_bb_u',$data['keterangan_bb_u']);
         $this->db->set('angka_tb_u',$data['angka_tb_u']);
-        $this->db->set('gambar_tb_u',$data['gambar_tb_u']);
         $this->db->set('keterangan_tb_u',$data['keterangan_tb_u']);
         $this->db->set('angka_imt_u',$data['angka_imt_u']);
-        $this->db->set('gambar_imt_u',$data['gambar_imt_u']);
         $this->db->set('keterangan_imt_u',$data['keterangan_imt_u']);
         $this->db->set('angka_hc_u',$data['angka_hc_u']);
-        $this->db->set('gambar_hc_u',$data['gambar_hc_u']);
         $this->db->set('keterangan_hc_u',$data['keterangan_hc_u']);
         $this->db->set('energi',$data['energi']);
         $this->db->set('keterangan_inter',$data['keterangan_inter']);
@@ -118,22 +118,6 @@ class Nutrition_records_api extends CI_Model {
             return true;
         } else {
             return false;
-        }
-    }
-    /**
-	 * @function getAllNutritionRecords()
-	 * @return mendapatkan seluruh data gizi pasien
-	 */
-    public function getAllNutritionRecords()
-    {
-        $this->db->select('*');
-        $this->db->from('patients');
-        $this->db->join('nutrition_records','patients.id_patient = nutrition_records.id_patient');
-        $query = $this->db->get();
-        if ($query->num_rows() >= 1) {
-            return $query->result();
-        } else {
-            return null;
         }
     }
     /**
@@ -158,23 +142,4 @@ class Nutrition_records_api extends CI_Model {
         }
         return $res;
     }
-    /**
-	 * @function getNutritionRecordByName(fullname)
-     * @param string fullname nama lengkap pasien
-	 * @return mendapatkan data gizi berdasarkan nama lengkap pasien
-	 */
-    public function getNutritionRecordByName($fullname)
-    {
-        $this->db->select('*');
-        $this->db->from('patients');
-        $this->db->join('nutrition_records','patients.id_patient = nutrition_records.id_patient');
-        $this->db->where('patients.fullname',$fullname);
-        $query = $this->db->get();
-        if ($query->num_rows() >= 1) {
-            return $query->result();
-        } else {
-            return null;
-        }
-    }
-
 }
