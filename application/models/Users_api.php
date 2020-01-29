@@ -40,7 +40,8 @@ class Users_api extends CI_Model {
         
         if ($query->num_rows() == 1) {
             $res['status'] = true;
-			$res['message'] = 'Login success!';
+            $res['message'] = 'Login success!';
+            $res['data'] = $query->result();
         } else {
             $res['status'] = false;
             $res['message'] = 'Login failed, username or password incorrect!';

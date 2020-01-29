@@ -12,11 +12,12 @@ class Doctor_api extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->helper('url');
 		/**
-		 * Mengimpor berbagai model : Users, Patients dan Nutrition_records
+		 * Mengimpor berbagai model : Users, Patients, Nutrition_records dan Articles
 		 */
 		$this->load->model('Users_api');
         $this->load->model('Patients_api');
-        $this->load->model('Nutrition_records_api');
+		$this->load->model('Nutrition_records_api');
+		$this->load->model('Articles_api');
 	}
 	/**
 	 * @function getAllPatients()
@@ -168,5 +169,63 @@ class Doctor_api extends CI_Controller {
     {
         $data = $this->Nutrition_records_api->getNutritionRecordById($id);
         echo json_encode($data);
-    }
+	}
+	/**
+	 * @function getAllArticles()
+	 * @return menampilkan seluruh data artikel gizi
+	 */
+	public function getAllArticles()
+	{
+		$data = $this->Articles_api->getAllArticles();
+		echo json_encode($data);
+	}
+	/**
+	 * @function getArticleById(id)
+	 * @return menampilkan data artikel tertentu
+	 */
+	public function getArticleById($id)
+	{
+		$data = $this->Articles_api->getArticleById($id);
+		echo json_encode($data);
+	}
+	/**
+	 * @function addArticle()
+	 * @return menambahkan data artikel gizi terbaru
+	 */
+	public function addArticle()
+	{
+		$data = array(
+			'id' => 0,
+			'author' => $this->input->post('author'),
+			'title' => $this->input->post('title'),
+			'description' => $this->input->post('description'),
+			'source' => $this->input->post('source')
+		);
+		$result = $this->Articles_api->addArticle($data);
+		echo json_encode($result);
+	}
+	/**
+	 * @function deleteArticle(id)
+	 * @return menghapus data artikel tertentu
+	 */
+	public function deleteArticle($id)
+	{
+		$result = $this->Articles_api->deleteArticle($id);
+		echo json_encode($result);
+	}
+	/**
+	 * @function updateArticle(id)
+	 * @return mengubah data artikel
+	 */
+	public function updateArticle($id)
+	{
+		$data = array(
+			'id' => $id,
+			'title' => $this->input->post('title'),
+			'description' => $this->input->post('description'),
+			'source' => $this->input->post('source')
+		);
+		$result = $this->Articles_api->updateArticle($data);
+		echo json_encode($result);
+	}
 }
