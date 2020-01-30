@@ -180,6 +180,15 @@ class Doctor_api extends CI_Controller {
 		echo json_encode($data);
 	}
 	/**
+	 * @function getAllGuides()
+	 * @return menampilkan seluruh data panduan gizi
+	 */
+	public function getAllGuides()
+	{
+		$data = $this->Articles_api->getAllGuides();
+		echo json_encode($data);
+	}
+	/**
 	 * @function getArticleById(id)
 	 * @return menampilkan data artikel tertentu
 	 */
@@ -197,6 +206,7 @@ class Doctor_api extends CI_Controller {
 		$data = array(
 			'id' => 0,
 			'author' => $this->input->post('author'),
+			'type' => $this->input->post('type'),
 			'title' => $this->input->post('title'),
 			'description' => $this->input->post('description'),
 			'source' => $this->input->post('source')

@@ -51,6 +51,7 @@ class Articles_api extends CI_Model {
 	 */
     public function getAllArticles()
     {
+        $this->db->where('type','article');
         $result = $this->db->get('articles')->result();
         if (empty($result) || is_null($result)) {
             $res['status'] = false;
@@ -71,6 +72,24 @@ class Articles_api extends CI_Model {
     {
         $this->db->where('id',$id);
         $result = $this->db->get('articles',1)->result();
+        if (empty($result) || is_null($result)) {
+            $res['status'] = false;
+            $res['message'] = 'Data not found!';
+        } else {
+            $res['status'] = true;
+            $res['message'] = 'Data found!';
+            $res['data'] = $result;
+        }
+        return $res;
+    }
+    /**
+	 * @function getAllGuides()
+	 * @return mendapatkan data panduan gizi
+	 */
+    public function getAllGuides()
+    {
+        $this->db->where('type','guide');
+        $result = $this->db->get('articles')->result();
         if (empty($result) || is_null($result)) {
             $res['status'] = false;
             $res['message'] = 'Data not found!';
