@@ -78,7 +78,7 @@ class Doctor_api extends CI_Controller {
 		$gram_lemak = ($persen_lemak / 100) * $energi / 9;
 
 		$data = array(
-			'id_record' => 0,
+			'id' => 0,
 			'id_patient' => $id,
 			'bb' => $bb,
 			'tb' => $tb,
