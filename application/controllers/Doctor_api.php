@@ -63,6 +63,7 @@ class Doctor_api extends CI_Controller {
 	public function updateNutritionRecord($id)
 	{
 		$bb = $this->input->post('bb');
+		
 		$tb = $this->input->post('tb');
 		$imt = $bb / pow(($tb / 100),2);
 		$status = $this->checkImt($imt);
